@@ -1,0 +1,22 @@
+[
+  {
+    "dataset": "CoNLL2003",
+    "name": "PER",
+    "description": "Person entity. Refers to human beings, specific individuals, or groups. NOT including fictional characters, animals, or personified objects."
+  },
+  {
+    "dataset": "CoNLL2003",
+    "name": "ORG",
+    "description": "Organization entity. Companies, agencies, institutions. NOT referring to the physical buildings where they work."
+  },
+  {
+    "dataset": "CoNLL2003",
+    "name": "LOC",
+    "description": "Location entity. Geographical areas, cities, countries, mountains. NOT including political groups or governments associated with the location."
+  },
+  {
+    "dataset": "CoNLL2003",
+    "name": "MISC",
+    "description": "Miscellaneous entities. Events, nationalities, works of art. NOT including specific people or organizations."
+  }
+]

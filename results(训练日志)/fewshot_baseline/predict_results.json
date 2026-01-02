@@ -1,0 +1,7 @@
+{
+    "epoch": 40.0,
+    "predict_samples": 3453,
+    "test_f1": 0.7552535097916481,
+    "test_precision": 0.762962962962963,
+    "test_recall": 0.7476983002832861
+}

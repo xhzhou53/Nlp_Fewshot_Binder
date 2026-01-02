@@ -1,0 +1,1526 @@
+12/28/2025 22:03:06 - WARNING - __main__ - Process rank: -1, device: cuda:0, n_gpu: 1, distributed training: False, 16-bits training: True
+12/28/2025 22:03:06 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=4,
+dataloader_pin_memory=True,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=True,
+do_predict=True,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=40,
+evaluation_strategy=IntervalStrategy.STEPS,
+fp16=True,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=2,
+gradient_checkpointing=True,
+greater_is_better=True,
+group_by_length=False,
+half_precision_backend=auto,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=3e-05,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=passive,
+log_on_each_node=True,
+logging_dir=./output/fewshot_baseline/runs/Dec28_22-03-04_eais-bjcon4co4v4zk2jedbd7-0,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=IntervalStrategy.STEPS,
+lr_scheduler_type=SchedulerType.LINEAR,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=f1,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=40,
+optim=OptimizerNames.ADAMW_TORCH,
+output_dir=./output/fewshot_baseline,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=4,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=fewshot_baseline,
+save_on_each_node=False,
+save_steps=40,
+save_strategy=IntervalStrategy.STEPS,
+save_total_limit=1,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+tf32=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+xpu_backend=None,
+)
+12/28/2025 22:03:07 - INFO - datasets.builder - Using custom data configuration default-f034a0b1e8fdf83d
+12/28/2025 22:03:07 - INFO - datasets.builder - Generating dataset json (/mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2)
+12/28/2025 22:03:07 - INFO - datasets.builder - Downloading and preparing dataset json/default to /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2...
+12/28/2025 22:03:07 - INFO - datasets.download.download_manager - Downloading took 0.0 min
+12/28/2025 22:03:07 - INFO - datasets.download.download_manager - Checksum Computation took 0.0 min
+12/28/2025 22:03:07 - INFO - datasets.builder - Generating train split
+12/28/2025 22:03:07 - INFO - datasets.builder - Generating validation split
+12/28/2025 22:03:07 - INFO - datasets.builder - Generating test split
+12/28/2025 22:03:07 - INFO - datasets.utils.info_utils - Unable to verify splits sizes.
+12/28/2025 22:03:07 - INFO - datasets.builder - Dataset json downloaded and prepared to /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2. Subsequent calls will reuse this data.
+12/28/2025 22:03:07 - INFO - __main__ - 正在将 CoNLL 格式自动转换为 Binder 需要的 Character-Offset 格式...
+12/28/2025 22:03:07 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-f3fbf7dbfd8aa1e3.arrow
+12/28/2025 22:03:09 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-19872882623d06b8.arrow
+12/28/2025 22:03:09 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-00dfa5b9f05d4071.arrow
+12/28/2025 22:03:15 - INFO - transformers.configuration_utils - loading configuration file config.json from cache at ./cache_data/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/config.json
+12/28/2025 22:03:15 - INFO - transformers.configuration_utils - Model config RobertaConfig {
+  "_name_or_path": "roberta-base",
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.24.0",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+12/28/2025 22:03:20 - INFO - transformers.tokenization_utils_base - loading file vocab.json from cache at ./cache_data/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/vocab.json
+12/28/2025 22:03:20 - INFO - transformers.tokenization_utils_base - loading file merges.txt from cache at ./cache_data/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/merges.txt
+12/28/2025 22:03:20 - INFO - transformers.tokenization_utils_base - loading file tokenizer.json from cache at ./cache_data/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/tokenizer.json
+12/28/2025 22:03:20 - INFO - transformers.tokenization_utils_base - loading file added_tokens.json from cache at None
+12/28/2025 22:03:20 - INFO - transformers.tokenization_utils_base - loading file special_tokens_map.json from cache at None
+12/28/2025 22:03:20 - INFO - transformers.tokenization_utils_base - loading file tokenizer_config.json from cache at ./cache_data/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/tokenizer_config.json
+12/28/2025 22:03:20 - INFO - transformers.configuration_utils - loading configuration file config.json from cache at ./cache_data/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/config.json
+12/28/2025 22:03:20 - INFO - transformers.configuration_utils - Model config RobertaConfig {
+  "_name_or_path": "roberta-base",
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.24.0",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+12/28/2025 22:03:20 - INFO - __main__ - ===== Init the model =====
+12/28/2025 22:03:20 - INFO - transformers.configuration_utils - loading configuration file config.json from cache at ./cache_data/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/config.json
+12/28/2025 22:03:20 - INFO - transformers.configuration_utils - Model config RobertaConfig {
+  "_name_or_path": "roberta-base",
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.24.0",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+12/28/2025 22:03:20 - INFO - transformers.modeling_utils - loading weights file pytorch_model.bin from cache at /root/.cache/huggingface/hub/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/pytorch_model.bin
+12/28/2025 22:03:22 - WARNING - transformers.modeling_utils - Some weights of the model checkpoint at roberta-base were not used when initializing RobertaModel: ['lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'roberta.pooler.dense.weight', 'lm_head.dense.bias', 'roberta.pooler.dense.bias', 'lm_head.decoder.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing RobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+12/28/2025 22:03:22 - INFO - transformers.modeling_utils - All the weights of RobertaModel were initialized from the model checkpoint at roberta-base.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use RobertaModel for predictions without further training.
+12/28/2025 22:03:22 - INFO - transformers.modeling_utils - loading weights file pytorch_model.bin from cache at /root/.cache/huggingface/hub/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/pytorch_model.bin
+12/28/2025 22:03:23 - WARNING - transformers.modeling_utils - Some weights of the model checkpoint at roberta-base were not used when initializing RobertaModel: ['lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'roberta.pooler.dense.weight', 'lm_head.dense.bias', 'roberta.pooler.dense.bias', 'lm_head.decoder.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing RobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+12/28/2025 22:03:23 - INFO - transformers.modeling_utils - All the weights of RobertaModel were initialized from the model checkpoint at roberta-base.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use RobertaModel for predictions without further training.
+12/28/2025 22:03:26 - INFO - datasets.builder - Using custom data configuration default-0d908b8e5c09dfb4
+12/28/2025 22:03:26 - INFO - datasets.builder - Generating dataset json (/mnt/workspace/copy/cache_data/json/default-0d908b8e5c09dfb4/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2)
+12/28/2025 22:03:26 - INFO - datasets.builder - Downloading and preparing dataset json/default to /mnt/workspace/copy/cache_data/json/default-0d908b8e5c09dfb4/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2...
+12/28/2025 22:03:26 - INFO - datasets.download.download_manager - Downloading took 0.0 min
+12/28/2025 22:03:26 - INFO - datasets.download.download_manager - Checksum Computation took 0.0 min
+12/28/2025 22:03:26 - INFO - datasets.builder - Generating train split
+12/28/2025 22:03:26 - INFO - datasets.utils.info_utils - Unable to verify splits sizes.
+12/28/2025 22:03:26 - INFO - datasets.builder - Dataset json downloaded and prepared to /mnt/workspace/copy/cache_data/json/default-0d908b8e5c09dfb4/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2. Subsequent calls will reuse this data.
+12/28/2025 22:03:26 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-0d908b8e5c09dfb4/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-cc1c4dc2e8d7e0ad.arrow
+12/28/2025 22:03:26 - INFO - datasets.arrow_dataset - Caching indices mapping at /mnt/workspace/copy/cache_data/json/default-0d908b8e5c09dfb4/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-13c87a3666a06109.arrow
+12/28/2025 22:03:27 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-0d908b8e5c09dfb4/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-76c583c6963c2cee.arrow
+12/28/2025 22:03:27 - INFO - datasets.arrow_dataset - Process #1 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-3af7ec25cae1a8cf_00000_of_00004.arrow
+12/28/2025 22:03:27 - INFO - datasets.arrow_dataset - Process #2 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-3af7ec25cae1a8cf_00001_of_00004.arrow
+12/28/2025 22:03:27 - INFO - datasets.arrow_dataset - Process #3 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-3af7ec25cae1a8cf_00002_of_00004.arrow
+12/28/2025 22:03:27 - INFO - datasets.arrow_dataset - Process #4 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-3af7ec25cae1a8cf_00003_of_00004.arrow
+12/28/2025 22:03:27 - INFO - datasets.arrow_dataset - Spawning 4 processes
+12/28/2025 22:03:29 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-3af7ec25cae1a8cf_00003_of_00004.arrow
+12/28/2025 22:03:29 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-3af7ec25cae1a8cf_00001_of_00004.arrow
+12/28/2025 22:03:29 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-3af7ec25cae1a8cf_00000_of_00004.arrow
+12/28/2025 22:03:30 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-3af7ec25cae1a8cf_00002_of_00004.arrow
+12/28/2025 22:03:43 - INFO - datasets.arrow_dataset - Concatenating 4 shards
+12/28/2025 22:03:43 - INFO - datasets.arrow_dataset - Process #1 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0451354217d1837e_00000_of_00004.arrow
+12/28/2025 22:03:43 - INFO - datasets.arrow_dataset - Process #2 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0451354217d1837e_00001_of_00004.arrow
+12/28/2025 22:03:43 - INFO - datasets.arrow_dataset - Process #3 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0451354217d1837e_00002_of_00004.arrow
+12/28/2025 22:03:43 - INFO - datasets.arrow_dataset - Process #4 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0451354217d1837e_00003_of_00004.arrow
+12/28/2025 22:03:44 - INFO - datasets.arrow_dataset - Spawning 4 processes
+12/28/2025 22:03:44 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0451354217d1837e_00000_of_00004.arrow
+12/28/2025 22:03:44 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0451354217d1837e_00001_of_00004.arrow
+12/28/2025 22:03:44 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0451354217d1837e_00002_of_00004.arrow
+12/28/2025 22:03:44 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0451354217d1837e_00003_of_00004.arrow
+12/28/2025 22:03:45 - INFO - datasets.arrow_dataset - Concatenating 4 shards
+12/28/2025 22:03:45 - INFO - datasets.arrow_dataset - Process #1 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-b5e3d3ead4ec89c4_00000_of_00004.arrow
+12/28/2025 22:03:45 - INFO - datasets.arrow_dataset - Process #2 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-b5e3d3ead4ec89c4_00001_of_00004.arrow
+12/28/2025 22:03:45 - INFO - datasets.arrow_dataset - Process #3 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-b5e3d3ead4ec89c4_00002_of_00004.arrow
+12/28/2025 22:03:45 - INFO - datasets.arrow_dataset - Process #4 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-b5e3d3ead4ec89c4_00003_of_00004.arrow
+12/28/2025 22:03:45 - INFO - datasets.arrow_dataset - Spawning 4 processes
+12/28/2025 22:03:46 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-b5e3d3ead4ec89c4_00000_of_00004.arrow
+12/28/2025 22:03:46 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-b5e3d3ead4ec89c4_00002_of_00004.arrow
+12/28/2025 22:03:46 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-b5e3d3ead4ec89c4_00001_of_00004.arrow
+12/28/2025 22:03:46 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-b5e3d3ead4ec89c4_00003_of_00004.arrow
+12/28/2025 22:03:46 - INFO - datasets.arrow_dataset - Concatenating 4 shards
+12/28/2025 22:03:48 - INFO - transformers.trainer - Using cuda_amp half precision backend
+12/28/2025 22:03:48 - INFO - transformers.trainer - The following columns in the training set don't have a corresponding argument in `Binder.forward` and have been ignored: token_start_mask, token_end_mask. If token_start_mask, token_end_mask are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 22:03:49 - INFO - transformers.trainer - ***** Running training *****
+12/28/2025 22:03:49 - INFO - transformers.trainer -   Num examples = 230
+12/28/2025 22:03:49 - INFO - transformers.trainer -   Num Epochs = 40
+12/28/2025 22:03:49 - INFO - transformers.trainer -   Instantaneous batch size per device = 4
+12/28/2025 22:03:49 - INFO - transformers.trainer -   Total train batch size (w. parallel, distributed & accumulation) = 8
+12/28/2025 22:03:49 - INFO - transformers.trainer -   Gradient Accumulation steps = 2
+12/28/2025 22:03:49 - INFO - transformers.trainer -   Total optimization steps = 1160
+12/28/2025 22:03:49 - INFO - transformers.trainer -   Number of trainable parameters = 248848259
+12/28/2025 22:04:33 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: token_end_mask, token_start_mask, offset_mapping, split, example_id. If token_end_mask, token_start_mask, offset_mapping, split, example_id are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 22:04:33 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 22:04:33 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 22:04:33 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 22:13:34 - WARNING - __main__ - Process rank: -1, device: cuda:0, n_gpu: 1, distributed training: False, 16-bits training: True
+12/28/2025 22:13:34 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=4,
+dataloader_pin_memory=True,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=True,
+do_predict=True,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=40,
+evaluation_strategy=IntervalStrategy.STEPS,
+fp16=True,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=2,
+gradient_checkpointing=True,
+greater_is_better=True,
+group_by_length=False,
+half_precision_backend=auto,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+jit_mode_eval=False,
+label_names=['ner'],
+label_smoothing_factor=0.0,
+learning_rate=3e-05,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=passive,
+log_on_each_node=True,
+logging_dir=./output/fewshot_baseline/runs/Dec28_22-13-33_eais-bjcon4co4v4zk2jedbd7-0,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=IntervalStrategy.STEPS,
+lr_scheduler_type=SchedulerType.LINEAR,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=f1,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=40,
+optim=OptimizerNames.ADAMW_TORCH,
+output_dir=./output/fewshot_baseline,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=4,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=fewshot_baseline,
+save_on_each_node=False,
+save_steps=40,
+save_strategy=IntervalStrategy.STEPS,
+save_total_limit=1,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+tf32=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+xpu_backend=None,
+)
+12/28/2025 22:13:35 - INFO - datasets.builder - Using custom data configuration default-f034a0b1e8fdf83d
+12/28/2025 22:13:35 - INFO - datasets.builder - Found cached dataset json (/mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2)
+12/28/2025 22:13:35 - INFO - __main__ - 正在将 CoNLL 格式自动转换为 Binder 需要的 Character-Offset 格式...
+12/28/2025 22:13:35 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-f3fbf7dbfd8aa1e3.arrow
+12/28/2025 22:13:37 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-19872882623d06b8.arrow
+12/28/2025 22:13:38 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-00dfa5b9f05d4071.arrow
+12/28/2025 22:13:39 - INFO - transformers.configuration_utils - loading configuration file config.json from cache at ./cache_data/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/config.json
+12/28/2025 22:13:39 - INFO - transformers.configuration_utils - Model config RobertaConfig {
+  "_name_or_path": "roberta-base",
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.24.0",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+12/28/2025 22:13:39 - INFO - transformers.tokenization_utils_base - loading file vocab.json from cache at ./cache_data/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/vocab.json
+12/28/2025 22:13:39 - INFO - transformers.tokenization_utils_base - loading file merges.txt from cache at ./cache_data/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/merges.txt
+12/28/2025 22:13:39 - INFO - transformers.tokenization_utils_base - loading file tokenizer.json from cache at ./cache_data/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/tokenizer.json
+12/28/2025 22:13:39 - INFO - transformers.tokenization_utils_base - loading file added_tokens.json from cache at None
+12/28/2025 22:13:39 - INFO - transformers.tokenization_utils_base - loading file special_tokens_map.json from cache at None
+12/28/2025 22:13:39 - INFO - transformers.tokenization_utils_base - loading file tokenizer_config.json from cache at ./cache_data/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/tokenizer_config.json
+12/28/2025 22:13:39 - INFO - transformers.configuration_utils - loading configuration file config.json from cache at ./cache_data/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/config.json
+12/28/2025 22:13:39 - INFO - transformers.configuration_utils - Model config RobertaConfig {
+  "_name_or_path": "roberta-base",
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.24.0",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+12/28/2025 22:13:39 - INFO - __main__ - ===== Init the model =====
+12/28/2025 22:13:39 - INFO - transformers.configuration_utils - loading configuration file config.json from cache at ./cache_data/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/config.json
+12/28/2025 22:13:39 - INFO - transformers.configuration_utils - Model config RobertaConfig {
+  "_name_or_path": "roberta-base",
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.24.0",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+12/28/2025 22:13:40 - INFO - transformers.modeling_utils - loading weights file pytorch_model.bin from cache at /root/.cache/huggingface/hub/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/pytorch_model.bin
+12/28/2025 22:13:41 - WARNING - transformers.modeling_utils - Some weights of the model checkpoint at roberta-base were not used when initializing RobertaModel: ['lm_head.dense.weight', 'lm_head.layer_norm.weight', 'roberta.pooler.dense.bias', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.bias', 'roberta.pooler.dense.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing RobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+12/28/2025 22:13:41 - INFO - transformers.modeling_utils - All the weights of RobertaModel were initialized from the model checkpoint at roberta-base.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use RobertaModel for predictions without further training.
+12/28/2025 22:13:41 - INFO - transformers.modeling_utils - loading weights file pytorch_model.bin from cache at /root/.cache/huggingface/hub/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/pytorch_model.bin
+12/28/2025 22:13:43 - WARNING - transformers.modeling_utils - Some weights of the model checkpoint at roberta-base were not used when initializing RobertaModel: ['lm_head.dense.weight', 'lm_head.layer_norm.weight', 'roberta.pooler.dense.bias', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.bias', 'roberta.pooler.dense.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing RobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+12/28/2025 22:13:43 - INFO - transformers.modeling_utils - All the weights of RobertaModel were initialized from the model checkpoint at roberta-base.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use RobertaModel for predictions without further training.
+12/28/2025 22:13:45 - INFO - datasets.builder - Using custom data configuration default-0d908b8e5c09dfb4
+12/28/2025 22:13:45 - INFO - datasets.builder - Found cached dataset json (/mnt/workspace/copy/cache_data/json/default-0d908b8e5c09dfb4/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2)
+12/28/2025 22:13:45 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /mnt/workspace/copy/cache_data/json/default-0d908b8e5c09dfb4/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-cc1c4dc2e8d7e0ad_*_of_00001.arrow
+12/28/2025 22:13:45 - INFO - datasets.arrow_dataset - Loading cached sorted indices for dataset at /mnt/workspace/copy/cache_data/json/default-0d908b8e5c09dfb4/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-13c87a3666a06109.arrow
+12/28/2025 22:13:45 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /mnt/workspace/copy/cache_data/json/default-0d908b8e5c09dfb4/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-76c583c6963c2cee_*_of_00001.arrow
+12/28/2025 22:13:45 - INFO - datasets.arrow_dataset - Process #1 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-e0a7e6708a9cf143_00000_of_00004.arrow
+12/28/2025 22:13:45 - INFO - datasets.arrow_dataset - Process #2 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-e0a7e6708a9cf143_00001_of_00004.arrow
+12/28/2025 22:13:45 - INFO - datasets.arrow_dataset - Process #3 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-e0a7e6708a9cf143_00002_of_00004.arrow
+12/28/2025 22:13:45 - INFO - datasets.arrow_dataset - Process #4 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-e0a7e6708a9cf143_00003_of_00004.arrow
+12/28/2025 22:13:45 - INFO - datasets.arrow_dataset - Spawning 4 processes
+12/28/2025 22:13:47 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-e0a7e6708a9cf143_00003_of_00004.arrow
+12/28/2025 22:13:48 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-e0a7e6708a9cf143_00000_of_00004.arrow
+12/28/2025 22:13:48 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-e0a7e6708a9cf143_00001_of_00004.arrow
+12/28/2025 22:13:48 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-e0a7e6708a9cf143_00002_of_00004.arrow
+12/28/2025 22:14:02 - INFO - datasets.arrow_dataset - Concatenating 4 shards
+12/28/2025 22:14:02 - INFO - datasets.arrow_dataset - Process #1 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0c02316a90a59126_00000_of_00004.arrow
+12/28/2025 22:14:02 - INFO - datasets.arrow_dataset - Process #2 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0c02316a90a59126_00001_of_00004.arrow
+12/28/2025 22:14:02 - INFO - datasets.arrow_dataset - Process #3 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0c02316a90a59126_00002_of_00004.arrow
+12/28/2025 22:14:02 - INFO - datasets.arrow_dataset - Process #4 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0c02316a90a59126_00003_of_00004.arrow
+12/28/2025 22:14:02 - INFO - datasets.arrow_dataset - Spawning 4 processes
+12/28/2025 22:14:02 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0c02316a90a59126_00000_of_00004.arrow
+12/28/2025 22:14:03 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0c02316a90a59126_00001_of_00004.arrow
+12/28/2025 22:14:03 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0c02316a90a59126_00002_of_00004.arrow
+12/28/2025 22:14:03 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0c02316a90a59126_00003_of_00004.arrow
+12/28/2025 22:14:03 - INFO - datasets.arrow_dataset - Concatenating 4 shards
+12/28/2025 22:14:03 - INFO - datasets.arrow_dataset - Process #1 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-6579bdabbdab2e7b_00000_of_00004.arrow
+12/28/2025 22:14:03 - INFO - datasets.arrow_dataset - Process #2 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-6579bdabbdab2e7b_00001_of_00004.arrow
+12/28/2025 22:14:03 - INFO - datasets.arrow_dataset - Process #3 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-6579bdabbdab2e7b_00002_of_00004.arrow
+12/28/2025 22:14:03 - INFO - datasets.arrow_dataset - Process #4 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-6579bdabbdab2e7b_00003_of_00004.arrow
+12/28/2025 22:14:03 - INFO - datasets.arrow_dataset - Spawning 4 processes
+12/28/2025 22:14:04 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-6579bdabbdab2e7b_00000_of_00004.arrow
+12/28/2025 22:14:04 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-6579bdabbdab2e7b_00001_of_00004.arrow
+12/28/2025 22:14:04 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-6579bdabbdab2e7b_00002_of_00004.arrow
+12/28/2025 22:14:04 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-6579bdabbdab2e7b_00003_of_00004.arrow
+12/28/2025 22:14:05 - INFO - datasets.arrow_dataset - Concatenating 4 shards
+12/28/2025 22:14:06 - INFO - transformers.trainer - Using cuda_amp half precision backend
+12/28/2025 22:14:07 - INFO - transformers.trainer - ***** Running training *****
+12/28/2025 22:14:07 - INFO - transformers.trainer -   Num examples = 230
+12/28/2025 22:14:07 - INFO - transformers.trainer -   Num Epochs = 40
+12/28/2025 22:14:07 - INFO - transformers.trainer -   Instantaneous batch size per device = 4
+12/28/2025 22:14:07 - INFO - transformers.trainer -   Total train batch size (w. parallel, distributed & accumulation) = 8
+12/28/2025 22:14:07 - INFO - transformers.trainer -   Gradient Accumulation steps = 2
+12/28/2025 22:14:07 - INFO - transformers.trainer -   Total optimization steps = 1160
+12/28/2025 22:14:07 - INFO - transformers.trainer -   Number of trainable parameters = 248848259
+12/28/2025 22:14:51 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 22:14:51 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 22:14:51 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 22:16:22 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 22:16:41 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 22:16:41 - INFO - src.utils - F1 =   7.8%, Precision =  52.2%, Recall =   4.2% (for span)
+12/28/2025 22:16:41 - INFO - src.utils - F1 =   7.8%, Precision =  52.4%, Recall =   4.2% (for start)
+12/28/2025 22:16:41 - INFO - src.utils - F1 =   7.8%, Precision =  52.4%, Recall =   4.2% (for end)
+12/28/2025 22:16:41 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 22:16:41 - INFO - src.utils - F1 =   0.0%, Precision = 100.0%, Recall =   0.0% (for span)
+12/28/2025 22:16:41 - INFO - src.utils - F1 =   0.0%, Precision = 100.0%, Recall =   0.0% (for start)
+12/28/2025 22:16:41 - INFO - src.utils - F1 =   0.0%, Precision = 100.0%, Recall =   0.0% (for end)
+12/28/2025 22:16:41 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 22:16:41 - INFO - src.utils - F1 =  21.7%, Precision =  55.0%, Recall =  13.5% (for span)
+12/28/2025 22:16:41 - INFO - src.utils - F1 =  21.8%, Precision =  55.2%, Recall =  13.6% (for start)
+12/28/2025 22:16:41 - INFO - src.utils - F1 =  21.8%, Precision =  55.2%, Recall =  13.6% (for end)
+12/28/2025 22:16:41 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 22:16:41 - INFO - src.utils - F1 =   0.1%, Precision =  11.1%, Recall =   0.1% (for span)
+12/28/2025 22:16:41 - INFO - src.utils - F1 =   0.1%, Precision =  11.1%, Recall =   0.1% (for start)
+12/28/2025 22:16:41 - INFO - src.utils - F1 =   0.1%, Precision =  11.1%, Recall =   0.1% (for end)
+12/28/2025 22:16:41 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 22:16:41 - INFO - src.utils - F1 =   0.0%, Precision =   0.0%, Recall =   0.0% (for span)
+12/28/2025 22:16:41 - INFO - src.utils - F1 =   0.0%, Precision =   0.0%, Recall =   0.0% (for start)
+12/28/2025 22:16:41 - INFO - src.utils - F1 =   0.0%, Precision =   0.0%, Recall =   0.0% (for end)
+12/28/2025 22:16:42 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 22:16:42 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 22:16:42 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-40
+12/28/2025 22:16:42 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-40/config.json
+12/28/2025 22:16:43 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-40/pytorch_model.bin
+12/28/2025 22:16:43 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-40/tokenizer_config.json
+12/28/2025 22:16:43 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-40/special_tokens_map.json
+12/28/2025 22:17:25 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 22:17:25 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 22:17:25 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 22:18:58 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 22:19:17 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 22:19:17 - INFO - src.utils - F1 =  70.7%, Precision =  79.5%, Recall =  63.6% (for span)
+12/28/2025 22:19:17 - INFO - src.utils - F1 =  72.6%, Precision =  81.6%, Recall =  65.3% (for start)
+12/28/2025 22:19:17 - INFO - src.utils - F1 =  72.3%, Precision =  81.3%, Recall =  65.0% (for end)
+12/28/2025 22:19:17 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 22:19:17 - INFO - src.utils - F1 =  87.6%, Precision =  92.6%, Recall =  83.1% (for span)
+12/28/2025 22:19:17 - INFO - src.utils - F1 =  90.3%, Precision =  95.5%, Recall =  85.7% (for start)
+12/28/2025 22:19:17 - INFO - src.utils - F1 =  90.8%, Precision =  96.1%, Recall =  86.2% (for end)
+12/28/2025 22:19:17 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 22:19:17 - INFO - src.utils - F1 =  72.0%, Precision =  68.7%, Recall =  75.6% (for span)
+12/28/2025 22:19:17 - INFO - src.utils - F1 =  72.9%, Precision =  69.6%, Recall =  76.5% (for start)
+12/28/2025 22:19:17 - INFO - src.utils - F1 =  72.9%, Precision =  69.6%, Recall =  76.5% (for end)
+12/28/2025 22:19:17 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 22:19:17 - INFO - src.utils - F1 =  42.3%, Precision =  78.4%, Recall =  28.9% (for span)
+12/28/2025 22:19:17 - INFO - src.utils - F1 =  44.7%, Precision =  82.8%, Recall =  30.6% (for start)
+12/28/2025 22:19:17 - INFO - src.utils - F1 =  43.2%, Precision =  80.2%, Recall =  29.6% (for end)
+12/28/2025 22:19:17 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 22:19:17 - INFO - src.utils - F1 =  62.6%, Precision =  80.4%, Recall =  51.3% (for span)
+12/28/2025 22:19:17 - INFO - src.utils - F1 =  64.6%, Precision =  83.0%, Recall =  52.9% (for start)
+12/28/2025 22:19:17 - INFO - src.utils - F1 =  63.0%, Precision =  81.0%, Recall =  51.6% (for end)
+12/28/2025 22:19:18 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 22:19:18 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 22:19:18 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-80
+12/28/2025 22:19:18 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-80/config.json
+12/28/2025 22:19:19 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-80/pytorch_model.bin
+12/28/2025 22:19:19 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-80/tokenizer_config.json
+12/28/2025 22:19:19 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-80/special_tokens_map.json
+12/28/2025 22:20:02 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 22:20:02 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 22:20:02 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 22:21:35 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 22:21:54 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 22:21:54 - INFO - src.utils - F1 =  75.7%, Precision =  79.3%, Recall =  72.5% (for span)
+12/28/2025 22:21:54 - INFO - src.utils - F1 =  77.1%, Precision =  80.7%, Recall =  73.8% (for start)
+12/28/2025 22:21:54 - INFO - src.utils - F1 =  76.8%, Precision =  80.5%, Recall =  73.5% (for end)
+12/28/2025 22:21:54 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 22:21:54 - INFO - src.utils - F1 =  91.7%, Precision =  93.9%, Recall =  89.6% (for span)
+12/28/2025 22:21:54 - INFO - src.utils - F1 =  93.6%, Precision =  95.8%, Recall =  91.4% (for start)
+12/28/2025 22:21:54 - INFO - src.utils - F1 =  94.2%, Precision =  96.5%, Recall =  92.1% (for end)
+12/28/2025 22:21:54 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 22:21:54 - INFO - src.utils - F1 =  77.8%, Precision =  70.5%, Recall =  86.8% (for span)
+12/28/2025 22:21:54 - INFO - src.utils - F1 =  78.2%, Precision =  70.9%, Recall =  87.2% (for start)
+12/28/2025 22:21:54 - INFO - src.utils - F1 =  78.1%, Precision =  70.8%, Recall =  87.2% (for end)
+12/28/2025 22:21:54 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 22:21:54 - INFO - src.utils - F1 =  51.5%, Precision =  69.6%, Recall =  40.9% (for span)
+12/28/2025 22:21:54 - INFO - src.utils - F1 =  53.5%, Precision =  72.2%, Recall =  42.5% (for start)
+12/28/2025 22:21:54 - INFO - src.utils - F1 =  52.4%, Precision =  70.7%, Recall =  41.6% (for end)
+12/28/2025 22:21:54 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 22:21:54 - INFO - src.utils - F1 =  66.3%, Precision =  82.4%, Recall =  55.4% (for span)
+12/28/2025 22:21:54 - INFO - src.utils - F1 =  68.4%, Precision =  85.0%, Recall =  57.2% (for start)
+12/28/2025 22:21:54 - INFO - src.utils - F1 =  66.5%, Precision =  82.7%, Recall =  55.6% (for end)
+12/28/2025 22:21:55 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 22:21:55 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 22:21:55 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-120
+12/28/2025 22:21:55 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-120/config.json
+12/28/2025 22:21:56 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-120/pytorch_model.bin
+12/28/2025 22:21:56 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-120/tokenizer_config.json
+12/28/2025 22:21:56 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-120/special_tokens_map.json
+12/28/2025 22:21:59 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-40] due to args.save_total_limit
+12/28/2025 22:22:39 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 22:22:39 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 22:22:39 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 22:24:11 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 22:24:30 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 22:24:30 - INFO - src.utils - F1 =  75.3%, Precision =  76.5%, Recall =  74.2% (for span)
+12/28/2025 22:24:30 - INFO - src.utils - F1 =  76.9%, Precision =  78.1%, Recall =  75.7% (for start)
+12/28/2025 22:24:30 - INFO - src.utils - F1 =  76.5%, Precision =  77.7%, Recall =  75.3% (for end)
+12/28/2025 22:24:30 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 22:24:30 - INFO - src.utils - F1 =  89.4%, Precision =  96.5%, Recall =  83.2% (for span)
+12/28/2025 22:24:30 - INFO - src.utils - F1 =  91.2%, Precision =  98.4%, Recall =  84.9% (for start)
+12/28/2025 22:24:30 - INFO - src.utils - F1 =  91.6%, Precision =  98.9%, Recall =  85.3% (for end)
+12/28/2025 22:24:30 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 22:24:30 - INFO - src.utils - F1 =  80.3%, Precision =  72.4%, Recall =  90.1% (for span)
+12/28/2025 22:24:30 - INFO - src.utils - F1 =  80.7%, Precision =  72.8%, Recall =  90.6% (for start)
+12/28/2025 22:24:30 - INFO - src.utils - F1 =  81.0%, Precision =  73.0%, Recall =  90.9% (for end)
+12/28/2025 22:24:30 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 22:24:30 - INFO - src.utils - F1 =  52.9%, Precision =  55.3%, Recall =  50.6% (for span)
+12/28/2025 22:24:30 - INFO - src.utils - F1 =  55.4%, Precision =  57.9%, Recall =  53.0% (for start)
+12/28/2025 22:24:30 - INFO - src.utils - F1 =  53.8%, Precision =  56.3%, Recall =  51.5% (for end)
+12/28/2025 22:24:30 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 22:24:30 - INFO - src.utils - F1 =  68.5%, Precision =  82.1%, Recall =  58.8% (for span)
+12/28/2025 22:24:30 - INFO - src.utils - F1 =  70.9%, Precision =  85.0%, Recall =  60.8% (for start)
+12/28/2025 22:24:30 - INFO - src.utils - F1 =  68.8%, Precision =  82.4%, Recall =  59.0% (for end)
+12/28/2025 22:24:31 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 22:24:31 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 22:24:31 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-160
+12/28/2025 22:24:31 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-160/config.json
+12/28/2025 22:24:32 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-160/pytorch_model.bin
+12/28/2025 22:24:32 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-160/tokenizer_config.json
+12/28/2025 22:24:32 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-160/special_tokens_map.json
+12/28/2025 22:24:35 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-80] due to args.save_total_limit
+12/28/2025 22:25:15 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 22:25:15 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 22:25:15 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 22:26:47 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 22:27:06 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 22:27:06 - INFO - src.utils - F1 =  74.4%, Precision =  76.6%, Recall =  72.2% (for span)
+12/28/2025 22:27:06 - INFO - src.utils - F1 =  75.6%, Precision =  77.9%, Recall =  73.4% (for start)
+12/28/2025 22:27:06 - INFO - src.utils - F1 =  75.3%, Precision =  77.6%, Recall =  73.1% (for end)
+12/28/2025 22:27:06 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 22:27:06 - INFO - src.utils - F1 =  87.1%, Precision =  97.1%, Recall =  79.0% (for span)
+12/28/2025 22:27:06 - INFO - src.utils - F1 =  88.7%, Precision =  98.9%, Recall =  80.5% (for start)
+12/28/2025 22:27:06 - INFO - src.utils - F1 =  89.1%, Precision =  99.3%, Recall =  80.8% (for end)
+12/28/2025 22:27:06 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 22:27:06 - INFO - src.utils - F1 =  78.9%, Precision =  70.3%, Recall =  89.8% (for span)
+12/28/2025 22:27:06 - INFO - src.utils - F1 =  79.2%, Precision =  70.6%, Recall =  90.1% (for start)
+12/28/2025 22:27:06 - INFO - src.utils - F1 =  79.3%, Precision =  70.7%, Recall =  90.3% (for end)
+12/28/2025 22:27:06 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 22:27:06 - INFO - src.utils - F1 =  53.4%, Precision =  59.2%, Recall =  48.6% (for span)
+12/28/2025 22:27:06 - INFO - src.utils - F1 =  55.6%, Precision =  61.7%, Recall =  50.6% (for start)
+12/28/2025 22:27:06 - INFO - src.utils - F1 =  54.2%, Precision =  60.1%, Recall =  49.4% (for end)
+12/28/2025 22:27:06 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 22:27:06 - INFO - src.utils - F1 =  68.0%, Precision =  81.6%, Recall =  58.2% (for span)
+12/28/2025 22:27:06 - INFO - src.utils - F1 =  69.2%, Precision =  83.1%, Recall =  59.3% (for start)
+12/28/2025 22:27:06 - INFO - src.utils - F1 =  68.0%, Precision =  81.6%, Recall =  58.2% (for end)
+12/28/2025 22:27:06 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 22:27:07 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 22:27:07 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-200
+12/28/2025 22:27:07 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-200/config.json
+12/28/2025 22:27:08 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-200/pytorch_model.bin
+12/28/2025 22:27:08 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-200/tokenizer_config.json
+12/28/2025 22:27:08 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-200/special_tokens_map.json
+12/28/2025 22:27:11 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-160] due to args.save_total_limit
+12/28/2025 22:27:53 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 22:27:53 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 22:27:53 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 22:29:25 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 22:29:44 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 22:29:44 - INFO - src.utils - F1 =  77.3%, Precision =  78.2%, Recall =  76.5% (for span)
+12/28/2025 22:29:44 - INFO - src.utils - F1 =  78.7%, Precision =  79.6%, Recall =  77.9% (for start)
+12/28/2025 22:29:44 - INFO - src.utils - F1 =  78.3%, Precision =  79.2%, Recall =  77.5% (for end)
+12/28/2025 22:29:44 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 22:29:44 - INFO - src.utils - F1 =  90.5%, Precision =  92.0%, Recall =  89.1% (for span)
+12/28/2025 22:29:44 - INFO - src.utils - F1 =  92.3%, Precision =  93.8%, Recall =  90.9% (for start)
+12/28/2025 22:29:44 - INFO - src.utils - F1 =  92.8%, Precision =  94.3%, Recall =  91.4% (for end)
+12/28/2025 22:29:44 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 22:29:44 - INFO - src.utils - F1 =  80.7%, Precision =  74.2%, Recall =  88.4% (for span)
+12/28/2025 22:29:44 - INFO - src.utils - F1 =  81.1%, Precision =  74.6%, Recall =  88.9% (for start)
+12/28/2025 22:29:44 - INFO - src.utils - F1 =  81.0%, Precision =  74.5%, Recall =  88.8% (for end)
+12/28/2025 22:29:44 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 22:29:44 - INFO - src.utils - F1 =  58.5%, Precision =  62.5%, Recall =  55.0% (for span)
+12/28/2025 22:29:44 - INFO - src.utils - F1 =  60.6%, Precision =  64.8%, Recall =  57.0% (for start)
+12/28/2025 22:29:44 - INFO - src.utils - F1 =  59.3%, Precision =  63.4%, Recall =  55.7% (for end)
+12/28/2025 22:29:44 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 22:29:44 - INFO - src.utils - F1 =  68.4%, Precision =  81.9%, Recall =  58.8% (for span)
+12/28/2025 22:29:44 - INFO - src.utils - F1 =  70.2%, Precision =  84.0%, Recall =  60.3% (for start)
+12/28/2025 22:29:44 - INFO - src.utils - F1 =  68.6%, Precision =  82.0%, Recall =  58.9% (for end)
+12/28/2025 22:29:44 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 22:29:44 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 22:29:45 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-240
+12/28/2025 22:29:45 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-240/config.json
+12/28/2025 22:29:46 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-240/pytorch_model.bin
+12/28/2025 22:29:46 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-240/tokenizer_config.json
+12/28/2025 22:29:46 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-240/special_tokens_map.json
+12/28/2025 22:29:49 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-120] due to args.save_total_limit
+12/28/2025 22:30:29 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 22:30:29 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 22:30:29 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 22:32:01 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 22:32:20 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 22:32:20 - INFO - src.utils - F1 =  78.2%, Precision =  81.0%, Recall =  75.7% (for span)
+12/28/2025 22:32:20 - INFO - src.utils - F1 =  79.6%, Precision =  82.4%, Recall =  77.0% (for start)
+12/28/2025 22:32:20 - INFO - src.utils - F1 =  79.1%, Precision =  81.8%, Recall =  76.5% (for end)
+12/28/2025 22:32:20 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 22:32:20 - INFO - src.utils - F1 =  92.4%, Precision =  95.1%, Recall =  89.8% (for span)
+12/28/2025 22:32:20 - INFO - src.utils - F1 =  93.9%, Precision =  96.7%, Recall =  91.3% (for start)
+12/28/2025 22:32:20 - INFO - src.utils - F1 =  94.3%, Precision =  97.1%, Recall =  91.7% (for end)
+12/28/2025 22:32:20 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 22:32:20 - INFO - src.utils - F1 =  80.6%, Precision =  74.4%, Recall =  88.0% (for span)
+12/28/2025 22:32:20 - INFO - src.utils - F1 =  80.9%, Precision =  74.7%, Recall =  88.4% (for start)
+12/28/2025 22:32:20 - INFO - src.utils - F1 =  80.8%, Precision =  74.6%, Recall =  88.2% (for end)
+12/28/2025 22:32:20 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 22:32:20 - INFO - src.utils - F1 =  57.9%, Precision =  69.9%, Recall =  49.4% (for span)
+12/28/2025 22:32:20 - INFO - src.utils - F1 =  59.9%, Precision =  72.3%, Recall =  51.2% (for start)
+12/28/2025 22:32:20 - INFO - src.utils - F1 =  58.5%, Precision =  70.6%, Recall =  50.0% (for end)
+12/28/2025 22:32:20 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 22:32:20 - INFO - src.utils - F1 =  69.6%, Precision =  81.2%, Recall =  61.0% (for span)
+12/28/2025 22:32:20 - INFO - src.utils - F1 =  72.6%, Precision =  84.7%, Recall =  63.6% (for start)
+12/28/2025 22:32:20 - INFO - src.utils - F1 =  69.9%, Precision =  81.5%, Recall =  61.2% (for end)
+12/28/2025 22:32:21 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 22:32:21 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 22:32:21 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-280
+12/28/2025 22:32:21 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-280/config.json
+12/28/2025 22:32:22 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-280/pytorch_model.bin
+12/28/2025 22:32:22 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-280/tokenizer_config.json
+12/28/2025 22:32:22 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-280/special_tokens_map.json
+12/28/2025 22:32:25 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-200] due to args.save_total_limit
+12/28/2025 22:33:08 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 22:33:08 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 22:33:08 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 22:34:40 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 22:34:59 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 22:34:59 - INFO - src.utils - F1 =  78.4%, Precision =  79.4%, Recall =  77.4% (for span)
+12/28/2025 22:34:59 - INFO - src.utils - F1 =  79.6%, Precision =  80.6%, Recall =  78.6% (for start)
+12/28/2025 22:34:59 - INFO - src.utils - F1 =  79.1%, Precision =  80.1%, Recall =  78.1% (for end)
+12/28/2025 22:34:59 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 22:34:59 - INFO - src.utils - F1 =  92.4%, Precision =  97.2%, Recall =  88.0% (for span)
+12/28/2025 22:34:59 - INFO - src.utils - F1 =  93.3%, Precision =  98.2%, Recall =  88.9% (for start)
+12/28/2025 22:34:59 - INFO - src.utils - F1 =  93.6%, Precision =  98.6%, Recall =  89.2% (for end)
+12/28/2025 22:34:59 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 22:34:59 - INFO - src.utils - F1 =  81.7%, Precision =  74.0%, Recall =  91.2% (for span)
+12/28/2025 22:34:59 - INFO - src.utils - F1 =  82.0%, Precision =  74.3%, Recall =  91.6% (for start)
+12/28/2025 22:34:59 - INFO - src.utils - F1 =  82.1%, Precision =  74.4%, Recall =  91.7% (for end)
+12/28/2025 22:34:59 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 22:34:59 - INFO - src.utils - F1 =  58.9%, Precision =  62.8%, Recall =  55.4% (for span)
+12/28/2025 22:34:59 - INFO - src.utils - F1 =  61.2%, Precision =  65.3%, Recall =  57.6% (for start)
+12/28/2025 22:34:59 - INFO - src.utils - F1 =  59.6%, Precision =  63.5%, Recall =  56.1% (for end)
+12/28/2025 22:34:59 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 22:34:59 - INFO - src.utils - F1 =  69.9%, Precision =  82.6%, Recall =  60.6% (for span)
+12/28/2025 22:34:59 - INFO - src.utils - F1 =  72.2%, Precision =  85.2%, Recall =  62.6% (for start)
+12/28/2025 22:34:59 - INFO - src.utils - F1 =  70.2%, Precision =  82.9%, Recall =  60.8% (for end)
+12/28/2025 22:34:59 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 22:34:59 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 22:34:59 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-320
+12/28/2025 22:34:59 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-320/config.json
+12/28/2025 22:35:01 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-320/pytorch_model.bin
+12/28/2025 22:35:01 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-320/tokenizer_config.json
+12/28/2025 22:35:01 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-320/special_tokens_map.json
+12/28/2025 22:35:04 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-240] due to args.save_total_limit
+12/28/2025 22:35:45 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 22:35:45 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 22:35:45 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 22:37:17 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 22:37:35 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 22:37:35 - INFO - src.utils - F1 =  79.1%, Precision =  80.0%, Recall =  78.2% (for span)
+12/28/2025 22:37:35 - INFO - src.utils - F1 =  80.6%, Precision =  81.6%, Recall =  79.7% (for start)
+12/28/2025 22:37:35 - INFO - src.utils - F1 =  80.0%, Precision =  81.0%, Recall =  79.1% (for end)
+12/28/2025 22:37:35 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 22:37:35 - INFO - src.utils - F1 =  92.7%, Precision =  95.0%, Recall =  90.6% (for span)
+12/28/2025 22:37:35 - INFO - src.utils - F1 =  94.2%, Precision =  96.5%, Recall =  92.0% (for start)
+12/28/2025 22:37:35 - INFO - src.utils - F1 =  94.5%, Precision =  96.9%, Recall =  92.3% (for end)
+12/28/2025 22:37:35 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 22:37:35 - INFO - src.utils - F1 =  82.8%, Precision =  77.1%, Recall =  89.3% (for span)
+12/28/2025 22:37:35 - INFO - src.utils - F1 =  83.1%, Precision =  77.4%, Recall =  89.7% (for start)
+12/28/2025 22:37:35 - INFO - src.utils - F1 =  83.1%, Precision =  77.4%, Recall =  89.7% (for end)
+12/28/2025 22:37:35 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 22:37:35 - INFO - src.utils - F1 =  61.9%, Precision =  67.6%, Recall =  57.0% (for span)
+12/28/2025 22:37:35 - INFO - src.utils - F1 =  64.2%, Precision =  70.1%, Recall =  59.2% (for start)
+12/28/2025 22:37:35 - INFO - src.utils - F1 =  62.8%, Precision =  68.6%, Recall =  57.9% (for end)
+12/28/2025 22:37:35 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 22:37:35 - INFO - src.utils - F1 =  66.7%, Precision =  72.4%, Recall =  61.9% (for span)
+12/28/2025 22:37:35 - INFO - src.utils - F1 =  70.3%, Precision =  76.2%, Recall =  65.2% (for start)
+12/28/2025 22:37:35 - INFO - src.utils - F1 =  67.2%, Precision =  72.9%, Recall =  62.4% (for end)
+12/28/2025 22:37:36 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 22:37:37 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 22:37:37 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-360
+12/28/2025 22:37:37 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-360/config.json
+12/28/2025 22:37:38 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-360/pytorch_model.bin
+12/28/2025 22:37:38 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-360/tokenizer_config.json
+12/28/2025 22:37:38 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-360/special_tokens_map.json
+12/28/2025 22:37:41 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-280] due to args.save_total_limit
+12/28/2025 22:38:21 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 22:38:21 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 22:38:21 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 22:39:53 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 22:40:11 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 22:40:11 - INFO - src.utils - F1 =  76.7%, Precision =  77.7%, Recall =  75.8% (for span)
+12/28/2025 22:40:11 - INFO - src.utils - F1 =  77.9%, Precision =  78.8%, Recall =  76.9% (for start)
+12/28/2025 22:40:11 - INFO - src.utils - F1 =  77.5%, Precision =  78.4%, Recall =  76.5% (for end)
+12/28/2025 22:40:11 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 22:40:11 - INFO - src.utils - F1 =  89.2%, Precision =  97.3%, Recall =  82.3% (for span)
+12/28/2025 22:40:11 - INFO - src.utils - F1 =  90.1%, Precision =  98.3%, Recall =  83.2% (for start)
+12/28/2025 22:40:11 - INFO - src.utils - F1 =  90.4%, Precision =  98.7%, Recall =  83.4% (for end)
+12/28/2025 22:40:11 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 22:40:11 - INFO - src.utils - F1 =  81.4%, Precision =  74.2%, Recall =  90.2% (for span)
+12/28/2025 22:40:11 - INFO - src.utils - F1 =  81.8%, Precision =  74.5%, Recall =  90.6% (for start)
+12/28/2025 22:40:11 - INFO - src.utils - F1 =  81.9%, Precision =  74.7%, Recall =  90.8% (for end)
+12/28/2025 22:40:11 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 22:40:11 - INFO - src.utils - F1 =  57.7%, Precision =  57.5%, Recall =  57.8% (for span)
+12/28/2025 22:40:11 - INFO - src.utils - F1 =  59.9%, Precision =  59.8%, Recall =  60.0% (for start)
+12/28/2025 22:40:11 - INFO - src.utils - F1 =  58.5%, Precision =  58.4%, Recall =  58.6% (for end)
+12/28/2025 22:40:11 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 22:40:11 - INFO - src.utils - F1 =  70.2%, Precision =  84.2%, Recall =  60.2% (for span)
+12/28/2025 22:40:11 - INFO - src.utils - F1 =  71.9%, Precision =  86.2%, Recall =  61.6% (for start)
+12/28/2025 22:40:11 - INFO - src.utils - F1 =  70.3%, Precision =  84.4%, Recall =  60.3% (for end)
+12/28/2025 22:40:12 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 22:40:12 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 22:40:12 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-400
+12/28/2025 22:40:12 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-400/config.json
+12/28/2025 22:40:14 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-400/pytorch_model.bin
+12/28/2025 22:40:14 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-400/tokenizer_config.json
+12/28/2025 22:40:14 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-400/special_tokens_map.json
+12/28/2025 22:40:16 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-320] due to args.save_total_limit
+12/28/2025 22:41:00 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 22:41:00 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 22:41:00 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 22:42:31 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 22:42:50 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 22:42:50 - INFO - src.utils - F1 =  77.4%, Precision =  78.7%, Recall =  76.0% (for span)
+12/28/2025 22:42:50 - INFO - src.utils - F1 =  78.7%, Precision =  80.1%, Recall =  77.3% (for start)
+12/28/2025 22:42:50 - INFO - src.utils - F1 =  78.2%, Precision =  79.6%, Recall =  76.9% (for end)
+12/28/2025 22:42:50 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 22:42:50 - INFO - src.utils - F1 =  92.6%, Precision =  95.4%, Recall =  89.8% (for span)
+12/28/2025 22:42:50 - INFO - src.utils - F1 =  94.0%, Precision =  96.9%, Recall =  91.3% (for start)
+12/28/2025 22:42:50 - INFO - src.utils - F1 =  94.4%, Precision =  97.3%, Recall =  91.6% (for end)
+12/28/2025 22:42:50 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 22:42:50 - INFO - src.utils - F1 =  79.7%, Precision =  72.2%, Recall =  89.1% (for span)
+12/28/2025 22:42:50 - INFO - src.utils - F1 =  79.9%, Precision =  72.3%, Recall =  89.3% (for start)
+12/28/2025 22:42:50 - INFO - src.utils - F1 =  80.1%, Precision =  72.5%, Recall =  89.4% (for end)
+12/28/2025 22:42:50 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 22:42:50 - INFO - src.utils - F1 =  57.3%, Precision =  69.5%, Recall =  48.7% (for span)
+12/28/2025 22:42:50 - INFO - src.utils - F1 =  58.9%, Precision =  71.5%, Recall =  50.1% (for start)
+12/28/2025 22:42:50 - INFO - src.utils - F1 =  58.0%, Precision =  70.4%, Recall =  49.4% (for end)
+12/28/2025 22:42:50 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 22:42:50 - INFO - src.utils - F1 =  66.7%, Precision =  72.1%, Recall =  62.1% (for span)
+12/28/2025 22:42:50 - INFO - src.utils - F1 =  70.0%, Precision =  75.6%, Recall =  65.2% (for start)
+12/28/2025 22:42:50 - INFO - src.utils - F1 =  67.0%, Precision =  72.3%, Recall =  62.4% (for end)
+12/28/2025 22:42:51 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 22:42:51 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 22:42:51 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-440
+12/28/2025 22:42:51 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-440/config.json
+12/28/2025 22:42:52 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-440/pytorch_model.bin
+12/28/2025 22:42:52 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-440/tokenizer_config.json
+12/28/2025 22:42:52 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-440/special_tokens_map.json
+12/28/2025 22:42:55 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-400] due to args.save_total_limit
+12/28/2025 22:43:35 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 22:43:35 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 22:43:35 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 22:45:07 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 22:45:26 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 22:45:26 - INFO - src.utils - F1 =  77.8%, Precision =  79.1%, Recall =  76.6% (for span)
+12/28/2025 22:45:26 - INFO - src.utils - F1 =  79.1%, Precision =  80.4%, Recall =  77.9% (for start)
+12/28/2025 22:45:26 - INFO - src.utils - F1 =  78.8%, Precision =  80.1%, Recall =  77.5% (for end)
+12/28/2025 22:45:26 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 22:45:26 - INFO - src.utils - F1 =  92.3%, Precision =  95.7%, Recall =  89.1% (for span)
+12/28/2025 22:45:26 - INFO - src.utils - F1 =  93.8%, Precision =  97.3%, Recall =  90.6% (for start)
+12/28/2025 22:45:26 - INFO - src.utils - F1 =  94.2%, Precision =  97.6%, Recall =  90.9% (for end)
+12/28/2025 22:45:26 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 22:45:26 - INFO - src.utils - F1 =  80.0%, Precision =  71.7%, Recall =  90.4% (for span)
+12/28/2025 22:45:26 - INFO - src.utils - F1 =  80.4%, Precision =  72.0%, Recall =  90.9% (for start)
+12/28/2025 22:45:26 - INFO - src.utils - F1 =  80.6%, Precision =  72.2%, Recall =  91.1% (for end)
+12/28/2025 22:45:26 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 22:45:26 - INFO - src.utils - F1 =  57.6%, Precision =  64.9%, Recall =  51.8% (for span)
+12/28/2025 22:45:26 - INFO - src.utils - F1 =  59.3%, Precision =  66.8%, Recall =  53.3% (for start)
+12/28/2025 22:45:26 - INFO - src.utils - F1 =  58.5%, Precision =  65.9%, Recall =  52.6% (for end)
+12/28/2025 22:45:26 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 22:45:26 - INFO - src.utils - F1 =  70.3%, Precision =  85.1%, Recall =  59.9% (for span)
+12/28/2025 22:45:26 - INFO - src.utils - F1 =  72.8%, Precision =  88.1%, Recall =  62.0% (for start)
+12/28/2025 22:45:26 - INFO - src.utils - F1 =  70.4%, Precision =  85.2%, Recall =  60.0% (for end)
+12/28/2025 22:45:27 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 22:45:27 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 22:45:27 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-480
+12/28/2025 22:45:27 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-480/config.json
+12/28/2025 22:45:29 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-480/pytorch_model.bin
+12/28/2025 22:45:29 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-480/tokenizer_config.json
+12/28/2025 22:45:29 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-480/special_tokens_map.json
+12/28/2025 22:45:31 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-440] due to args.save_total_limit
+12/28/2025 22:46:11 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 22:46:11 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 22:46:11 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 22:47:45 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 22:48:04 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 22:48:04 - INFO - src.utils - F1 =  78.1%, Precision =  78.8%, Recall =  77.5% (for span)
+12/28/2025 22:48:04 - INFO - src.utils - F1 =  79.1%, Precision =  79.8%, Recall =  78.5% (for start)
+12/28/2025 22:48:04 - INFO - src.utils - F1 =  78.7%, Precision =  79.4%, Recall =  78.1% (for end)
+12/28/2025 22:48:04 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 22:48:04 - INFO - src.utils - F1 =  94.2%, Precision =  95.8%, Recall =  92.6% (for span)
+12/28/2025 22:48:04 - INFO - src.utils - F1 =  94.7%, Precision =  96.4%, Recall =  93.1% (for start)
+12/28/2025 22:48:04 - INFO - src.utils - F1 =  95.2%, Precision =  96.9%, Recall =  93.5% (for end)
+12/28/2025 22:48:04 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 22:48:04 - INFO - src.utils - F1 =  80.0%, Precision =  70.7%, Recall =  92.1% (for span)
+12/28/2025 22:48:04 - INFO - src.utils - F1 =  80.2%, Precision =  70.9%, Recall =  92.3% (for start)
+12/28/2025 22:48:04 - INFO - src.utils - F1 =  80.4%, Precision =  71.1%, Recall =  92.5% (for end)
+12/28/2025 22:48:04 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 22:48:04 - INFO - src.utils - F1 =  56.6%, Precision =  71.3%, Recall =  47.0% (for span)
+12/28/2025 22:48:04 - INFO - src.utils - F1 =  58.1%, Precision =  73.1%, Recall =  48.2% (for start)
+12/28/2025 22:48:04 - INFO - src.utils - F1 =  57.3%, Precision =  72.2%, Recall =  47.6% (for end)
+12/28/2025 22:48:04 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 22:48:04 - INFO - src.utils - F1 =  67.5%, Precision =  73.1%, Recall =  62.7% (for span)
+12/28/2025 22:48:04 - INFO - src.utils - F1 =  70.8%, Precision =  76.6%, Recall =  65.7% (for start)
+12/28/2025 22:48:04 - INFO - src.utils - F1 =  67.7%, Precision =  73.3%, Recall =  62.9% (for end)
+12/28/2025 22:48:04 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 22:48:04 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 22:48:04 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-520
+12/28/2025 22:48:04 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-520/config.json
+12/28/2025 22:48:06 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-520/pytorch_model.bin
+12/28/2025 22:48:06 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-520/tokenizer_config.json
+12/28/2025 22:48:06 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-520/special_tokens_map.json
+12/28/2025 22:48:08 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-480] due to args.save_total_limit
+12/28/2025 22:48:51 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 22:48:51 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 22:48:51 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 22:50:23 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 22:50:42 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 22:50:42 - INFO - src.utils - F1 =  78.3%, Precision =  78.6%, Recall =  78.0% (for span)
+12/28/2025 22:50:42 - INFO - src.utils - F1 =  79.5%, Precision =  79.8%, Recall =  79.1% (for start)
+12/28/2025 22:50:42 - INFO - src.utils - F1 =  79.2%, Precision =  79.5%, Recall =  78.8% (for end)
+12/28/2025 22:50:42 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 22:50:42 - INFO - src.utils - F1 =  93.4%, Precision =  95.1%, Recall =  91.7% (for span)
+12/28/2025 22:50:42 - INFO - src.utils - F1 =  94.4%, Precision =  96.1%, Recall =  92.7% (for start)
+12/28/2025 22:50:42 - INFO - src.utils - F1 =  94.8%, Precision =  96.6%, Recall =  93.1% (for end)
+12/28/2025 22:50:42 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 22:50:42 - INFO - src.utils - F1 =  80.9%, Precision =  73.2%, Recall =  90.5% (for span)
+12/28/2025 22:50:42 - INFO - src.utils - F1 =  81.1%, Precision =  73.4%, Recall =  90.7% (for start)
+12/28/2025 22:50:42 - INFO - src.utils - F1 =  81.4%, Precision =  73.6%, Recall =  91.0% (for end)
+12/28/2025 22:50:42 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 22:50:42 - INFO - src.utils - F1 =  58.0%, Precision =  63.8%, Recall =  53.1% (for span)
+12/28/2025 22:50:42 - INFO - src.utils - F1 =  60.0%, Precision =  66.0%, Recall =  55.0% (for start)
+12/28/2025 22:50:42 - INFO - src.utils - F1 =  59.0%, Precision =  65.0%, Recall =  54.1% (for end)
+12/28/2025 22:50:42 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 22:50:42 - INFO - src.utils - F1 =  69.0%, Precision =  78.2%, Recall =  61.8% (for span)
+12/28/2025 22:50:42 - INFO - src.utils - F1 =  71.6%, Precision =  81.1%, Recall =  64.1% (for start)
+12/28/2025 22:50:42 - INFO - src.utils - F1 =  69.4%, Precision =  78.6%, Recall =  62.1% (for end)
+12/28/2025 22:50:43 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 22:50:43 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 22:50:43 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-560
+12/28/2025 22:50:43 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-560/config.json
+12/28/2025 22:50:44 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-560/pytorch_model.bin
+12/28/2025 22:50:44 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-560/tokenizer_config.json
+12/28/2025 22:50:44 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-560/special_tokens_map.json
+12/28/2025 22:50:47 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-520] due to args.save_total_limit
+12/28/2025 22:51:28 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 22:51:28 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 22:51:28 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 22:53:00 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 22:53:19 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 22:53:19 - INFO - src.utils - F1 =  78.5%, Precision =  79.6%, Recall =  77.4% (for span)
+12/28/2025 22:53:19 - INFO - src.utils - F1 =  79.7%, Precision =  80.9%, Recall =  78.6% (for start)
+12/28/2025 22:53:19 - INFO - src.utils - F1 =  79.5%, Precision =  80.6%, Recall =  78.4% (for end)
+12/28/2025 22:53:19 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 22:53:19 - INFO - src.utils - F1 =  92.4%, Precision =  95.1%, Recall =  89.9% (for span)
+12/28/2025 22:53:19 - INFO - src.utils - F1 =  94.0%, Precision =  96.7%, Recall =  91.4% (for start)
+12/28/2025 22:53:19 - INFO - src.utils - F1 =  94.5%, Precision =  97.2%, Recall =  91.9% (for end)
+12/28/2025 22:53:19 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 22:53:19 - INFO - src.utils - F1 =  81.4%, Precision =  73.3%, Recall =  91.5% (for span)
+12/28/2025 22:53:19 - INFO - src.utils - F1 =  81.6%, Precision =  73.5%, Recall =  91.8% (for start)
+12/28/2025 22:53:19 - INFO - src.utils - F1 =  81.8%, Precision =  73.7%, Recall =  91.9% (for end)
+12/28/2025 22:53:19 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 22:53:19 - INFO - src.utils - F1 =  58.8%, Precision =  66.1%, Recall =  52.9% (for span)
+12/28/2025 22:53:19 - INFO - src.utils - F1 =  60.6%, Precision =  68.2%, Recall =  54.6% (for start)
+12/28/2025 22:53:19 - INFO - src.utils - F1 =  59.5%, Precision =  66.9%, Recall =  53.5% (for end)
+12/28/2025 22:53:19 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 22:53:19 - INFO - src.utils - F1 =  69.7%, Precision =  82.9%, Recall =  60.1% (for span)
+12/28/2025 22:53:19 - INFO - src.utils - F1 =  71.7%, Precision =  85.3%, Recall =  61.8% (for start)
+12/28/2025 22:53:19 - INFO - src.utils - F1 =  70.1%, Precision =  83.4%, Recall =  60.4% (for end)
+12/28/2025 22:53:20 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 22:53:20 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 22:53:20 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-600
+12/28/2025 22:53:20 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-600/config.json
+12/28/2025 22:53:21 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-600/pytorch_model.bin
+12/28/2025 22:53:21 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-600/tokenizer_config.json
+12/28/2025 22:53:21 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-600/special_tokens_map.json
+12/28/2025 22:53:24 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-560] due to args.save_total_limit
+12/28/2025 22:54:05 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 22:54:05 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 22:54:05 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 22:55:38 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 22:55:57 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 22:55:57 - INFO - src.utils - F1 =  77.8%, Precision =  78.4%, Recall =  77.3% (for span)
+12/28/2025 22:55:57 - INFO - src.utils - F1 =  79.0%, Precision =  79.6%, Recall =  78.5% (for start)
+12/28/2025 22:55:57 - INFO - src.utils - F1 =  78.6%, Precision =  79.2%, Recall =  78.1% (for end)
+12/28/2025 22:55:57 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 22:55:57 - INFO - src.utils - F1 =  93.0%, Precision =  95.0%, Recall =  91.2% (for span)
+12/28/2025 22:55:57 - INFO - src.utils - F1 =  94.2%, Precision =  96.2%, Recall =  92.3% (for start)
+12/28/2025 22:55:57 - INFO - src.utils - F1 =  94.6%, Precision =  96.6%, Recall =  92.7% (for end)
+12/28/2025 22:55:57 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 22:55:57 - INFO - src.utils - F1 =  80.7%, Precision =  73.0%, Recall =  90.1% (for span)
+12/28/2025 22:55:57 - INFO - src.utils - F1 =  80.8%, Precision =  73.1%, Recall =  90.3% (for start)
+12/28/2025 22:55:57 - INFO - src.utils - F1 =  81.0%, Precision =  73.3%, Recall =  90.5% (for end)
+12/28/2025 22:55:57 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 22:55:57 - INFO - src.utils - F1 =  58.1%, Precision =  67.7%, Recall =  50.9% (for span)
+12/28/2025 22:55:57 - INFO - src.utils - F1 =  59.5%, Precision =  69.3%, Recall =  52.1% (for start)
+12/28/2025 22:55:57 - INFO - src.utils - F1 =  58.9%, Precision =  68.6%, Recall =  51.6% (for end)
+12/28/2025 22:55:57 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 22:55:57 - INFO - src.utils - F1 =  66.2%, Precision =  70.3%, Recall =  62.5% (for span)
+12/28/2025 22:55:57 - INFO - src.utils - F1 =  69.8%, Precision =  74.2%, Recall =  65.9% (for start)
+12/28/2025 22:55:57 - INFO - src.utils - F1 =  66.6%, Precision =  70.8%, Recall =  62.9% (for end)
+12/28/2025 22:55:58 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 22:55:58 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 22:55:58 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-640
+12/28/2025 22:55:58 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-640/config.json
+12/28/2025 22:55:59 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-640/pytorch_model.bin
+12/28/2025 22:55:59 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-640/tokenizer_config.json
+12/28/2025 22:55:59 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-640/special_tokens_map.json
+12/28/2025 22:56:02 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-600] due to args.save_total_limit
+12/28/2025 22:56:42 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 22:56:42 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 22:56:42 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 22:58:16 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 22:58:34 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 22:58:34 - INFO - src.utils - F1 =  79.4%, Precision =  80.7%, Recall =  78.1% (for span)
+12/28/2025 22:58:34 - INFO - src.utils - F1 =  80.3%, Precision =  81.6%, Recall =  79.0% (for start)
+12/28/2025 22:58:34 - INFO - src.utils - F1 =  80.2%, Precision =  81.6%, Recall =  78.9% (for end)
+12/28/2025 22:58:34 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 22:58:34 - INFO - src.utils - F1 =  93.2%, Precision =  95.2%, Recall =  91.3% (for span)
+12/28/2025 22:58:34 - INFO - src.utils - F1 =  94.3%, Precision =  96.3%, Recall =  92.3% (for start)
+12/28/2025 22:58:34 - INFO - src.utils - F1 =  94.7%, Precision =  96.7%, Recall =  92.8% (for end)
+12/28/2025 22:58:34 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 22:58:34 - INFO - src.utils - F1 =  82.3%, Precision =  76.8%, Recall =  88.7% (for span)
+12/28/2025 22:58:34 - INFO - src.utils - F1 =  82.4%, Precision =  76.8%, Recall =  88.8% (for start)
+12/28/2025 22:58:34 - INFO - src.utils - F1 =  82.7%, Precision =  77.1%, Recall =  89.1% (for end)
+12/28/2025 22:58:34 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 22:58:34 - INFO - src.utils - F1 =  61.6%, Precision =  65.7%, Recall =  58.0% (for span)
+12/28/2025 22:58:34 - INFO - src.utils - F1 =  63.0%, Precision =  67.2%, Recall =  59.4% (for start)
+12/28/2025 22:58:34 - INFO - src.utils - F1 =  62.5%, Precision =  66.6%, Recall =  58.8% (for end)
+12/28/2025 22:58:34 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 22:58:34 - INFO - src.utils - F1 =  68.8%, Precision =  81.6%, Recall =  59.5% (for span)
+12/28/2025 22:58:34 - INFO - src.utils - F1 =  70.8%, Precision =  84.0%, Recall =  61.3% (for start)
+12/28/2025 22:58:34 - INFO - src.utils - F1 =  69.5%, Precision =  82.3%, Recall =  60.1% (for end)
+12/28/2025 22:58:35 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 22:58:35 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 22:58:35 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-680
+12/28/2025 22:58:35 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-680/config.json
+12/28/2025 22:58:36 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-680/pytorch_model.bin
+12/28/2025 22:58:36 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-680/tokenizer_config.json
+12/28/2025 22:58:36 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-680/special_tokens_map.json
+12/28/2025 22:58:39 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-360] due to args.save_total_limit
+12/28/2025 22:59:19 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 22:59:19 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 22:59:19 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 23:00:52 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 23:01:11 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 23:01:11 - INFO - src.utils - F1 =  79.2%, Precision =  79.9%, Recall =  78.5% (for span)
+12/28/2025 23:01:11 - INFO - src.utils - F1 =  80.1%, Precision =  80.9%, Recall =  79.4% (for start)
+12/28/2025 23:01:11 - INFO - src.utils - F1 =  79.9%, Precision =  80.6%, Recall =  79.1% (for end)
+12/28/2025 23:01:11 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 23:01:11 - INFO - src.utils - F1 =  94.2%, Precision =  94.8%, Recall =  93.5% (for span)
+12/28/2025 23:01:11 - INFO - src.utils - F1 =  94.9%, Precision =  95.5%, Recall =  94.2% (for start)
+12/28/2025 23:01:11 - INFO - src.utils - F1 =  95.2%, Precision =  95.8%, Recall =  94.6% (for end)
+12/28/2025 23:01:11 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 23:01:11 - INFO - src.utils - F1 =  81.9%, Precision =  73.9%, Recall =  91.8% (for span)
+12/28/2025 23:01:11 - INFO - src.utils - F1 =  82.1%, Precision =  74.1%, Recall =  91.9% (for start)
+12/28/2025 23:01:11 - INFO - src.utils - F1 =  82.3%, Precision =  74.3%, Recall =  92.2% (for end)
+12/28/2025 23:01:11 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 23:01:11 - INFO - src.utils - F1 =  58.3%, Precision =  67.6%, Recall =  51.2% (for span)
+12/28/2025 23:01:11 - INFO - src.utils - F1 =  59.7%, Precision =  69.3%, Recall =  52.5% (for start)
+12/28/2025 23:01:11 - INFO - src.utils - F1 =  59.1%, Precision =  68.5%, Recall =  51.9% (for end)
+12/28/2025 23:01:11 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 23:01:11 - INFO - src.utils - F1 =  69.2%, Precision =  78.8%, Recall =  61.7% (for span)
+12/28/2025 23:01:11 - INFO - src.utils - F1 =  71.9%, Precision =  81.9%, Recall =  64.1% (for start)
+12/28/2025 23:01:11 - INFO - src.utils - F1 =  69.5%, Precision =  79.1%, Recall =  61.9% (for end)
+12/28/2025 23:01:11 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 23:01:11 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 23:01:11 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-720
+12/28/2025 23:01:11 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-720/config.json
+12/28/2025 23:01:13 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-720/pytorch_model.bin
+12/28/2025 23:01:13 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-720/tokenizer_config.json
+12/28/2025 23:01:13 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-720/special_tokens_map.json
+12/28/2025 23:01:16 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-640] due to args.save_total_limit
+12/28/2025 23:01:57 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 23:01:57 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 23:01:57 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 23:03:29 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 23:03:48 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 23:03:48 - INFO - src.utils - F1 =  78.8%, Precision =  79.6%, Recall =  78.1% (for span)
+12/28/2025 23:03:48 - INFO - src.utils - F1 =  80.1%, Precision =  80.9%, Recall =  79.3% (for start)
+12/28/2025 23:03:48 - INFO - src.utils - F1 =  79.8%, Precision =  80.6%, Recall =  79.0% (for end)
+12/28/2025 23:03:48 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 23:03:48 - INFO - src.utils - F1 =  92.8%, Precision =  93.4%, Recall =  92.2% (for span)
+12/28/2025 23:03:48 - INFO - src.utils - F1 =  94.3%, Precision =  94.8%, Recall =  93.7% (for start)
+12/28/2025 23:03:48 - INFO - src.utils - F1 =  94.6%, Precision =  95.2%, Recall =  94.1% (for end)
+12/28/2025 23:03:48 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 23:03:48 - INFO - src.utils - F1 =  82.0%, Precision =  75.7%, Recall =  89.4% (for span)
+12/28/2025 23:03:48 - INFO - src.utils - F1 =  82.2%, Precision =  75.9%, Recall =  89.7% (for start)
+12/28/2025 23:03:48 - INFO - src.utils - F1 =  82.4%, Precision =  76.0%, Recall =  89.8% (for end)
+12/28/2025 23:03:48 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 23:03:48 - INFO - src.utils - F1 =  59.9%, Precision =  66.3%, Recall =  54.7% (for span)
+12/28/2025 23:03:48 - INFO - src.utils - F1 =  61.4%, Precision =  68.0%, Recall =  56.0% (for start)
+12/28/2025 23:03:48 - INFO - src.utils - F1 =  60.8%, Precision =  67.2%, Recall =  55.4% (for end)
+12/28/2025 23:03:48 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 23:03:48 - INFO - src.utils - F1 =  68.2%, Precision =  76.9%, Recall =  61.2% (for span)
+12/28/2025 23:03:48 - INFO - src.utils - F1 =  71.2%, Precision =  80.4%, Recall =  63.9% (for start)
+12/28/2025 23:03:48 - INFO - src.utils - F1 =  68.8%, Precision =  77.6%, Recall =  61.7% (for end)
+12/28/2025 23:03:49 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 23:03:49 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 23:03:49 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-760
+12/28/2025 23:03:49 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-760/config.json
+12/28/2025 23:03:50 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-760/pytorch_model.bin
+12/28/2025 23:03:50 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-760/tokenizer_config.json
+12/28/2025 23:03:50 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-760/special_tokens_map.json
+12/28/2025 23:03:53 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-720] due to args.save_total_limit
+12/28/2025 23:04:33 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 23:04:33 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 23:04:33 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 23:06:05 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 23:06:23 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 23:06:23 - INFO - src.utils - F1 =  78.9%, Precision =  79.5%, Recall =  78.4% (for span)
+12/28/2025 23:06:23 - INFO - src.utils - F1 =  79.8%, Precision =  80.3%, Recall =  79.2% (for start)
+12/28/2025 23:06:23 - INFO - src.utils - F1 =  79.6%, Precision =  80.1%, Recall =  79.0% (for end)
+12/28/2025 23:06:23 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 23:06:23 - INFO - src.utils - F1 =  94.6%, Precision =  94.7%, Recall =  94.5% (for span)
+12/28/2025 23:06:23 - INFO - src.utils - F1 =  95.1%, Precision =  95.2%, Recall =  95.0% (for start)
+12/28/2025 23:06:23 - INFO - src.utils - F1 =  95.4%, Precision =  95.5%, Recall =  95.3% (for end)
+12/28/2025 23:06:23 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 23:06:23 - INFO - src.utils - F1 =  81.1%, Precision =  71.9%, Recall =  93.0% (for span)
+12/28/2025 23:06:23 - INFO - src.utils - F1 =  81.3%, Precision =  72.1%, Recall =  93.2% (for start)
+12/28/2025 23:06:23 - INFO - src.utils - F1 =  81.4%, Precision =  72.2%, Recall =  93.3% (for end)
+12/28/2025 23:06:23 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 23:06:23 - INFO - src.utils - F1 =  56.7%, Precision =  68.5%, Recall =  48.3% (for span)
+12/28/2025 23:06:23 - INFO - src.utils - F1 =  58.3%, Precision =  70.5%, Recall =  49.7% (for start)
+12/28/2025 23:06:23 - INFO - src.utils - F1 =  57.7%, Precision =  69.8%, Recall =  49.2% (for end)
+12/28/2025 23:06:23 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 23:06:23 - INFO - src.utils - F1 =  69.2%, Precision =  80.1%, Recall =  61.0% (for span)
+12/28/2025 23:06:23 - INFO - src.utils - F1 =  71.3%, Precision =  82.5%, Recall =  62.8% (for start)
+12/28/2025 23:06:23 - INFO - src.utils - F1 =  69.7%, Precision =  80.6%, Recall =  61.4% (for end)
+12/28/2025 23:06:24 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 23:06:24 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 23:06:24 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-800
+12/28/2025 23:06:24 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-800/config.json
+12/28/2025 23:06:26 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-800/pytorch_model.bin
+12/28/2025 23:06:26 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-800/tokenizer_config.json
+12/28/2025 23:06:26 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-800/special_tokens_map.json
+12/28/2025 23:06:29 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-760] due to args.save_total_limit
+12/28/2025 23:07:07 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 23:07:07 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 23:07:07 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 23:08:39 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 23:08:58 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 23:08:58 - INFO - src.utils - F1 =  78.5%, Precision =  79.3%, Recall =  77.8% (for span)
+12/28/2025 23:08:58 - INFO - src.utils - F1 =  79.6%, Precision =  80.3%, Recall =  78.8% (for start)
+12/28/2025 23:08:58 - INFO - src.utils - F1 =  79.3%, Precision =  80.1%, Recall =  78.6% (for end)
+12/28/2025 23:08:58 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 23:08:58 - INFO - src.utils - F1 =  93.8%, Precision =  94.1%, Recall =  93.4% (for span)
+12/28/2025 23:08:58 - INFO - src.utils - F1 =  94.8%, Precision =  95.2%, Recall =  94.5% (for start)
+12/28/2025 23:08:58 - INFO - src.utils - F1 =  95.1%, Precision =  95.5%, Recall =  94.8% (for end)
+12/28/2025 23:08:58 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 23:08:58 - INFO - src.utils - F1 =  81.0%, Precision =  72.6%, Recall =  91.7% (for span)
+12/28/2025 23:08:58 - INFO - src.utils - F1 =  81.3%, Precision =  72.8%, Recall =  91.9% (for start)
+12/28/2025 23:08:58 - INFO - src.utils - F1 =  81.3%, Precision =  72.8%, Recall =  92.0% (for end)
+12/28/2025 23:08:58 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 23:08:58 - INFO - src.utils - F1 =  56.5%, Precision =  68.7%, Recall =  47.9% (for span)
+12/28/2025 23:08:58 - INFO - src.utils - F1 =  58.5%, Precision =  71.2%, Recall =  49.7% (for start)
+12/28/2025 23:08:58 - INFO - src.utils - F1 =  57.5%, Precision =  70.0%, Recall =  48.8% (for end)
+12/28/2025 23:08:58 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 23:08:58 - INFO - src.utils - F1 =  68.9%, Precision =  76.9%, Recall =  62.5% (for span)
+12/28/2025 23:08:58 - INFO - src.utils - F1 =  70.6%, Precision =  78.8%, Recall =  64.0% (for start)
+12/28/2025 23:08:58 - INFO - src.utils - F1 =  69.3%, Precision =  77.3%, Recall =  62.8% (for end)
+12/28/2025 23:08:59 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 23:08:59 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 23:08:59 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-840
+12/28/2025 23:08:59 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-840/config.json
+12/28/2025 23:09:00 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-840/pytorch_model.bin
+12/28/2025 23:09:00 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-840/tokenizer_config.json
+12/28/2025 23:09:00 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-840/special_tokens_map.json
+12/28/2025 23:09:03 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-800] due to args.save_total_limit
+12/28/2025 23:09:45 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 23:09:45 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 23:09:45 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 23:11:18 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 23:11:37 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 23:11:37 - INFO - src.utils - F1 =  78.8%, Precision =  79.2%, Recall =  78.4% (for span)
+12/28/2025 23:11:37 - INFO - src.utils - F1 =  79.7%, Precision =  80.1%, Recall =  79.3% (for start)
+12/28/2025 23:11:37 - INFO - src.utils - F1 =  79.5%, Precision =  79.9%, Recall =  79.1% (for end)
+12/28/2025 23:11:37 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 23:11:37 - INFO - src.utils - F1 =  94.2%, Precision =  94.4%, Recall =  94.0% (for span)
+12/28/2025 23:11:37 - INFO - src.utils - F1 =  95.0%, Precision =  95.2%, Recall =  94.8% (for start)
+12/28/2025 23:11:37 - INFO - src.utils - F1 =  95.3%, Precision =  95.5%, Recall =  95.2% (for end)
+12/28/2025 23:11:37 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 23:11:37 - INFO - src.utils - F1 =  81.3%, Precision =  72.6%, Recall =  92.3% (for span)
+12/28/2025 23:11:37 - INFO - src.utils - F1 =  81.4%, Precision =  72.8%, Recall =  92.5% (for start)
+12/28/2025 23:11:37 - INFO - src.utils - F1 =  81.5%, Precision =  72.8%, Recall =  92.6% (for end)
+12/28/2025 23:11:37 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 23:11:37 - INFO - src.utils - F1 =  56.9%, Precision =  67.6%, Recall =  49.1% (for span)
+12/28/2025 23:11:37 - INFO - src.utils - F1 =  58.5%, Precision =  69.5%, Recall =  50.6% (for start)
+12/28/2025 23:11:37 - INFO - src.utils - F1 =  58.0%, Precision =  68.9%, Recall =  50.1% (for end)
+12/28/2025 23:11:37 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 23:11:37 - INFO - src.utils - F1 =  69.3%, Precision =  77.9%, Recall =  62.4% (for span)
+12/28/2025 23:11:37 - INFO - src.utils - F1 =  71.1%, Precision =  79.9%, Recall =  64.0% (for start)
+12/28/2025 23:11:37 - INFO - src.utils - F1 =  69.5%, Precision =  78.2%, Recall =  62.6% (for end)
+12/28/2025 23:11:38 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 23:11:38 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 23:11:38 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-880
+12/28/2025 23:11:38 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-880/config.json
+12/28/2025 23:11:39 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-880/pytorch_model.bin
+12/28/2025 23:11:39 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-880/tokenizer_config.json
+12/28/2025 23:11:39 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-880/special_tokens_map.json
+12/28/2025 23:11:42 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-840] due to args.save_total_limit
+12/28/2025 23:12:22 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 23:12:22 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 23:12:22 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 23:13:54 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 23:14:13 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 23:14:13 - INFO - src.utils - F1 =  79.1%, Precision =  79.6%, Recall =  78.6% (for span)
+12/28/2025 23:14:13 - INFO - src.utils - F1 =  80.0%, Precision =  80.5%, Recall =  79.5% (for start)
+12/28/2025 23:14:13 - INFO - src.utils - F1 =  79.8%, Precision =  80.2%, Recall =  79.3% (for end)
+12/28/2025 23:14:13 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 23:14:13 - INFO - src.utils - F1 =  94.3%, Precision =  94.6%, Recall =  93.9% (for span)
+12/28/2025 23:14:13 - INFO - src.utils - F1 =  95.0%, Precision =  95.4%, Recall =  94.7% (for start)
+12/28/2025 23:14:13 - INFO - src.utils - F1 =  95.3%, Precision =  95.7%, Recall =  95.0% (for end)
+12/28/2025 23:14:13 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 23:14:13 - INFO - src.utils - F1 =  81.5%, Precision =  73.1%, Recall =  92.1% (for span)
+12/28/2025 23:14:13 - INFO - src.utils - F1 =  81.7%, Precision =  73.2%, Recall =  92.3% (for start)
+12/28/2025 23:14:13 - INFO - src.utils - F1 =  81.8%, Precision =  73.3%, Recall =  92.4% (for end)
+12/28/2025 23:14:13 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 23:14:13 - INFO - src.utils - F1 =  57.7%, Precision =  67.0%, Recall =  50.6% (for span)
+12/28/2025 23:14:13 - INFO - src.utils - F1 =  59.4%, Precision =  69.0%, Recall =  52.2% (for start)
+12/28/2025 23:14:13 - INFO - src.utils - F1 =  58.7%, Precision =  68.1%, Recall =  51.5% (for end)
+12/28/2025 23:14:13 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 23:14:13 - INFO - src.utils - F1 =  69.9%, Precision =  79.9%, Recall =  62.1% (for span)
+12/28/2025 23:14:13 - INFO - src.utils - F1 =  71.6%, Precision =  81.9%, Recall =  63.7% (for start)
+12/28/2025 23:14:13 - INFO - src.utils - F1 =  70.2%, Precision =  80.2%, Recall =  62.4% (for end)
+12/28/2025 23:14:14 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 23:14:14 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 23:14:14 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-920
+12/28/2025 23:14:14 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-920/config.json
+12/28/2025 23:14:15 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-920/pytorch_model.bin
+12/28/2025 23:14:15 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-920/tokenizer_config.json
+12/28/2025 23:14:15 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-920/special_tokens_map.json
+12/28/2025 23:14:18 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-880] due to args.save_total_limit
+12/28/2025 23:15:01 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 23:15:01 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 23:15:01 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 23:16:33 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 23:16:52 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 23:16:52 - INFO - src.utils - F1 =  78.8%, Precision =  79.2%, Recall =  78.3% (for span)
+12/28/2025 23:16:52 - INFO - src.utils - F1 =  79.6%, Precision =  80.1%, Recall =  79.2% (for start)
+12/28/2025 23:16:52 - INFO - src.utils - F1 =  79.5%, Precision =  79.9%, Recall =  79.0% (for end)
+12/28/2025 23:16:52 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 23:16:52 - INFO - src.utils - F1 =  94.1%, Precision =  95.3%, Recall =  92.9% (for span)
+12/28/2025 23:16:52 - INFO - src.utils - F1 =  94.8%, Precision =  96.0%, Recall =  93.6% (for start)
+12/28/2025 23:16:52 - INFO - src.utils - F1 =  95.2%, Precision =  96.4%, Recall =  94.0% (for end)
+12/28/2025 23:16:52 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 23:16:52 - INFO - src.utils - F1 =  81.1%, Precision =  73.1%, Recall =  91.1% (for span)
+12/28/2025 23:16:52 - INFO - src.utils - F1 =  81.3%, Precision =  73.2%, Recall =  91.3% (for start)
+12/28/2025 23:16:52 - INFO - src.utils - F1 =  81.4%, Precision =  73.3%, Recall =  91.4% (for end)
+12/28/2025 23:16:52 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 23:16:52 - INFO - src.utils - F1 =  58.3%, Precision =  66.5%, Recall =  51.9% (for span)
+12/28/2025 23:16:52 - INFO - src.utils - F1 =  60.0%, Precision =  68.4%, Recall =  53.4% (for start)
+12/28/2025 23:16:52 - INFO - src.utils - F1 =  59.3%, Precision =  67.6%, Recall =  52.8% (for end)
+12/28/2025 23:16:52 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 23:16:52 - INFO - src.utils - F1 =  68.9%, Precision =  77.5%, Recall =  62.0% (for span)
+12/28/2025 23:16:52 - INFO - src.utils - F1 =  70.6%, Precision =  79.4%, Recall =  63.6% (for start)
+12/28/2025 23:16:52 - INFO - src.utils - F1 =  69.2%, Precision =  77.8%, Recall =  62.3% (for end)
+12/28/2025 23:16:53 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 23:16:53 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 23:16:53 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-960
+12/28/2025 23:16:53 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-960/config.json
+12/28/2025 23:16:54 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-960/pytorch_model.bin
+12/28/2025 23:16:54 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-960/tokenizer_config.json
+12/28/2025 23:16:54 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-960/special_tokens_map.json
+12/28/2025 23:16:57 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-920] due to args.save_total_limit
+12/28/2025 23:17:36 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 23:17:36 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 23:17:36 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 23:19:08 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 23:19:27 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 23:19:27 - INFO - src.utils - F1 =  78.7%, Precision =  79.2%, Recall =  78.2% (for span)
+12/28/2025 23:19:27 - INFO - src.utils - F1 =  79.7%, Precision =  80.2%, Recall =  79.2% (for start)
+12/28/2025 23:19:27 - INFO - src.utils - F1 =  79.5%, Precision =  80.0%, Recall =  79.0% (for end)
+12/28/2025 23:19:27 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 23:19:27 - INFO - src.utils - F1 =  93.6%, Precision =  95.1%, Recall =  92.2% (for span)
+12/28/2025 23:19:27 - INFO - src.utils - F1 =  94.7%, Precision =  96.2%, Recall =  93.3% (for start)
+12/28/2025 23:19:27 - INFO - src.utils - F1 =  95.1%, Precision =  96.6%, Recall =  93.6% (for end)
+12/28/2025 23:19:27 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 23:19:27 - INFO - src.utils - F1 =  81.1%, Precision =  72.3%, Recall =  92.3% (for span)
+12/28/2025 23:19:27 - INFO - src.utils - F1 =  81.3%, Precision =  72.5%, Recall =  92.5% (for start)
+12/28/2025 23:19:27 - INFO - src.utils - F1 =  81.4%, Precision =  72.6%, Recall =  92.6% (for end)
+12/28/2025 23:19:27 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 23:19:27 - INFO - src.utils - F1 =  57.7%, Precision =  66.3%, Recall =  51.1% (for span)
+12/28/2025 23:19:27 - INFO - src.utils - F1 =  59.3%, Precision =  68.2%, Recall =  52.5% (for start)
+12/28/2025 23:19:27 - INFO - src.utils - F1 =  58.6%, Precision =  67.3%, Recall =  51.8% (for end)
+12/28/2025 23:19:27 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 23:19:27 - INFO - src.utils - F1 =  70.2%, Precision =  81.1%, Recall =  61.8% (for span)
+12/28/2025 23:19:27 - INFO - src.utils - F1 =  71.9%, Precision =  83.1%, Recall =  63.3% (for start)
+12/28/2025 23:19:27 - INFO - src.utils - F1 =  70.4%, Precision =  81.4%, Recall =  62.0% (for end)
+12/28/2025 23:19:28 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 23:19:28 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 23:19:28 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-1000
+12/28/2025 23:19:28 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-1000/config.json
+12/28/2025 23:19:29 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-1000/pytorch_model.bin
+12/28/2025 23:19:29 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-1000/tokenizer_config.json
+12/28/2025 23:19:29 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-1000/special_tokens_map.json
+12/28/2025 23:19:32 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-960] due to args.save_total_limit
+12/28/2025 23:20:12 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 23:20:12 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 23:20:12 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 23:21:46 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 23:22:05 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 23:22:05 - INFO - src.utils - F1 =  78.8%, Precision =  79.4%, Recall =  78.3% (for span)
+12/28/2025 23:22:05 - INFO - src.utils - F1 =  79.7%, Precision =  80.3%, Recall =  79.1% (for start)
+12/28/2025 23:22:05 - INFO - src.utils - F1 =  79.5%, Precision =  80.0%, Recall =  78.9% (for end)
+12/28/2025 23:22:05 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 23:22:05 - INFO - src.utils - F1 =  94.3%, Precision =  95.7%, Recall =  92.9% (for span)
+12/28/2025 23:22:05 - INFO - src.utils - F1 =  95.1%, Precision =  96.5%, Recall =  93.7% (for start)
+12/28/2025 23:22:05 - INFO - src.utils - F1 =  95.4%, Precision =  96.9%, Recall =  94.0% (for end)
+12/28/2025 23:22:05 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 23:22:05 - INFO - src.utils - F1 =  80.7%, Precision =  71.2%, Recall =  93.1% (for span)
+12/28/2025 23:22:05 - INFO - src.utils - F1 =  80.9%, Precision =  71.3%, Recall =  93.4% (for start)
+12/28/2025 23:22:05 - INFO - src.utils - F1 =  81.0%, Precision =  71.4%, Recall =  93.5% (for end)
+12/28/2025 23:22:05 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 23:22:05 - INFO - src.utils - F1 =  57.2%, Precision =  67.7%, Recall =  49.6% (for span)
+12/28/2025 23:22:05 - INFO - src.utils - F1 =  58.8%, Precision =  69.5%, Recall =  50.9% (for start)
+12/28/2025 23:22:05 - INFO - src.utils - F1 =  58.0%, Precision =  68.6%, Recall =  50.3% (for end)
+12/28/2025 23:22:05 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 23:22:05 - INFO - src.utils - F1 =  70.3%, Precision =  82.5%, Recall =  61.3% (for span)
+12/28/2025 23:22:05 - INFO - src.utils - F1 =  72.1%, Precision =  84.5%, Recall =  62.8% (for start)
+12/28/2025 23:22:05 - INFO - src.utils - F1 =  70.6%, Precision =  82.8%, Recall =  61.5% (for end)
+12/28/2025 23:22:06 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 23:22:06 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 23:22:06 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-1040
+12/28/2025 23:22:06 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-1040/config.json
+12/28/2025 23:22:07 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-1040/pytorch_model.bin
+12/28/2025 23:22:07 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-1040/tokenizer_config.json
+12/28/2025 23:22:07 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-1040/special_tokens_map.json
+12/28/2025 23:22:10 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-1000] due to args.save_total_limit
+12/28/2025 23:22:51 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 23:22:51 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 23:22:51 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 23:24:23 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 23:24:42 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 23:24:42 - INFO - src.utils - F1 =  78.6%, Precision =  79.0%, Recall =  78.2% (for span)
+12/28/2025 23:24:42 - INFO - src.utils - F1 =  79.5%, Precision =  79.9%, Recall =  79.1% (for start)
+12/28/2025 23:24:42 - INFO - src.utils - F1 =  79.3%, Precision =  79.7%, Recall =  78.9% (for end)
+12/28/2025 23:24:42 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 23:24:42 - INFO - src.utils - F1 =  94.2%, Precision =  95.7%, Recall =  92.7% (for span)
+12/28/2025 23:24:42 - INFO - src.utils - F1 =  95.0%, Precision =  96.5%, Recall =  93.5% (for start)
+12/28/2025 23:24:42 - INFO - src.utils - F1 =  95.4%, Precision =  96.9%, Recall =  93.9% (for end)
+12/28/2025 23:24:42 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 23:24:42 - INFO - src.utils - F1 =  80.6%, Precision =  71.3%, Recall =  92.8% (for span)
+12/28/2025 23:24:42 - INFO - src.utils - F1 =  80.8%, Precision =  71.4%, Recall =  93.0% (for start)
+12/28/2025 23:24:42 - INFO - src.utils - F1 =  80.9%, Precision =  71.6%, Recall =  93.1% (for end)
+12/28/2025 23:24:42 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 23:24:42 - INFO - src.utils - F1 =  57.1%, Precision =  66.3%, Recall =  50.1% (for span)
+12/28/2025 23:24:42 - INFO - src.utils - F1 =  58.5%, Precision =  68.0%, Recall =  51.4% (for start)
+12/28/2025 23:24:42 - INFO - src.utils - F1 =  57.9%, Precision =  67.3%, Recall =  50.9% (for end)
+12/28/2025 23:24:42 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 23:24:42 - INFO - src.utils - F1 =  70.0%, Precision =  81.4%, Recall =  61.4% (for span)
+12/28/2025 23:24:42 - INFO - src.utils - F1 =  71.7%, Precision =  83.5%, Recall =  62.9% (for start)
+12/28/2025 23:24:42 - INFO - src.utils - F1 =  70.3%, Precision =  81.7%, Recall =  61.6% (for end)
+12/28/2025 23:24:42 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 23:24:42 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 23:24:42 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-1080
+12/28/2025 23:24:42 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-1080/config.json
+12/28/2025 23:24:44 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-1080/pytorch_model.bin
+12/28/2025 23:24:44 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-1080/tokenizer_config.json
+12/28/2025 23:24:44 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-1080/special_tokens_map.json
+12/28/2025 23:24:46 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-1040] due to args.save_total_limit
+12/28/2025 23:25:26 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 23:25:26 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 23:25:26 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 23:27:00 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 23:27:19 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 23:27:19 - INFO - src.utils - F1 =  78.7%, Precision =  79.2%, Recall =  78.2% (for span)
+12/28/2025 23:27:19 - INFO - src.utils - F1 =  79.5%, Precision =  80.0%, Recall =  79.0% (for start)
+12/28/2025 23:27:19 - INFO - src.utils - F1 =  79.4%, Precision =  79.9%, Recall =  78.9% (for end)
+12/28/2025 23:27:19 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 23:27:19 - INFO - src.utils - F1 =  94.1%, Precision =  95.6%, Recall =  92.7% (for span)
+12/28/2025 23:27:19 - INFO - src.utils - F1 =  95.0%, Precision =  96.5%, Recall =  93.5% (for start)
+12/28/2025 23:27:19 - INFO - src.utils - F1 =  95.4%, Precision =  96.9%, Recall =  93.9% (for end)
+12/28/2025 23:27:19 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 23:27:19 - INFO - src.utils - F1 =  80.6%, Precision =  71.5%, Recall =  92.4% (for span)
+12/28/2025 23:27:19 - INFO - src.utils - F1 =  80.8%, Precision =  71.6%, Recall =  92.7% (for start)
+12/28/2025 23:27:19 - INFO - src.utils - F1 =  80.9%, Precision =  71.7%, Recall =  92.8% (for end)
+12/28/2025 23:27:19 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 23:27:19 - INFO - src.utils - F1 =  57.4%, Precision =  66.7%, Recall =  50.3% (for span)
+12/28/2025 23:27:19 - INFO - src.utils - F1 =  58.8%, Precision =  68.4%, Recall =  51.6% (for start)
+12/28/2025 23:27:19 - INFO - src.utils - F1 =  58.2%, Precision =  67.7%, Recall =  51.1% (for end)
+12/28/2025 23:27:19 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 23:27:19 - INFO - src.utils - F1 =  69.8%, Precision =  81.3%, Recall =  61.2% (for span)
+12/28/2025 23:27:19 - INFO - src.utils - F1 =  71.5%, Precision =  83.3%, Recall =  62.7% (for start)
+12/28/2025 23:27:19 - INFO - src.utils - F1 =  70.2%, Precision =  81.7%, Recall =  61.5% (for end)
+12/28/2025 23:27:20 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 23:27:20 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 23:27:20 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-1120
+12/28/2025 23:27:20 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-1120/config.json
+12/28/2025 23:27:21 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-1120/pytorch_model.bin
+12/28/2025 23:27:21 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-1120/tokenizer_config.json
+12/28/2025 23:27:21 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-1120/special_tokens_map.json
+12/28/2025 23:27:24 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-1080] due to args.save_total_limit
+12/28/2025 23:28:03 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 23:28:03 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 23:28:03 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 23:29:35 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 23:29:54 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 23:29:54 - INFO - src.utils - F1 =  78.6%, Precision =  79.1%, Recall =  78.2% (for span)
+12/28/2025 23:29:54 - INFO - src.utils - F1 =  79.5%, Precision =  80.0%, Recall =  79.0% (for start)
+12/28/2025 23:29:54 - INFO - src.utils - F1 =  79.4%, Precision =  79.8%, Recall =  78.9% (for end)
+12/28/2025 23:29:54 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 23:29:54 - INFO - src.utils - F1 =  94.1%, Precision =  95.6%, Recall =  92.7% (for span)
+12/28/2025 23:29:54 - INFO - src.utils - F1 =  95.0%, Precision =  96.5%, Recall =  93.5% (for start)
+12/28/2025 23:29:54 - INFO - src.utils - F1 =  95.4%, Precision =  96.9%, Recall =  93.9% (for end)
+12/28/2025 23:29:54 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 23:29:54 - INFO - src.utils - F1 =  80.6%, Precision =  71.4%, Recall =  92.6% (for span)
+12/28/2025 23:29:54 - INFO - src.utils - F1 =  80.8%, Precision =  71.5%, Recall =  92.8% (for start)
+12/28/2025 23:29:54 - INFO - src.utils - F1 =  80.9%, Precision =  71.6%, Recall =  93.0% (for end)
+12/28/2025 23:29:54 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 23:29:54 - INFO - src.utils - F1 =  57.2%, Precision =  66.7%, Recall =  50.1% (for span)
+12/28/2025 23:29:54 - INFO - src.utils - F1 =  58.7%, Precision =  68.4%, Recall =  51.4% (for start)
+12/28/2025 23:29:54 - INFO - src.utils - F1 =  58.1%, Precision =  67.7%, Recall =  50.9% (for end)
+12/28/2025 23:29:54 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 23:29:54 - INFO - src.utils - F1 =  70.0%, Precision =  81.5%, Recall =  61.3% (for span)
+12/28/2025 23:29:54 - INFO - src.utils - F1 =  71.7%, Precision =  83.5%, Recall =  62.8% (for start)
+12/28/2025 23:29:54 - INFO - src.utils - F1 =  70.2%, Precision =  81.8%, Recall =  61.5% (for end)
+12/28/2025 23:29:55 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 23:29:55 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 23:29:55 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline/checkpoint-1160
+12/28/2025 23:29:55 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/checkpoint-1160/config.json
+12/28/2025 23:29:56 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/checkpoint-1160/pytorch_model.bin
+12/28/2025 23:29:56 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/checkpoint-1160/tokenizer_config.json
+12/28/2025 23:29:56 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/checkpoint-1160/special_tokens_map.json
+12/28/2025 23:29:59 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-1120] due to args.save_total_limit
+12/28/2025 23:29:59 - INFO - transformers.trainer - 
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+12/28/2025 23:29:59 - INFO - transformers.trainer - Loading best model from ./output/fewshot_baseline/checkpoint-680 (score: 0.7936698032506416).
+12/28/2025 23:30:00 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-680] due to args.save_total_limit
+12/28/2025 23:30:00 - INFO - transformers.trainer - Deleting older checkpoint [output/fewshot_baseline/checkpoint-1160] due to args.save_total_limit
+12/28/2025 23:30:01 - INFO - transformers.trainer - Saving model checkpoint to ./output/fewshot_baseline
+12/28/2025 23:30:01 - INFO - transformers.configuration_utils - Configuration saved in ./output/fewshot_baseline/config.json
+12/28/2025 23:30:02 - INFO - transformers.modeling_utils - Model weights saved in ./output/fewshot_baseline/pytorch_model.bin
+12/28/2025 23:30:02 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/fewshot_baseline/tokenizer_config.json
+12/28/2025 23:30:02 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/fewshot_baseline/special_tokens_map.json
+12/28/2025 23:30:02 - INFO - __main__ - *** Evaluate ***
+12/28/2025 23:30:02 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 23:30:02 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 23:30:02 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 23:31:34 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 23:31:53 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 23:31:53 - INFO - src.utils - F1 =  79.4%, Precision =  80.7%, Recall =  78.1% (for span)
+12/28/2025 23:31:53 - INFO - src.utils - F1 =  80.3%, Precision =  81.6%, Recall =  79.0% (for start)
+12/28/2025 23:31:53 - INFO - src.utils - F1 =  80.2%, Precision =  81.6%, Recall =  78.9% (for end)
+12/28/2025 23:31:53 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 23:31:53 - INFO - src.utils - F1 =  93.2%, Precision =  95.2%, Recall =  91.3% (for span)
+12/28/2025 23:31:53 - INFO - src.utils - F1 =  94.3%, Precision =  96.3%, Recall =  92.3% (for start)
+12/28/2025 23:31:53 - INFO - src.utils - F1 =  94.7%, Precision =  96.7%, Recall =  92.8% (for end)
+12/28/2025 23:31:53 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 23:31:53 - INFO - src.utils - F1 =  82.3%, Precision =  76.8%, Recall =  88.7% (for span)
+12/28/2025 23:31:53 - INFO - src.utils - F1 =  82.4%, Precision =  76.8%, Recall =  88.8% (for start)
+12/28/2025 23:31:53 - INFO - src.utils - F1 =  82.7%, Precision =  77.1%, Recall =  89.1% (for end)
+12/28/2025 23:31:53 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 23:31:53 - INFO - src.utils - F1 =  61.6%, Precision =  65.7%, Recall =  58.0% (for span)
+12/28/2025 23:31:53 - INFO - src.utils - F1 =  63.0%, Precision =  67.2%, Recall =  59.4% (for start)
+12/28/2025 23:31:53 - INFO - src.utils - F1 =  62.5%, Precision =  66.6%, Recall =  58.8% (for end)
+12/28/2025 23:31:53 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 23:31:53 - INFO - src.utils - F1 =  68.8%, Precision =  81.6%, Recall =  59.5% (for span)
+12/28/2025 23:31:53 - INFO - src.utils - F1 =  70.8%, Precision =  84.0%, Recall =  61.3% (for start)
+12/28/2025 23:31:53 - INFO - src.utils - F1 =  69.5%, Precision =  82.3%, Recall =  60.1% (for end)
+12/28/2025 23:31:53 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/eval_predictions.json.
+12/28/2025 23:31:54 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/eval_metrics.json.
+12/28/2025 23:31:54 - INFO - __main__ - *** Predict ***
+12/28/2025 23:31:54 - INFO - transformers.trainer - ***** Running Prediction *****
+12/28/2025 23:31:54 - INFO - transformers.trainer -   Num examples = 3453
+12/28/2025 23:31:54 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 23:33:31 - INFO - src.utils - Post-processing 3453 example predictions split into 3453 features.
+12/28/2025 23:33:51 - INFO - src.utils - ***** all (5648) *****
+12/28/2025 23:33:51 - INFO - src.utils - F1 =  75.5%, Precision =  76.3%, Recall =  74.8% (for span)
+12/28/2025 23:33:51 - INFO - src.utils - F1 =  76.5%, Precision =  77.3%, Recall =  75.7% (for start)
+12/28/2025 23:33:51 - INFO - src.utils - F1 =  76.4%, Precision =  77.2%, Recall =  75.6% (for end)
+12/28/2025 23:33:51 - INFO - src.utils - ***** LOC (1668) *****
+12/28/2025 23:33:51 - INFO - src.utils - F1 =  77.8%, Precision =  69.0%, Recall =  89.1% (for span)
+12/28/2025 23:33:51 - INFO - src.utils - F1 =  78.0%, Precision =  69.2%, Recall =  89.4% (for start)
+12/28/2025 23:33:51 - INFO - src.utils - F1 =  78.0%, Precision =  69.2%, Recall =  89.4% (for end)
+12/28/2025 23:33:51 - INFO - src.utils - ***** ORG (1661) *****
+12/28/2025 23:33:51 - INFO - src.utils - F1 =  60.7%, Precision =  66.6%, Recall =  55.7% (for span)
+12/28/2025 23:33:51 - INFO - src.utils - F1 =  62.1%, Precision =  68.2%, Recall =  57.0% (for start)
+12/28/2025 23:33:51 - INFO - src.utils - F1 =  61.7%, Precision =  67.8%, Recall =  56.7% (for end)
+12/28/2025 23:33:51 - INFO - src.utils - ***** PER (1617) *****
+12/28/2025 23:33:51 - INFO - src.utils - F1 =  91.7%, Precision =  95.6%, Recall =  88.1% (for span)
+12/28/2025 23:33:51 - INFO - src.utils - F1 =  92.7%, Precision =  96.6%, Recall =  89.1% (for start)
+12/28/2025 23:33:51 - INFO - src.utils - F1 =  93.1%, Precision =  97.0%, Recall =  89.4% (for end)
+12/28/2025 23:33:51 - INFO - src.utils - ***** MISC (702) *****
+12/28/2025 23:33:51 - INFO - src.utils - F1 =  64.2%, Precision =  76.9%, Recall =  55.1% (for span)
+12/28/2025 23:33:51 - INFO - src.utils - F1 =  66.4%, Precision =  79.5%, Recall =  57.0% (for start)
+12/28/2025 23:33:51 - INFO - src.utils - F1 =  65.2%, Precision =  78.1%, Recall =  56.0% (for end)
+12/28/2025 23:33:52 - INFO - src.utils - Saving predictions to ./output/fewshot_baseline/predict_predictions.json.
+12/28/2025 23:33:52 - INFO - src.utils - Saving metrics to ./output/fewshot_baseline/predict_metrics.json.
+12/28/2025 23:33:53 - INFO - transformers.modelcard - Dropping the following result as it does not have all the necessary fields:
+{'dataset': {'name': 'CoNLL2003', 'type': 'CoNLL2003'}}

@@ -1,0 +1,1655 @@
+12/28/2025 17:42:48 - WARNING - __main__ - Process rank: -1, device: cuda:0, n_gpu: 1, distributed training: False, 16-bits training: True
+12/28/2025 17:42:48 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=4,
+dataloader_pin_memory=True,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=True,
+do_predict=True,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=100,
+evaluation_strategy=IntervalStrategy.STEPS,
+fp16=True,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=2,
+gradient_checkpointing=True,
+greater_is_better=True,
+group_by_length=False,
+half_precision_backend=auto,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+jit_mode_eval=False,
+label_names=['ner'],
+label_smoothing_factor=0.0,
+learning_rate=3e-05,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=passive,
+log_on_each_node=True,
+logging_dir=./output/conll03_first/runs/Dec28_17-42-47_eais-bjcon4co4v4zk2jedbd7-0,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=IntervalStrategy.STEPS,
+lr_scheduler_type=SchedulerType.LINEAR,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=f1,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=20,
+optim=OptimizerNames.ADAMW_TORCH,
+output_dir=./output/conll03_first,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=4,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=base-run,
+save_on_each_node=False,
+save_steps=100,
+save_strategy=IntervalStrategy.STEPS,
+save_total_limit=1,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+tf32=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+xpu_backend=None,
+)
+12/28/2025 17:42:49 - INFO - datasets.builder - Using custom data configuration default-f034a0b1e8fdf83d
+12/28/2025 17:42:49 - INFO - datasets.builder - Generating dataset json (/mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2)
+12/28/2025 17:42:49 - INFO - datasets.builder - Downloading and preparing dataset json/default to /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2...
+12/28/2025 17:42:49 - INFO - datasets.download.download_manager - Downloading took 0.0 min
+12/28/2025 17:42:49 - INFO - datasets.download.download_manager - Checksum Computation took 0.0 min
+12/28/2025 17:42:49 - INFO - datasets.builder - Generating train split
+12/28/2025 17:42:49 - INFO - datasets.builder - Generating validation split
+12/28/2025 17:42:49 - INFO - datasets.builder - Generating test split
+12/28/2025 17:42:49 - INFO - datasets.utils.info_utils - Unable to verify splits sizes.
+12/28/2025 17:42:49 - INFO - datasets.builder - Dataset json downloaded and prepared to /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2. Subsequent calls will reuse this data.
+12/28/2025 17:42:49 - INFO - __main__ - 正在将 CoNLL 格式自动转换为 Binder 需要的 Character-Offset 格式...
+12/28/2025 17:42:49 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-f3fbf7dbfd8aa1e3.arrow
+12/28/2025 17:42:51 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-19872882623d06b8.arrow
+12/28/2025 17:42:51 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-00dfa5b9f05d4071.arrow
+12/28/2025 17:42:53 - INFO - transformers.configuration_utils - loading configuration file config.json from cache at ./cache_data/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/config.json
+12/28/2025 17:42:53 - INFO - transformers.configuration_utils - Model config RobertaConfig {
+  "_name_or_path": "roberta-base",
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.24.0",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+12/28/2025 17:42:57 - INFO - transformers.tokenization_utils_base - loading file vocab.json from cache at ./cache_data/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/vocab.json
+12/28/2025 17:42:57 - INFO - transformers.tokenization_utils_base - loading file merges.txt from cache at ./cache_data/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/merges.txt
+12/28/2025 17:42:57 - INFO - transformers.tokenization_utils_base - loading file tokenizer.json from cache at ./cache_data/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/tokenizer.json
+12/28/2025 17:42:57 - INFO - transformers.tokenization_utils_base - loading file added_tokens.json from cache at None
+12/28/2025 17:42:57 - INFO - transformers.tokenization_utils_base - loading file special_tokens_map.json from cache at None
+12/28/2025 17:42:57 - INFO - transformers.tokenization_utils_base - loading file tokenizer_config.json from cache at ./cache_data/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/tokenizer_config.json
+12/28/2025 17:42:57 - INFO - transformers.configuration_utils - loading configuration file config.json from cache at ./cache_data/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/config.json
+12/28/2025 17:42:57 - INFO - transformers.configuration_utils - Model config RobertaConfig {
+  "_name_or_path": "roberta-base",
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.24.0",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+12/28/2025 17:42:57 - INFO - __main__ - ===== Init the model =====
+12/28/2025 17:42:57 - INFO - transformers.configuration_utils - loading configuration file config.json from cache at ./cache_data/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/config.json
+12/28/2025 17:42:57 - INFO - transformers.configuration_utils - Model config RobertaConfig {
+  "_name_or_path": "roberta-base",
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.24.0",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+12/28/2025 17:42:57 - INFO - transformers.modeling_utils - loading weights file pytorch_model.bin from cache at /root/.cache/huggingface/hub/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/pytorch_model.bin
+12/28/2025 17:42:59 - WARNING - transformers.modeling_utils - Some weights of the model checkpoint at roberta-base were not used when initializing RobertaModel: ['lm_head.dense.bias', 'lm_head.bias', 'roberta.pooler.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'roberta.pooler.dense.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing RobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+12/28/2025 17:42:59 - INFO - transformers.modeling_utils - All the weights of RobertaModel were initialized from the model checkpoint at roberta-base.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use RobertaModel for predictions without further training.
+12/28/2025 17:42:59 - INFO - transformers.modeling_utils - loading weights file pytorch_model.bin from cache at /root/.cache/huggingface/hub/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/pytorch_model.bin
+12/28/2025 17:43:00 - WARNING - transformers.modeling_utils - Some weights of the model checkpoint at roberta-base were not used when initializing RobertaModel: ['lm_head.dense.bias', 'lm_head.bias', 'roberta.pooler.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'roberta.pooler.dense.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing RobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+12/28/2025 17:43:00 - INFO - transformers.modeling_utils - All the weights of RobertaModel were initialized from the model checkpoint at roberta-base.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use RobertaModel for predictions without further training.
+12/28/2025 17:43:01 - INFO - datasets.builder - Using custom data configuration default-0d908b8e5c09dfb4
+12/28/2025 17:43:01 - INFO - datasets.builder - Generating dataset json (/mnt/workspace/copy/cache_data/json/default-0d908b8e5c09dfb4/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2)
+12/28/2025 17:43:01 - INFO - datasets.builder - Downloading and preparing dataset json/default to /mnt/workspace/copy/cache_data/json/default-0d908b8e5c09dfb4/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2...
+12/28/2025 17:43:01 - INFO - datasets.download.download_manager - Downloading took 0.0 min
+12/28/2025 17:43:01 - INFO - datasets.download.download_manager - Checksum Computation took 0.0 min
+12/28/2025 17:43:01 - INFO - datasets.builder - Generating train split
+12/28/2025 17:43:01 - INFO - datasets.utils.info_utils - Unable to verify splits sizes.
+12/28/2025 17:43:01 - INFO - datasets.builder - Dataset json downloaded and prepared to /mnt/workspace/copy/cache_data/json/default-0d908b8e5c09dfb4/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2. Subsequent calls will reuse this data.
+12/28/2025 17:43:01 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-0d908b8e5c09dfb4/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-abe822455c47cf0f.arrow
+12/28/2025 17:43:01 - INFO - datasets.arrow_dataset - Caching indices mapping at /mnt/workspace/copy/cache_data/json/default-0d908b8e5c09dfb4/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-3a164ce782f01525.arrow
+12/28/2025 17:43:01 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-0d908b8e5c09dfb4/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-32a5c1bec873d9af.arrow
+12/28/2025 17:43:01 - INFO - datasets.arrow_dataset - Process #1 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-d563796fe4270ec5_00000_of_00004.arrow
+12/28/2025 17:43:01 - INFO - datasets.arrow_dataset - Process #2 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-d563796fe4270ec5_00001_of_00004.arrow
+12/28/2025 17:43:01 - INFO - datasets.arrow_dataset - Process #3 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-d563796fe4270ec5_00002_of_00004.arrow
+12/28/2025 17:43:01 - INFO - datasets.arrow_dataset - Process #4 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-d563796fe4270ec5_00003_of_00004.arrow
+12/28/2025 17:43:01 - INFO - datasets.arrow_dataset - Spawning 4 processes
+12/28/2025 17:43:30 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-d563796fe4270ec5_00001_of_00004.arrow
+12/28/2025 17:43:30 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-d563796fe4270ec5_00000_of_00004.arrow
+12/28/2025 17:43:30 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-d563796fe4270ec5_00003_of_00004.arrow
+12/28/2025 17:43:30 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-d563796fe4270ec5_00002_of_00004.arrow
+12/28/2025 17:51:43 - INFO - datasets.arrow_dataset - Concatenating 4 shards
+12/28/2025 17:51:43 - INFO - datasets.arrow_dataset - Process #1 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0babbbf0845c1c3d_00000_of_00004.arrow
+12/28/2025 17:51:43 - INFO - datasets.arrow_dataset - Process #2 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0babbbf0845c1c3d_00001_of_00004.arrow
+12/28/2025 17:51:43 - INFO - datasets.arrow_dataset - Process #3 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0babbbf0845c1c3d_00002_of_00004.arrow
+12/28/2025 17:51:43 - INFO - datasets.arrow_dataset - Process #4 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0babbbf0845c1c3d_00003_of_00004.arrow
+12/28/2025 17:51:43 - INFO - datasets.arrow_dataset - Spawning 4 processes
+12/28/2025 17:51:43 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0babbbf0845c1c3d_00000_of_00004.arrow
+12/28/2025 17:51:44 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0babbbf0845c1c3d_00001_of_00004.arrow
+12/28/2025 17:51:44 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0babbbf0845c1c3d_00002_of_00004.arrow
+12/28/2025 17:51:44 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0babbbf0845c1c3d_00003_of_00004.arrow
+12/28/2025 17:51:44 - INFO - datasets.arrow_dataset - Concatenating 4 shards
+12/28/2025 17:51:44 - INFO - datasets.arrow_dataset - Process #1 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0e04fc5ad6dd5266_00000_of_00004.arrow
+12/28/2025 17:51:44 - INFO - datasets.arrow_dataset - Process #2 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0e04fc5ad6dd5266_00001_of_00004.arrow
+12/28/2025 17:51:44 - INFO - datasets.arrow_dataset - Process #3 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0e04fc5ad6dd5266_00002_of_00004.arrow
+12/28/2025 17:51:44 - INFO - datasets.arrow_dataset - Process #4 will write at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0e04fc5ad6dd5266_00003_of_00004.arrow
+12/28/2025 17:51:44 - INFO - datasets.arrow_dataset - Spawning 4 processes
+12/28/2025 17:51:45 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0e04fc5ad6dd5266_00000_of_00004.arrow
+12/28/2025 17:51:45 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0e04fc5ad6dd5266_00001_of_00004.arrow
+12/28/2025 17:51:45 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0e04fc5ad6dd5266_00003_of_00004.arrow
+12/28/2025 17:51:45 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/workspace/copy/cache_data/json/default-f034a0b1e8fdf83d/0.0.0/c181ad2be84b86e0b75142bbe88bda3f4906d051ee75b5ff536a5dba0ffbe8f2/cache-0e04fc5ad6dd5266_00002_of_00004.arrow
+12/28/2025 17:51:46 - INFO - datasets.arrow_dataset - Concatenating 4 shards
+12/28/2025 17:51:47 - INFO - transformers.trainer - Using cuda_amp half precision backend
+12/28/2025 17:51:47 - INFO - transformers.trainer - The following columns in the training set don't have a corresponding argument in `Binder.forward` and have been ignored: token_end_mask, token_start_mask. If token_end_mask, token_start_mask are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 17:51:49 - INFO - transformers.trainer - ***** Running training *****
+12/28/2025 17:51:49 - INFO - transformers.trainer -   Num examples = 11132
+12/28/2025 17:51:49 - INFO - transformers.trainer -   Num Epochs = 20
+12/28/2025 17:51:49 - INFO - transformers.trainer -   Instantaneous batch size per device = 4
+12/28/2025 17:51:49 - INFO - transformers.trainer -   Total train batch size (w. parallel, distributed & accumulation) = 8
+12/28/2025 17:51:49 - INFO - transformers.trainer -   Gradient Accumulation steps = 2
+12/28/2025 17:51:49 - INFO - transformers.trainer -   Total optimization steps = 27820
+12/28/2025 17:51:49 - INFO - transformers.trainer -   Number of trainable parameters = 248848259
+12/28/2025 17:53:28 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 17:53:28 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 17:53:28 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 17:53:28 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 17:54:59 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 17:55:18 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 17:55:18 - INFO - src.utils - F1 =  61.6%, Precision =  72.8%, Recall =  53.4% (for span)
+12/28/2025 17:55:18 - INFO - src.utils - F1 =  62.7%, Precision =  74.1%, Recall =  54.4% (for start)
+12/28/2025 17:55:18 - INFO - src.utils - F1 =  62.7%, Precision =  74.1%, Recall =  54.4% (for end)
+12/28/2025 17:55:18 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 17:55:18 - INFO - src.utils - F1 =  80.3%, Precision =  89.8%, Recall =  72.7% (for span)
+12/28/2025 17:55:18 - INFO - src.utils - F1 =  82.1%, Precision =  91.8%, Recall =  74.3% (for start)
+12/28/2025 17:55:18 - INFO - src.utils - F1 =  82.6%, Precision =  92.3%, Recall =  74.7% (for end)
+12/28/2025 17:55:18 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 17:55:18 - INFO - src.utils - F1 =  67.3%, Precision =  61.7%, Recall =  74.1% (for span)
+12/28/2025 17:55:18 - INFO - src.utils - F1 =  67.9%, Precision =  62.2%, Recall =  74.8% (for start)
+12/28/2025 17:55:18 - INFO - src.utils - F1 =  68.0%, Precision =  62.3%, Recall =  74.9% (for end)
+12/28/2025 17:55:18 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 17:55:18 - INFO - src.utils - F1 =  42.9%, Precision =  69.3%, Recall =  31.0% (for span)
+12/28/2025 17:55:18 - INFO - src.utils - F1 =  44.5%, Precision =  72.0%, Recall =  32.2% (for start)
+12/28/2025 17:55:18 - INFO - src.utils - F1 =  43.6%, Precision =  70.5%, Recall =  31.5% (for end)
+12/28/2025 17:55:18 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 17:55:18 - INFO - src.utils - F1 =  11.2%, Precision =  96.5%, Recall =   6.0% (for span)
+12/28/2025 17:55:18 - INFO - src.utils - F1 =  11.2%, Precision =  96.5%, Recall =   6.0% (for start)
+12/28/2025 17:55:18 - INFO - src.utils - F1 =  11.2%, Precision =  96.5%, Recall =   6.0% (for end)
+12/28/2025 17:55:19 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 17:55:19 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 17:55:19 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-100
+12/28/2025 17:55:19 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-100/config.json
+12/28/2025 17:55:20 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-100/pytorch_model.bin
+12/28/2025 17:55:20 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-100/tokenizer_config.json
+12/28/2025 17:55:20 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-100/special_tokens_map.json
+12/28/2025 17:57:14 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 17:57:14 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 17:57:14 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 17:57:14 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 17:58:45 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 17:59:04 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 17:59:04 - INFO - src.utils - F1 =  88.1%, Precision =  88.7%, Recall =  87.6% (for span)
+12/28/2025 17:59:04 - INFO - src.utils - F1 =  89.7%, Precision =  90.3%, Recall =  89.2% (for start)
+12/28/2025 17:59:04 - INFO - src.utils - F1 =  89.7%, Precision =  90.3%, Recall =  89.1% (for end)
+12/28/2025 17:59:04 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 17:59:04 - INFO - src.utils - F1 =  93.0%, Precision =  95.0%, Recall =  91.2% (for span)
+12/28/2025 17:59:04 - INFO - src.utils - F1 =  95.2%, Precision =  97.2%, Recall =  93.3% (for start)
+12/28/2025 17:59:04 - INFO - src.utils - F1 =  95.7%, Precision =  97.7%, Recall =  93.8% (for end)
+12/28/2025 17:59:04 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 17:59:04 - INFO - src.utils - F1 =  90.8%, Precision =  96.6%, Recall =  85.7% (for span)
+12/28/2025 17:59:04 - INFO - src.utils - F1 =  91.4%, Precision =  97.2%, Recall =  86.2% (for start)
+12/28/2025 17:59:04 - INFO - src.utils - F1 =  91.5%, Precision =  97.3%, Recall =  86.3% (for end)
+12/28/2025 17:59:04 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 17:59:04 - INFO - src.utils - F1 =  85.0%, Precision =  79.4%, Recall =  91.5% (for span)
+12/28/2025 17:59:04 - INFO - src.utils - F1 =  86.3%, Precision =  80.6%, Recall =  92.9% (for start)
+12/28/2025 17:59:04 - INFO - src.utils - F1 =  85.7%, Precision =  80.0%, Recall =  92.2% (for end)
+12/28/2025 17:59:04 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 17:59:04 - INFO - src.utils - F1 =  78.4%, Precision =  78.4%, Recall =  78.5% (for span)
+12/28/2025 17:59:04 - INFO - src.utils - F1 =  81.4%, Precision =  81.3%, Recall =  81.5% (for start)
+12/28/2025 17:59:04 - INFO - src.utils - F1 =  81.0%, Precision =  81.0%, Recall =  81.1% (for end)
+12/28/2025 17:59:05 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 17:59:05 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 17:59:05 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-200
+12/28/2025 17:59:05 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-200/config.json
+12/28/2025 17:59:06 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-200/pytorch_model.bin
+12/28/2025 17:59:06 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-200/tokenizer_config.json
+12/28/2025 17:59:06 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-200/special_tokens_map.json
+12/28/2025 18:01:02 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 18:01:02 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 18:01:02 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 18:01:02 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 18:02:33 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 18:02:52 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 18:02:52 - INFO - src.utils - F1 =  90.0%, Precision =  91.4%, Recall =  88.7% (for span)
+12/28/2025 18:02:52 - INFO - src.utils - F1 =  91.4%, Precision =  92.8%, Recall =  90.1% (for start)
+12/28/2025 18:02:52 - INFO - src.utils - F1 =  91.4%, Precision =  92.7%, Recall =  90.0% (for end)
+12/28/2025 18:02:52 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 18:02:52 - INFO - src.utils - F1 =  93.1%, Precision =  92.5%, Recall =  93.7% (for span)
+12/28/2025 18:02:52 - INFO - src.utils - F1 =  95.0%, Precision =  94.4%, Recall =  95.7% (for start)
+12/28/2025 18:02:52 - INFO - src.utils - F1 =  95.1%, Precision =  94.5%, Recall =  95.8% (for end)
+12/28/2025 18:02:52 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 18:02:52 - INFO - src.utils - F1 =  93.9%, Precision =  93.2%, Recall =  94.6% (for span)
+12/28/2025 18:02:52 - INFO - src.utils - F1 =  94.2%, Precision =  93.6%, Recall =  94.9% (for start)
+12/28/2025 18:02:52 - INFO - src.utils - F1 =  94.2%, Precision =  93.5%, Recall =  94.9% (for end)
+12/28/2025 18:02:52 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 18:02:52 - INFO - src.utils - F1 =  86.3%, Precision =  93.5%, Recall =  80.1% (for span)
+12/28/2025 18:02:52 - INFO - src.utils - F1 =  87.6%, Precision =  94.9%, Recall =  81.3% (for start)
+12/28/2025 18:02:52 - INFO - src.utils - F1 =  87.5%, Precision =  94.8%, Recall =  81.2% (for end)
+12/28/2025 18:02:52 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 18:02:52 - INFO - src.utils - F1 =  81.1%, Precision =  82.6%, Recall =  79.6% (for span)
+12/28/2025 18:02:52 - INFO - src.utils - F1 =  83.6%, Precision =  85.2%, Recall =  82.1% (for start)
+12/28/2025 18:02:52 - INFO - src.utils - F1 =  83.2%, Precision =  84.7%, Recall =  81.7% (for end)
+12/28/2025 18:02:53 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 18:02:53 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 18:02:53 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-300
+12/28/2025 18:02:53 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-300/config.json
+12/28/2025 18:02:54 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-300/pytorch_model.bin
+12/28/2025 18:02:54 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-300/tokenizer_config.json
+12/28/2025 18:02:54 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-300/special_tokens_map.json
+12/28/2025 18:02:57 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-100] due to args.save_total_limit
+12/28/2025 18:04:45 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 18:04:45 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 18:04:45 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 18:04:45 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 18:06:17 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 18:06:36 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 18:06:36 - INFO - src.utils - F1 =  89.7%, Precision =  91.4%, Recall =  88.0% (for span)
+12/28/2025 18:06:36 - INFO - src.utils - F1 =  90.6%, Precision =  92.3%, Recall =  88.9% (for start)
+12/28/2025 18:06:36 - INFO - src.utils - F1 =  90.7%, Precision =  92.5%, Recall =  89.1% (for end)
+12/28/2025 18:06:36 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 18:06:36 - INFO - src.utils - F1 =  91.5%, Precision =  90.2%, Recall =  92.8% (for span)
+12/28/2025 18:06:36 - INFO - src.utils - F1 =  93.1%, Precision =  91.8%, Recall =  94.5% (for start)
+12/28/2025 18:06:36 - INFO - src.utils - F1 =  93.3%, Precision =  92.0%, Recall =  94.6% (for end)
+12/28/2025 18:06:36 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 18:06:36 - INFO - src.utils - F1 =  94.5%, Precision =  92.7%, Recall =  96.4% (for span)
+12/28/2025 18:06:36 - INFO - src.utils - F1 =  94.7%, Precision =  92.9%, Recall =  96.6% (for start)
+12/28/2025 18:06:36 - INFO - src.utils - F1 =  94.9%, Precision =  93.0%, Recall =  96.8% (for end)
+12/28/2025 18:06:36 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 18:06:36 - INFO - src.utils - F1 =  82.1%, Precision =  94.7%, Recall =  72.5% (for span)
+12/28/2025 18:06:36 - INFO - src.utils - F1 =  82.8%, Precision =  95.5%, Recall =  73.1% (for start)
+12/28/2025 18:06:36 - INFO - src.utils - F1 =  82.7%, Precision =  95.4%, Recall =  73.0% (for end)
+12/28/2025 18:06:36 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 18:06:36 - INFO - src.utils - F1 =  85.9%, Precision =  87.4%, Recall =  84.4% (for span)
+12/28/2025 18:06:36 - INFO - src.utils - F1 =  87.1%, Precision =  88.7%, Recall =  85.6% (for start)
+12/28/2025 18:06:36 - INFO - src.utils - F1 =  87.4%, Precision =  89.0%, Recall =  85.9% (for end)
+12/28/2025 18:06:36 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 18:06:36 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 18:06:36 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-400
+12/28/2025 18:06:36 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-400/config.json
+12/28/2025 18:06:38 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-400/pytorch_model.bin
+12/28/2025 18:06:38 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-400/tokenizer_config.json
+12/28/2025 18:06:38 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-400/special_tokens_map.json
+12/28/2025 18:06:40 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-200] due to args.save_total_limit
+12/28/2025 18:08:24 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 18:08:24 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 18:08:24 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 18:08:24 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 18:09:56 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 18:10:14 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 18:10:14 - INFO - src.utils - F1 =  92.5%, Precision =  92.9%, Recall =  92.1% (for span)
+12/28/2025 18:10:14 - INFO - src.utils - F1 =  93.6%, Precision =  94.1%, Recall =  93.2% (for start)
+12/28/2025 18:10:14 - INFO - src.utils - F1 =  93.6%, Precision =  94.1%, Recall =  93.2% (for end)
+12/28/2025 18:10:14 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 18:10:14 - INFO - src.utils - F1 =  94.2%, Precision =  94.9%, Recall =  93.4% (for span)
+12/28/2025 18:10:14 - INFO - src.utils - F1 =  95.5%, Precision =  96.2%, Recall =  94.7% (for start)
+12/28/2025 18:10:14 - INFO - src.utils - F1 =  95.5%, Precision =  96.3%, Recall =  94.8% (for end)
+12/28/2025 18:10:14 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 18:10:14 - INFO - src.utils - F1 =  96.2%, Precision =  97.3%, Recall =  95.1% (for span)
+12/28/2025 18:10:14 - INFO - src.utils - F1 =  96.4%, Precision =  97.5%, Recall =  95.3% (for start)
+12/28/2025 18:10:14 - INFO - src.utils - F1 =  96.7%, Precision =  97.8%, Recall =  95.6% (for end)
+12/28/2025 18:10:14 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 18:10:14 - INFO - src.utils - F1 =  89.7%, Precision =  91.7%, Recall =  87.8% (for span)
+12/28/2025 18:10:14 - INFO - src.utils - F1 =  90.8%, Precision =  92.8%, Recall =  88.8% (for start)
+12/28/2025 18:10:14 - INFO - src.utils - F1 =  90.6%, Precision =  92.7%, Recall =  88.7% (for end)
+12/28/2025 18:10:14 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 18:10:14 - INFO - src.utils - F1 =  86.1%, Precision =  82.9%, Recall =  89.5% (for span)
+12/28/2025 18:10:14 - INFO - src.utils - F1 =  88.7%, Precision =  85.4%, Recall =  92.2% (for start)
+12/28/2025 18:10:14 - INFO - src.utils - F1 =  88.3%, Precision =  85.0%, Recall =  91.8% (for end)
+12/28/2025 18:10:15 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 18:10:15 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 18:10:15 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-500
+12/28/2025 18:10:15 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-500/config.json
+12/28/2025 18:10:16 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-500/pytorch_model.bin
+12/28/2025 18:10:16 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-500/tokenizer_config.json
+12/28/2025 18:10:16 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-500/special_tokens_map.json
+12/28/2025 18:10:19 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-300] due to args.save_total_limit
+12/28/2025 18:12:04 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 18:12:04 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 18:12:04 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 18:12:04 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 18:13:35 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 18:13:54 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 18:13:54 - INFO - src.utils - F1 =  92.6%, Precision =  93.1%, Recall =  92.1% (for span)
+12/28/2025 18:13:54 - INFO - src.utils - F1 =  93.9%, Precision =  94.4%, Recall =  93.4% (for start)
+12/28/2025 18:13:54 - INFO - src.utils - F1 =  93.6%, Precision =  94.1%, Recall =  93.2% (for end)
+12/28/2025 18:13:54 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 18:13:54 - INFO - src.utils - F1 =  94.7%, Precision =  97.1%, Recall =  92.3% (for span)
+12/28/2025 18:13:54 - INFO - src.utils - F1 =  96.1%, Precision =  98.6%, Recall =  93.8% (for start)
+12/28/2025 18:13:54 - INFO - src.utils - F1 =  96.2%, Precision =  98.7%, Recall =  93.9% (for end)
+12/28/2025 18:13:54 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 18:13:54 - INFO - src.utils - F1 =  95.5%, Precision =  94.2%, Recall =  96.8% (for span)
+12/28/2025 18:13:54 - INFO - src.utils - F1 =  95.9%, Precision =  94.6%, Recall =  97.2% (for start)
+12/28/2025 18:13:54 - INFO - src.utils - F1 =  95.9%, Precision =  94.6%, Recall =  97.2% (for end)
+12/28/2025 18:13:54 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 18:13:54 - INFO - src.utils - F1 =  89.1%, Precision =  87.4%, Recall =  90.8% (for span)
+12/28/2025 18:13:54 - INFO - src.utils - F1 =  91.1%, Precision =  89.4%, Recall =  92.9% (for start)
+12/28/2025 18:13:54 - INFO - src.utils - F1 =  90.1%, Precision =  88.4%, Recall =  91.9% (for end)
+12/28/2025 18:13:54 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 18:13:54 - INFO - src.utils - F1 =  87.5%, Precision =  91.4%, Recall =  83.9% (for span)
+12/28/2025 18:13:54 - INFO - src.utils - F1 =  89.7%, Precision =  93.6%, Recall =  86.0% (for start)
+12/28/2025 18:13:54 - INFO - src.utils - F1 =  89.1%, Precision =  93.0%, Recall =  85.5% (for end)
+12/28/2025 18:13:54 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 18:13:55 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 18:13:55 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-600
+12/28/2025 18:13:55 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-600/config.json
+12/28/2025 18:13:56 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-600/pytorch_model.bin
+12/28/2025 18:13:56 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-600/tokenizer_config.json
+12/28/2025 18:13:56 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-600/special_tokens_map.json
+12/28/2025 18:13:59 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-400] due to args.save_total_limit
+12/28/2025 18:15:40 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 18:15:40 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 18:15:40 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 18:15:40 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 18:17:11 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 18:17:30 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 18:17:30 - INFO - src.utils - F1 =  93.1%, Precision =  93.1%, Recall =  93.1% (for span)
+12/28/2025 18:17:30 - INFO - src.utils - F1 =  94.5%, Precision =  94.4%, Recall =  94.5% (for start)
+12/28/2025 18:17:30 - INFO - src.utils - F1 =  94.2%, Precision =  94.2%, Recall =  94.3% (for end)
+12/28/2025 18:17:30 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 18:17:30 - INFO - src.utils - F1 =  94.8%, Precision =  95.3%, Recall =  94.4% (for span)
+12/28/2025 18:17:30 - INFO - src.utils - F1 =  96.5%, Precision =  97.0%, Recall =  96.0% (for start)
+12/28/2025 18:17:30 - INFO - src.utils - F1 =  96.6%, Precision =  97.1%, Recall =  96.1% (for end)
+12/28/2025 18:17:30 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 18:17:30 - INFO - src.utils - F1 =  96.1%, Precision =  95.7%, Recall =  96.5% (for span)
+12/28/2025 18:17:30 - INFO - src.utils - F1 =  96.4%, Precision =  96.1%, Recall =  96.8% (for start)
+12/28/2025 18:17:30 - INFO - src.utils - F1 =  96.5%, Precision =  96.1%, Recall =  96.8% (for end)
+12/28/2025 18:17:30 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 18:17:30 - INFO - src.utils - F1 =  90.1%, Precision =  90.3%, Recall =  90.0% (for span)
+12/28/2025 18:17:30 - INFO - src.utils - F1 =  91.9%, Precision =  92.0%, Recall =  91.7% (for start)
+12/28/2025 18:17:30 - INFO - src.utils - F1 =  91.0%, Precision =  91.1%, Recall =  90.8% (for end)
+12/28/2025 18:17:30 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 18:17:30 - INFO - src.utils - F1 =  88.0%, Precision =  87.4%, Recall =  88.6% (for span)
+12/28/2025 18:17:30 - INFO - src.utils - F1 =  90.3%, Precision =  89.6%, Recall =  90.9% (for start)
+12/28/2025 18:17:30 - INFO - src.utils - F1 =  89.8%, Precision =  89.2%, Recall =  90.5% (for end)
+12/28/2025 18:17:31 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 18:17:31 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 18:17:31 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-700
+12/28/2025 18:17:31 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-700/config.json
+12/28/2025 18:17:32 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-700/pytorch_model.bin
+12/28/2025 18:17:32 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-700/tokenizer_config.json
+12/28/2025 18:17:32 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-700/special_tokens_map.json
+12/28/2025 18:17:35 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-500] due to args.save_total_limit
+12/28/2025 18:19:12 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 18:19:12 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 18:19:12 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 18:19:12 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 18:20:43 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 18:21:02 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 18:21:02 - INFO - src.utils - F1 =  93.2%, Precision =  93.5%, Recall =  92.9% (for span)
+12/28/2025 18:21:02 - INFO - src.utils - F1 =  94.5%, Precision =  94.8%, Recall =  94.2% (for start)
+12/28/2025 18:21:02 - INFO - src.utils - F1 =  94.3%, Precision =  94.6%, Recall =  94.0% (for end)
+12/28/2025 18:21:02 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 18:21:02 - INFO - src.utils - F1 =  94.9%, Precision =  96.2%, Recall =  93.7% (for span)
+12/28/2025 18:21:02 - INFO - src.utils - F1 =  96.5%, Precision =  97.8%, Recall =  95.2% (for start)
+12/28/2025 18:21:02 - INFO - src.utils - F1 =  96.5%, Precision =  97.8%, Recall =  95.3% (for end)
+12/28/2025 18:21:02 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 18:21:02 - INFO - src.utils - F1 =  96.2%, Precision =  97.6%, Recall =  94.8% (for span)
+12/28/2025 18:21:02 - INFO - src.utils - F1 =  96.6%, Precision =  98.0%, Recall =  95.3% (for start)
+12/28/2025 18:21:02 - INFO - src.utils - F1 =  96.7%, Precision =  98.1%, Recall =  95.3% (for end)
+12/28/2025 18:21:02 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 18:21:02 - INFO - src.utils - F1 =  90.7%, Precision =  90.1%, Recall =  91.3% (for span)
+12/28/2025 18:21:02 - INFO - src.utils - F1 =  92.2%, Precision =  91.6%, Recall =  92.8% (for start)
+12/28/2025 18:21:02 - INFO - src.utils - F1 =  91.7%, Precision =  91.2%, Recall =  92.3% (for end)
+12/28/2025 18:21:02 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 18:21:02 - INFO - src.utils - F1 =  87.5%, Precision =  85.6%, Recall =  89.6% (for span)
+12/28/2025 18:21:02 - INFO - src.utils - F1 =  89.9%, Precision =  87.9%, Recall =  92.0% (for start)
+12/28/2025 18:21:02 - INFO - src.utils - F1 =  89.1%, Precision =  87.2%, Recall =  91.2% (for end)
+12/28/2025 18:21:03 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 18:21:03 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 18:21:03 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-800
+12/28/2025 18:21:03 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-800/config.json
+12/28/2025 18:21:04 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-800/pytorch_model.bin
+12/28/2025 18:21:04 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-800/tokenizer_config.json
+12/28/2025 18:21:04 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-800/special_tokens_map.json
+12/28/2025 18:21:07 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-600] due to args.save_total_limit
+12/28/2025 18:22:45 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 18:22:45 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 18:22:45 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 18:22:45 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 18:24:16 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 18:24:35 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 18:24:35 - INFO - src.utils - F1 =  93.0%, Precision =  92.2%, Recall =  93.9% (for span)
+12/28/2025 18:24:35 - INFO - src.utils - F1 =  94.0%, Precision =  93.2%, Recall =  94.9% (for start)
+12/28/2025 18:24:35 - INFO - src.utils - F1 =  93.9%, Precision =  93.0%, Recall =  94.7% (for end)
+12/28/2025 18:24:35 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 18:24:35 - INFO - src.utils - F1 =  96.0%, Precision =  98.3%, Recall =  93.7% (for span)
+12/28/2025 18:24:35 - INFO - src.utils - F1 =  96.7%, Precision =  99.1%, Recall =  94.4% (for start)
+12/28/2025 18:24:35 - INFO - src.utils - F1 =  96.7%, Precision =  99.1%, Recall =  94.4% (for end)
+12/28/2025 18:24:35 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 18:24:35 - INFO - src.utils - F1 =  95.8%, Precision =  94.5%, Recall =  97.1% (for span)
+12/28/2025 18:24:35 - INFO - src.utils - F1 =  96.1%, Precision =  94.8%, Recall =  97.4% (for start)
+12/28/2025 18:24:35 - INFO - src.utils - F1 =  96.2%, Precision =  94.9%, Recall =  97.5% (for end)
+12/28/2025 18:24:35 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 18:24:35 - INFO - src.utils - F1 =  91.1%, Precision =  91.0%, Recall =  91.1% (for span)
+12/28/2025 18:24:35 - INFO - src.utils - F1 =  92.3%, Precision =  92.2%, Recall =  92.3% (for start)
+12/28/2025 18:24:35 - INFO - src.utils - F1 =  92.0%, Precision =  92.0%, Recall =  92.1% (for end)
+12/28/2025 18:24:35 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 18:24:35 - INFO - src.utils - F1 =  85.2%, Precision =  79.6%, Recall =  91.8% (for span)
+12/28/2025 18:24:35 - INFO - src.utils - F1 =  87.7%, Precision =  81.8%, Recall =  94.4% (for start)
+12/28/2025 18:24:35 - INFO - src.utils - F1 =  87.0%, Precision =  81.2%, Recall =  93.6% (for end)
+12/28/2025 18:24:35 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 18:24:35 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 18:24:36 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-900
+12/28/2025 18:24:36 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-900/config.json
+12/28/2025 18:24:37 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-900/pytorch_model.bin
+12/28/2025 18:24:37 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-900/tokenizer_config.json
+12/28/2025 18:24:37 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-900/special_tokens_map.json
+12/28/2025 18:24:40 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-700] due to args.save_total_limit
+12/28/2025 18:26:20 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 18:26:20 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 18:26:20 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 18:26:20 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 18:27:51 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 18:28:10 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 18:28:10 - INFO - src.utils - F1 =  92.5%, Precision =  93.0%, Recall =  92.1% (for span)
+12/28/2025 18:28:10 - INFO - src.utils - F1 =  93.6%, Precision =  94.0%, Recall =  93.2% (for start)
+12/28/2025 18:28:10 - INFO - src.utils - F1 =  93.5%, Precision =  94.0%, Recall =  93.1% (for end)
+12/28/2025 18:28:10 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 18:28:10 - INFO - src.utils - F1 =  94.8%, Precision =  95.6%, Recall =  94.0% (for span)
+12/28/2025 18:28:10 - INFO - src.utils - F1 =  96.3%, Precision =  97.2%, Recall =  95.5% (for start)
+12/28/2025 18:28:10 - INFO - src.utils - F1 =  96.4%, Precision =  97.2%, Recall =  95.5% (for end)
+12/28/2025 18:28:10 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 18:28:10 - INFO - src.utils - F1 =  94.6%, Precision =  91.7%, Recall =  97.7% (for span)
+12/28/2025 18:28:10 - INFO - src.utils - F1 =  94.9%, Precision =  92.0%, Recall =  98.0% (for start)
+12/28/2025 18:28:10 - INFO - src.utils - F1 =  94.9%, Precision =  92.0%, Recall =  98.0% (for end)
+12/28/2025 18:28:10 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 18:28:10 - INFO - src.utils - F1 =  90.3%, Precision =  96.4%, Recall =  85.0% (for span)
+12/28/2025 18:28:10 - INFO - src.utils - F1 =  91.1%, Precision =  97.2%, Recall =  85.8% (for start)
+12/28/2025 18:28:10 - INFO - src.utils - F1 =  91.0%, Precision =  97.1%, Recall =  85.7% (for end)
+12/28/2025 18:28:10 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 18:28:10 - INFO - src.utils - F1 =  86.9%, Precision =  86.1%, Recall =  87.6% (for span)
+12/28/2025 18:28:10 - INFO - src.utils - F1 =  88.8%, Precision =  88.1%, Recall =  89.6% (for start)
+12/28/2025 18:28:10 - INFO - src.utils - F1 =  88.4%, Precision =  87.6%, Recall =  89.2% (for end)
+12/28/2025 18:28:11 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 18:28:11 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 18:28:11 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-1000
+12/28/2025 18:28:11 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-1000/config.json
+12/28/2025 18:28:12 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-1000/pytorch_model.bin
+12/28/2025 18:28:12 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-1000/tokenizer_config.json
+12/28/2025 18:28:12 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-1000/special_tokens_map.json
+12/28/2025 18:28:15 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-900] due to args.save_total_limit
+12/28/2025 18:29:52 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 18:29:52 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 18:29:52 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 18:29:52 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 18:31:23 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 18:31:42 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 18:31:42 - INFO - src.utils - F1 =  93.6%, Precision =  93.5%, Recall =  93.6% (for span)
+12/28/2025 18:31:42 - INFO - src.utils - F1 =  94.5%, Precision =  94.5%, Recall =  94.5% (for start)
+12/28/2025 18:31:42 - INFO - src.utils - F1 =  94.6%, Precision =  94.5%, Recall =  94.6% (for end)
+12/28/2025 18:31:42 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 18:31:42 - INFO - src.utils - F1 =  95.0%, Precision =  94.8%, Recall =  95.2% (for span)
+12/28/2025 18:31:42 - INFO - src.utils - F1 =  96.2%, Precision =  95.9%, Recall =  96.4% (for start)
+12/28/2025 18:31:42 - INFO - src.utils - F1 =  96.3%, Precision =  96.1%, Recall =  96.5% (for end)
+12/28/2025 18:31:42 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 18:31:42 - INFO - src.utils - F1 =  96.4%, Precision =  98.0%, Recall =  94.9% (for span)
+12/28/2025 18:31:42 - INFO - src.utils - F1 =  96.8%, Precision =  98.4%, Recall =  95.3% (for start)
+12/28/2025 18:31:42 - INFO - src.utils - F1 =  96.8%, Precision =  98.4%, Recall =  95.3% (for end)
+12/28/2025 18:31:42 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 18:31:42 - INFO - src.utils - F1 =  91.6%, Precision =  91.3%, Recall =  91.9% (for span)
+12/28/2025 18:31:42 - INFO - src.utils - F1 =  92.4%, Precision =  92.1%, Recall =  92.7% (for start)
+12/28/2025 18:31:42 - INFO - src.utils - F1 =  92.3%, Precision =  92.0%, Recall =  92.6% (for end)
+12/28/2025 18:31:42 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 18:31:42 - INFO - src.utils - F1 =  88.2%, Precision =  86.1%, Recall =  90.5% (for span)
+12/28/2025 18:31:42 - INFO - src.utils - F1 =  89.9%, Precision =  87.7%, Recall =  92.2% (for start)
+12/28/2025 18:31:42 - INFO - src.utils - F1 =  90.0%, Precision =  87.8%, Recall =  92.3% (for end)
+12/28/2025 18:31:43 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 18:31:43 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 18:31:43 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-1100
+12/28/2025 18:31:43 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-1100/config.json
+12/28/2025 18:31:44 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-1100/pytorch_model.bin
+12/28/2025 18:31:44 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-1100/tokenizer_config.json
+12/28/2025 18:31:44 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-1100/special_tokens_map.json
+12/28/2025 18:31:47 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-800] due to args.save_total_limit
+12/28/2025 18:33:24 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 18:33:24 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 18:33:24 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 18:33:24 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 18:34:56 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 18:35:14 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 18:35:14 - INFO - src.utils - F1 =  93.7%, Precision =  93.6%, Recall =  93.8% (for span)
+12/28/2025 18:35:14 - INFO - src.utils - F1 =  94.6%, Precision =  94.4%, Recall =  94.7% (for start)
+12/28/2025 18:35:14 - INFO - src.utils - F1 =  94.6%, Precision =  94.5%, Recall =  94.7% (for end)
+12/28/2025 18:35:14 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 18:35:14 - INFO - src.utils - F1 =  95.2%, Precision =  94.5%, Recall =  95.8% (for span)
+12/28/2025 18:35:14 - INFO - src.utils - F1 =  96.3%, Precision =  95.6%, Recall =  96.9% (for start)
+12/28/2025 18:35:14 - INFO - src.utils - F1 =  96.5%, Precision =  95.9%, Recall =  97.2% (for end)
+12/28/2025 18:35:14 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 18:35:14 - INFO - src.utils - F1 =  96.2%, Precision =  95.7%, Recall =  96.7% (for span)
+12/28/2025 18:35:14 - INFO - src.utils - F1 =  96.4%, Precision =  95.9%, Recall =  96.8% (for start)
+12/28/2025 18:35:14 - INFO - src.utils - F1 =  96.5%, Precision =  96.0%, Recall =  97.0% (for end)
+12/28/2025 18:35:14 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 18:35:14 - INFO - src.utils - F1 =  91.3%, Precision =  91.1%, Recall =  91.6% (for span)
+12/28/2025 18:35:14 - INFO - src.utils - F1 =  92.4%, Precision =  92.1%, Recall =  92.6% (for start)
+12/28/2025 18:35:14 - INFO - src.utils - F1 =  91.9%, Precision =  91.7%, Recall =  92.2% (for end)
+12/28/2025 18:35:14 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 18:35:14 - INFO - src.utils - F1 =  89.1%, Precision =  90.7%, Recall =  87.5% (for span)
+12/28/2025 18:35:14 - INFO - src.utils - F1 =  90.6%, Precision =  92.2%, Recall =  89.0% (for start)
+12/28/2025 18:35:14 - INFO - src.utils - F1 =  90.8%, Precision =  92.5%, Recall =  89.3% (for end)
+12/28/2025 18:35:15 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 18:35:15 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 18:35:15 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-1200
+12/28/2025 18:35:15 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-1200/config.json
+12/28/2025 18:35:16 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-1200/pytorch_model.bin
+12/28/2025 18:35:16 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-1200/tokenizer_config.json
+12/28/2025 18:35:16 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-1200/special_tokens_map.json
+12/28/2025 18:35:19 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-1000] due to args.save_total_limit
+12/28/2025 18:36:55 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 18:36:55 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 18:36:55 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 18:36:55 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 18:38:27 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 18:38:46 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 18:38:46 - INFO - src.utils - F1 =  92.8%, Precision =  91.9%, Recall =  93.8% (for span)
+12/28/2025 18:38:46 - INFO - src.utils - F1 =  93.9%, Precision =  93.0%, Recall =  94.9% (for start)
+12/28/2025 18:38:46 - INFO - src.utils - F1 =  93.9%, Precision =  92.9%, Recall =  94.8% (for end)
+12/28/2025 18:38:46 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 18:38:46 - INFO - src.utils - F1 =  96.2%, Precision =  96.9%, Recall =  95.5% (for span)
+12/28/2025 18:38:46 - INFO - src.utils - F1 =  97.1%, Precision =  97.7%, Recall =  96.4% (for start)
+12/28/2025 18:38:46 - INFO - src.utils - F1 =  97.2%, Precision =  97.9%, Recall =  96.6% (for end)
+12/28/2025 18:38:46 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 18:38:46 - INFO - src.utils - F1 =  95.4%, Precision =  95.9%, Recall =  95.0% (for span)
+12/28/2025 18:38:46 - INFO - src.utils - F1 =  95.6%, Precision =  96.0%, Recall =  95.2% (for start)
+12/28/2025 18:38:46 - INFO - src.utils - F1 =  95.8%, Precision =  96.3%, Recall =  95.4% (for end)
+12/28/2025 18:38:46 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 18:38:46 - INFO - src.utils - F1 =  88.7%, Precision =  86.3%, Recall =  91.3% (for span)
+12/28/2025 18:38:46 - INFO - src.utils - F1 =  90.8%, Precision =  88.4%, Recall =  93.4% (for start)
+12/28/2025 18:38:46 - INFO - src.utils - F1 =  90.1%, Precision =  87.7%, Recall =  92.7% (for end)
+12/28/2025 18:38:46 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 18:38:46 - INFO - src.utils - F1 =  87.3%, Precision =  83.5%, Recall =  91.3% (for span)
+12/28/2025 18:38:46 - INFO - src.utils - F1 =  89.0%, Precision =  85.2%, Recall =  93.2% (for start)
+12/28/2025 18:38:46 - INFO - src.utils - F1 =  89.2%, Precision =  85.4%, Recall =  93.4% (for end)
+12/28/2025 18:38:46 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 18:38:46 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 18:38:46 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-1300
+12/28/2025 18:38:46 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-1300/config.json
+12/28/2025 18:38:48 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-1300/pytorch_model.bin
+12/28/2025 18:38:48 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-1300/tokenizer_config.json
+12/28/2025 18:38:48 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-1300/special_tokens_map.json
+12/28/2025 18:38:50 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-1100] due to args.save_total_limit
+12/28/2025 18:40:29 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 18:40:29 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 18:40:29 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 18:40:29 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 18:42:01 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 18:42:19 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 18:42:19 - INFO - src.utils - F1 =  93.2%, Precision =  93.7%, Recall =  92.7% (for span)
+12/28/2025 18:42:19 - INFO - src.utils - F1 =  94.2%, Precision =  94.7%, Recall =  93.7% (for start)
+12/28/2025 18:42:19 - INFO - src.utils - F1 =  94.1%, Precision =  94.6%, Recall =  93.6% (for end)
+12/28/2025 18:42:19 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 18:42:19 - INFO - src.utils - F1 =  93.5%, Precision =  95.5%, Recall =  91.6% (for span)
+12/28/2025 18:42:19 - INFO - src.utils - F1 =  94.9%, Precision =  96.9%, Recall =  92.9% (for start)
+12/28/2025 18:42:19 - INFO - src.utils - F1 =  95.0%, Precision =  97.0%, Recall =  93.1% (for end)
+12/28/2025 18:42:19 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 18:42:19 - INFO - src.utils - F1 =  96.6%, Precision =  97.7%, Recall =  95.6% (for span)
+12/28/2025 18:42:19 - INFO - src.utils - F1 =  96.9%, Precision =  98.0%, Recall =  95.9% (for start)
+12/28/2025 18:42:19 - INFO - src.utils - F1 =  97.0%, Precision =  98.1%, Recall =  95.9% (for end)
+12/28/2025 18:42:19 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 18:42:19 - INFO - src.utils - F1 =  92.4%, Precision =  95.0%, Recall =  89.9% (for span)
+12/28/2025 18:42:19 - INFO - src.utils - F1 =  93.2%, Precision =  95.8%, Recall =  90.7% (for start)
+12/28/2025 18:42:19 - INFO - src.utils - F1 =  92.9%, Precision =  95.5%, Recall =  90.4% (for end)
+12/28/2025 18:42:19 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 18:42:19 - INFO - src.utils - F1 =  87.2%, Precision =  82.1%, Recall =  93.1% (for span)
+12/28/2025 18:42:19 - INFO - src.utils - F1 =  89.1%, Precision =  83.8%, Recall =  95.0% (for start)
+12/28/2025 18:42:19 - INFO - src.utils - F1 =  88.6%, Precision =  83.3%, Recall =  94.5% (for end)
+12/28/2025 18:42:20 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 18:42:20 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 18:42:20 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-1400
+12/28/2025 18:42:20 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-1400/config.json
+12/28/2025 18:42:22 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-1400/pytorch_model.bin
+12/28/2025 18:42:22 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-1400/tokenizer_config.json
+12/28/2025 18:42:22 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-1400/special_tokens_map.json
+12/28/2025 18:42:24 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-1300] due to args.save_total_limit
+12/28/2025 18:44:00 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 18:44:00 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 18:44:00 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 18:44:00 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 18:45:32 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 18:45:50 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 18:45:50 - INFO - src.utils - F1 =  93.9%, Precision =  93.9%, Recall =  93.8% (for span)
+12/28/2025 18:45:50 - INFO - src.utils - F1 =  94.7%, Precision =  94.7%, Recall =  94.6% (for start)
+12/28/2025 18:45:50 - INFO - src.utils - F1 =  94.7%, Precision =  94.8%, Recall =  94.6% (for end)
+12/28/2025 18:45:50 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 18:45:50 - INFO - src.utils - F1 =  95.7%, Precision =  98.0%, Recall =  93.5% (for span)
+12/28/2025 18:45:50 - INFO - src.utils - F1 =  96.6%, Precision =  98.9%, Recall =  94.4% (for start)
+12/28/2025 18:45:50 - INFO - src.utils - F1 =  96.8%, Precision =  99.1%, Recall =  94.6% (for end)
+12/28/2025 18:45:50 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 18:45:50 - INFO - src.utils - F1 =  96.1%, Precision =  95.1%, Recall =  97.1% (for span)
+12/28/2025 18:45:50 - INFO - src.utils - F1 =  96.3%, Precision =  95.3%, Recall =  97.3% (for start)
+12/28/2025 18:45:50 - INFO - src.utils - F1 =  96.4%, Precision =  95.4%, Recall =  97.4% (for end)
+12/28/2025 18:45:50 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 18:45:50 - INFO - src.utils - F1 =  92.0%, Precision =  92.0%, Recall =  92.0% (for span)
+12/28/2025 18:45:50 - INFO - src.utils - F1 =  92.9%, Precision =  92.8%, Recall =  92.9% (for start)
+12/28/2025 18:45:50 - INFO - src.utils - F1 =  92.6%, Precision =  92.5%, Recall =  92.6% (for end)
+12/28/2025 18:45:50 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 18:45:50 - INFO - src.utils - F1 =  88.5%, Precision =  86.9%, Recall =  90.1% (for span)
+12/28/2025 18:45:50 - INFO - src.utils - F1 =  90.3%, Precision =  88.7%, Recall =  92.0% (for start)
+12/28/2025 18:45:50 - INFO - src.utils - F1 =  90.3%, Precision =  88.7%, Recall =  92.0% (for end)
+12/28/2025 18:45:51 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 18:45:51 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 18:45:51 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-1500
+12/28/2025 18:45:51 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-1500/config.json
+12/28/2025 18:45:53 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-1500/pytorch_model.bin
+12/28/2025 18:45:53 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-1500/tokenizer_config.json
+12/28/2025 18:45:53 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-1500/special_tokens_map.json
+12/28/2025 18:45:55 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-1200] due to args.save_total_limit
+12/28/2025 18:47:39 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 18:47:39 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 18:47:39 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 18:47:39 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 18:49:11 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 18:49:30 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 18:49:30 - INFO - src.utils - F1 =  93.6%, Precision =  93.3%, Recall =  93.9% (for span)
+12/28/2025 18:49:30 - INFO - src.utils - F1 =  94.4%, Precision =  94.1%, Recall =  94.7% (for start)
+12/28/2025 18:49:30 - INFO - src.utils - F1 =  94.3%, Precision =  94.1%, Recall =  94.6% (for end)
+12/28/2025 18:49:30 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 18:49:30 - INFO - src.utils - F1 =  95.9%, Precision =  95.2%, Recall =  96.5% (for span)
+12/28/2025 18:49:30 - INFO - src.utils - F1 =  96.5%, Precision =  95.8%, Recall =  97.1% (for start)
+12/28/2025 18:49:30 - INFO - src.utils - F1 =  96.6%, Precision =  95.9%, Recall =  97.2% (for end)
+12/28/2025 18:49:30 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 18:49:30 - INFO - src.utils - F1 =  95.6%, Precision =  94.1%, Recall =  97.2% (for span)
+12/28/2025 18:49:30 - INFO - src.utils - F1 =  95.9%, Precision =  94.4%, Recall =  97.5% (for start)
+12/28/2025 18:49:30 - INFO - src.utils - F1 =  96.0%, Precision =  94.5%, Recall =  97.6% (for end)
+12/28/2025 18:49:30 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 18:49:30 - INFO - src.utils - F1 =  91.3%, Precision =  94.8%, Recall =  88.1% (for span)
+12/28/2025 18:49:30 - INFO - src.utils - F1 =  92.3%, Precision =  95.8%, Recall =  89.0% (for start)
+12/28/2025 18:49:30 - INFO - src.utils - F1 =  92.1%, Precision =  95.6%, Recall =  88.8% (for end)
+12/28/2025 18:49:30 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 18:49:30 - INFO - src.utils - F1 =  88.3%, Precision =  86.3%, Recall =  90.3% (for span)
+12/28/2025 18:49:30 - INFO - src.utils - F1 =  90.2%, Precision =  88.2%, Recall =  92.3% (for start)
+12/28/2025 18:49:30 - INFO - src.utils - F1 =  89.8%, Precision =  87.8%, Recall =  91.9% (for end)
+12/28/2025 18:49:30 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 18:49:30 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 18:49:30 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-1600
+12/28/2025 18:49:30 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-1600/config.json
+12/28/2025 18:49:32 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-1600/pytorch_model.bin
+12/28/2025 18:49:32 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-1600/tokenizer_config.json
+12/28/2025 18:49:32 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-1600/special_tokens_map.json
+12/28/2025 18:49:34 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-1400] due to args.save_total_limit
+12/28/2025 18:51:12 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 18:51:12 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 18:51:12 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 18:51:12 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 18:52:44 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 18:53:03 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 18:53:03 - INFO - src.utils - F1 =  94.2%, Precision =  94.7%, Recall =  93.8% (for span)
+12/28/2025 18:53:03 - INFO - src.utils - F1 =  95.3%, Precision =  95.7%, Recall =  94.9% (for start)
+12/28/2025 18:53:03 - INFO - src.utils - F1 =  95.1%, Precision =  95.5%, Recall =  94.7% (for end)
+12/28/2025 18:53:03 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 18:53:03 - INFO - src.utils - F1 =  95.2%, Precision =  95.8%, Recall =  94.6% (for span)
+12/28/2025 18:53:03 - INFO - src.utils - F1 =  96.4%, Precision =  97.0%, Recall =  95.8% (for start)
+12/28/2025 18:53:03 - INFO - src.utils - F1 =  96.5%, Precision =  97.1%, Recall =  95.9% (for end)
+12/28/2025 18:53:03 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 18:53:03 - INFO - src.utils - F1 =  96.7%, Precision =  96.4%, Recall =  97.0% (for span)
+12/28/2025 18:53:03 - INFO - src.utils - F1 =  96.9%, Precision =  96.6%, Recall =  97.2% (for start)
+12/28/2025 18:53:03 - INFO - src.utils - F1 =  96.9%, Precision =  96.6%, Recall =  97.2% (for end)
+12/28/2025 18:53:03 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 18:53:03 - INFO - src.utils - F1 =  92.4%, Precision =  93.2%, Recall =  91.6% (for span)
+12/28/2025 18:53:03 - INFO - src.utils - F1 =  93.9%, Precision =  94.8%, Recall =  93.1% (for start)
+12/28/2025 18:53:03 - INFO - src.utils - F1 =  93.1%, Precision =  93.9%, Recall =  92.2% (for end)
+12/28/2025 18:53:03 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 18:53:03 - INFO - src.utils - F1 =  90.0%, Precision =  90.8%, Recall =  89.3% (for span)
+12/28/2025 18:53:03 - INFO - src.utils - F1 =  91.8%, Precision =  92.6%, Recall =  91.0% (for start)
+12/28/2025 18:53:03 - INFO - src.utils - F1 =  91.6%, Precision =  92.4%, Recall =  90.8% (for end)
+12/28/2025 18:53:03 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 18:53:03 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 18:53:03 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-1700
+12/28/2025 18:53:03 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-1700/config.json
+12/28/2025 18:53:05 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-1700/pytorch_model.bin
+12/28/2025 18:53:05 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-1700/tokenizer_config.json
+12/28/2025 18:53:05 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-1700/special_tokens_map.json
+12/28/2025 18:53:07 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-1500] due to args.save_total_limit
+12/28/2025 18:54:44 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 18:54:44 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 18:54:44 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 18:54:44 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 18:56:15 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 18:56:34 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 18:56:34 - INFO - src.utils - F1 =  94.1%, Precision =  93.4%, Recall =  94.9% (for span)
+12/28/2025 18:56:34 - INFO - src.utils - F1 =  94.8%, Precision =  94.1%, Recall =  95.6% (for start)
+12/28/2025 18:56:34 - INFO - src.utils - F1 =  94.8%, Precision =  94.1%, Recall =  95.6% (for end)
+12/28/2025 18:56:34 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 18:56:34 - INFO - src.utils - F1 =  96.8%, Precision =  97.0%, Recall =  96.6% (for span)
+12/28/2025 18:56:34 - INFO - src.utils - F1 =  97.4%, Precision =  97.6%, Recall =  97.2% (for start)
+12/28/2025 18:56:34 - INFO - src.utils - F1 =  97.5%, Precision =  97.7%, Recall =  97.3% (for end)
+12/28/2025 18:56:34 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 18:56:34 - INFO - src.utils - F1 =  96.2%, Precision =  96.6%, Recall =  95.9% (for span)
+12/28/2025 18:56:34 - INFO - src.utils - F1 =  96.3%, Precision =  96.7%, Recall =  95.9% (for start)
+12/28/2025 18:56:34 - INFO - src.utils - F1 =  96.4%, Precision =  96.8%, Recall =  96.1% (for end)
+12/28/2025 18:56:34 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 18:56:34 - INFO - src.utils - F1 =  91.4%, Precision =  88.0%, Recall =  95.0% (for span)
+12/28/2025 18:56:34 - INFO - src.utils - F1 =  92.4%, Precision =  89.0%, Recall =  96.0% (for start)
+12/28/2025 18:56:34 - INFO - src.utils - F1 =  92.1%, Precision =  88.7%, Recall =  95.7% (for end)
+12/28/2025 18:56:34 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 18:56:34 - INFO - src.utils - F1 =  88.9%, Precision =  88.5%, Recall =  89.3% (for span)
+12/28/2025 18:56:34 - INFO - src.utils - F1 =  90.4%, Precision =  90.0%, Recall =  90.8% (for start)
+12/28/2025 18:56:34 - INFO - src.utils - F1 =  90.5%, Precision =  90.1%, Recall =  90.9% (for end)
+12/28/2025 18:56:35 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 18:56:35 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 18:56:35 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-1800
+12/28/2025 18:56:35 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-1800/config.json
+12/28/2025 18:56:36 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-1800/pytorch_model.bin
+12/28/2025 18:56:36 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-1800/tokenizer_config.json
+12/28/2025 18:56:36 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-1800/special_tokens_map.json
+12/28/2025 18:56:39 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-1600] due to args.save_total_limit
+12/28/2025 18:58:15 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 18:58:15 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 18:58:15 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 18:58:15 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 18:59:47 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 19:00:05 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 19:00:05 - INFO - src.utils - F1 =  94.1%, Precision =  93.9%, Recall =  94.3% (for span)
+12/28/2025 19:00:05 - INFO - src.utils - F1 =  94.9%, Precision =  94.7%, Recall =  95.1% (for start)
+12/28/2025 19:00:05 - INFO - src.utils - F1 =  95.0%, Precision =  94.8%, Recall =  95.2% (for end)
+12/28/2025 19:00:05 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 19:00:05 - INFO - src.utils - F1 =  96.4%, Precision =  96.3%, Recall =  96.5% (for span)
+12/28/2025 19:00:05 - INFO - src.utils - F1 =  97.3%, Precision =  97.2%, Recall =  97.4% (for start)
+12/28/2025 19:00:05 - INFO - src.utils - F1 =  97.5%, Precision =  97.3%, Recall =  97.6% (for end)
+12/28/2025 19:00:05 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 19:00:05 - INFO - src.utils - F1 =  96.8%, Precision =  97.5%, Recall =  96.0% (for span)
+12/28/2025 19:00:05 - INFO - src.utils - F1 =  96.8%, Precision =  97.5%, Recall =  96.0% (for start)
+12/28/2025 19:00:05 - INFO - src.utils - F1 =  96.9%, Precision =  97.7%, Recall =  96.2% (for end)
+12/28/2025 19:00:05 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 19:00:05 - INFO - src.utils - F1 =  92.2%, Precision =  90.5%, Recall =  94.0% (for span)
+12/28/2025 19:00:05 - INFO - src.utils - F1 =  93.3%, Precision =  91.6%, Recall =  95.2% (for start)
+12/28/2025 19:00:05 - INFO - src.utils - F1 =  93.1%, Precision =  91.3%, Recall =  94.9% (for end)
+12/28/2025 19:00:05 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 19:00:05 - INFO - src.utils - F1 =  87.0%, Precision =  87.1%, Recall =  86.9% (for span)
+12/28/2025 19:00:05 - INFO - src.utils - F1 =  88.5%, Precision =  88.6%, Recall =  88.4% (for start)
+12/28/2025 19:00:05 - INFO - src.utils - F1 =  89.0%, Precision =  89.1%, Recall =  88.9% (for end)
+12/28/2025 19:00:06 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 19:00:06 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 19:00:06 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-1900
+12/28/2025 19:00:06 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-1900/config.json
+12/28/2025 19:00:08 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-1900/pytorch_model.bin
+12/28/2025 19:00:08 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-1900/tokenizer_config.json
+12/28/2025 19:00:08 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-1900/special_tokens_map.json
+12/28/2025 19:00:10 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-1800] due to args.save_total_limit
+12/28/2025 19:01:49 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 19:01:49 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 19:01:49 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 19:01:49 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 19:03:20 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 19:03:39 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 19:03:39 - INFO - src.utils - F1 =  93.5%, Precision =  92.8%, Recall =  94.2% (for span)
+12/28/2025 19:03:39 - INFO - src.utils - F1 =  94.2%, Precision =  93.6%, Recall =  94.9% (for start)
+12/28/2025 19:03:39 - INFO - src.utils - F1 =  94.3%, Precision =  93.6%, Recall =  95.0% (for end)
+12/28/2025 19:03:39 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 19:03:39 - INFO - src.utils - F1 =  95.5%, Precision =  94.1%, Recall =  97.0% (for span)
+12/28/2025 19:03:39 - INFO - src.utils - F1 =  96.4%, Precision =  95.0%, Recall =  97.9% (for start)
+12/28/2025 19:03:39 - INFO - src.utils - F1 =  96.5%, Precision =  95.1%, Recall =  98.0% (for end)
+12/28/2025 19:03:39 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 19:03:39 - INFO - src.utils - F1 =  96.7%, Precision =  97.4%, Recall =  96.1% (for span)
+12/28/2025 19:03:39 - INFO - src.utils - F1 =  96.8%, Precision =  97.4%, Recall =  96.1% (for start)
+12/28/2025 19:03:39 - INFO - src.utils - F1 =  96.9%, Precision =  97.6%, Recall =  96.3% (for end)
+12/28/2025 19:03:39 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 19:03:39 - INFO - src.utils - F1 =  90.9%, Precision =  91.1%, Recall =  90.7% (for span)
+12/28/2025 19:03:39 - INFO - src.utils - F1 =  91.9%, Precision =  92.1%, Recall =  91.6% (for start)
+12/28/2025 19:03:39 - INFO - src.utils - F1 =  91.6%, Precision =  91.8%, Recall =  91.4% (for end)
+12/28/2025 19:03:39 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 19:03:39 - INFO - src.utils - F1 =  87.0%, Precision =  84.3%, Recall =  89.9% (for span)
+12/28/2025 19:03:39 - INFO - src.utils - F1 =  88.5%, Precision =  85.8%, Recall =  91.4% (for start)
+12/28/2025 19:03:39 - INFO - src.utils - F1 =  88.7%, Precision =  86.0%, Recall =  91.6% (for end)
+12/28/2025 19:03:40 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 19:03:40 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 19:03:40 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-2000
+12/28/2025 19:03:40 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-2000/config.json
+12/28/2025 19:03:41 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-2000/pytorch_model.bin
+12/28/2025 19:03:41 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-2000/tokenizer_config.json
+12/28/2025 19:03:41 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-2000/special_tokens_map.json
+12/28/2025 19:03:44 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-1900] due to args.save_total_limit
+12/28/2025 19:05:22 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 19:05:22 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 19:05:22 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 19:05:22 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 19:06:54 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 19:07:12 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 19:07:12 - INFO - src.utils - F1 =  94.6%, Precision =  94.5%, Recall =  94.6% (for span)
+12/28/2025 19:07:12 - INFO - src.utils - F1 =  95.3%, Precision =  95.2%, Recall =  95.4% (for start)
+12/28/2025 19:07:12 - INFO - src.utils - F1 =  95.3%, Precision =  95.2%, Recall =  95.4% (for end)
+12/28/2025 19:07:12 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 19:07:12 - INFO - src.utils - F1 =  96.0%, Precision =  95.4%, Recall =  96.5% (for span)
+12/28/2025 19:07:12 - INFO - src.utils - F1 =  96.8%, Precision =  96.2%, Recall =  97.3% (for start)
+12/28/2025 19:07:12 - INFO - src.utils - F1 =  96.9%, Precision =  96.3%, Recall =  97.4% (for end)
+12/28/2025 19:07:12 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 19:07:12 - INFO - src.utils - F1 =  96.8%, Precision =  96.4%, Recall =  97.1% (for span)
+12/28/2025 19:07:12 - INFO - src.utils - F1 =  96.9%, Precision =  96.5%, Recall =  97.2% (for start)
+12/28/2025 19:07:12 - INFO - src.utils - F1 =  97.0%, Precision =  96.7%, Recall =  97.4% (for end)
+12/28/2025 19:07:12 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 19:07:12 - INFO - src.utils - F1 =  93.1%, Precision =  94.5%, Recall =  91.8% (for span)
+12/28/2025 19:07:12 - INFO - src.utils - F1 =  93.9%, Precision =  95.3%, Recall =  92.6% (for start)
+12/28/2025 19:07:12 - INFO - src.utils - F1 =  93.9%, Precision =  95.2%, Recall =  92.5% (for end)
+12/28/2025 19:07:12 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 19:07:12 - INFO - src.utils - F1 =  89.5%, Precision =  88.8%, Recall =  90.1% (for span)
+12/28/2025 19:07:12 - INFO - src.utils - F1 =  91.4%, Precision =  90.7%, Recall =  92.1% (for start)
+12/28/2025 19:07:12 - INFO - src.utils - F1 =  91.0%, Precision =  90.3%, Recall =  91.6% (for end)
+12/28/2025 19:07:13 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 19:07:13 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 19:07:13 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-2100
+12/28/2025 19:07:13 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-2100/config.json
+12/28/2025 19:07:14 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-2100/pytorch_model.bin
+12/28/2025 19:07:14 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-2100/tokenizer_config.json
+12/28/2025 19:07:14 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-2100/special_tokens_map.json
+12/28/2025 19:07:17 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-1700] due to args.save_total_limit
+12/28/2025 19:08:55 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 19:08:55 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 19:08:55 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 19:08:55 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 19:10:27 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 19:10:46 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 19:10:46 - INFO - src.utils - F1 =  94.6%, Precision =  94.3%, Recall =  94.9% (for span)
+12/28/2025 19:10:46 - INFO - src.utils - F1 =  95.4%, Precision =  95.1%, Recall =  95.6% (for start)
+12/28/2025 19:10:46 - INFO - src.utils - F1 =  95.3%, Precision =  95.0%, Recall =  95.6% (for end)
+12/28/2025 19:10:46 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 19:10:46 - INFO - src.utils - F1 =  96.4%, Precision =  97.3%, Recall =  95.5% (for span)
+12/28/2025 19:10:46 - INFO - src.utils - F1 =  97.2%, Precision =  98.1%, Recall =  96.3% (for start)
+12/28/2025 19:10:46 - INFO - src.utils - F1 =  97.2%, Precision =  98.1%, Recall =  96.4% (for end)
+12/28/2025 19:10:46 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 19:10:46 - INFO - src.utils - F1 =  96.6%, Precision =  95.8%, Recall =  97.4% (for span)
+12/28/2025 19:10:46 - INFO - src.utils - F1 =  96.8%, Precision =  96.0%, Recall =  97.6% (for start)
+12/28/2025 19:10:46 - INFO - src.utils - F1 =  96.9%, Precision =  96.1%, Recall =  97.7% (for end)
+12/28/2025 19:10:46 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 19:10:46 - INFO - src.utils - F1 =  92.8%, Precision =  92.4%, Recall =  93.1% (for span)
+12/28/2025 19:10:46 - INFO - src.utils - F1 =  93.7%, Precision =  93.4%, Recall =  94.0% (for start)
+12/28/2025 19:10:46 - INFO - src.utils - F1 =  93.5%, Precision =  93.2%, Recall =  93.8% (for end)
+12/28/2025 19:10:46 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 19:10:46 - INFO - src.utils - F1 =  89.8%, Precision =  88.5%, Recall =  91.1% (for span)
+12/28/2025 19:10:46 - INFO - src.utils - F1 =  91.4%, Precision =  90.1%, Recall =  92.7% (for start)
+12/28/2025 19:10:46 - INFO - src.utils - F1 =  91.1%, Precision =  89.8%, Recall =  92.4% (for end)
+12/28/2025 19:10:46 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 19:10:46 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 19:10:46 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-2200
+12/28/2025 19:10:46 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-2200/config.json
+12/28/2025 19:10:48 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-2200/pytorch_model.bin
+12/28/2025 19:10:48 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-2200/tokenizer_config.json
+12/28/2025 19:10:48 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-2200/special_tokens_map.json
+12/28/2025 19:10:51 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-2000] due to args.save_total_limit
+12/28/2025 19:12:26 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 19:12:26 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 19:12:26 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 19:12:26 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 19:13:57 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 19:14:16 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 19:14:16 - INFO - src.utils - F1 =  94.8%, Precision =  94.1%, Recall =  95.5% (for span)
+12/28/2025 19:14:16 - INFO - src.utils - F1 =  95.5%, Precision =  94.8%, Recall =  96.2% (for start)
+12/28/2025 19:14:16 - INFO - src.utils - F1 =  95.3%, Precision =  94.6%, Recall =  96.1% (for end)
+12/28/2025 19:14:16 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 19:14:16 - INFO - src.utils - F1 =  97.7%, Precision =  97.2%, Recall =  98.2% (for span)
+12/28/2025 19:14:16 - INFO - src.utils - F1 =  98.0%, Precision =  97.5%, Recall =  98.5% (for start)
+12/28/2025 19:14:16 - INFO - src.utils - F1 =  98.0%, Precision =  97.5%, Recall =  98.5% (for end)
+12/28/2025 19:14:16 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 19:14:16 - INFO - src.utils - F1 =  96.6%, Precision =  96.3%, Recall =  96.9% (for span)
+12/28/2025 19:14:16 - INFO - src.utils - F1 =  96.7%, Precision =  96.4%, Recall =  97.0% (for start)
+12/28/2025 19:14:16 - INFO - src.utils - F1 =  96.9%, Precision =  96.5%, Recall =  97.2% (for end)
+12/28/2025 19:14:16 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 19:14:16 - INFO - src.utils - F1 =  91.9%, Precision =  90.5%, Recall =  93.4% (for span)
+12/28/2025 19:14:16 - INFO - src.utils - F1 =  93.2%, Precision =  91.8%, Recall =  94.7% (for start)
+12/28/2025 19:14:16 - INFO - src.utils - F1 =  92.7%, Precision =  91.3%, Recall =  94.2% (for end)
+12/28/2025 19:14:16 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 19:14:16 - INFO - src.utils - F1 =  89.8%, Precision =  89.0%, Recall =  90.7% (for span)
+12/28/2025 19:14:16 - INFO - src.utils - F1 =  91.5%, Precision =  90.6%, Recall =  92.3% (for start)
+12/28/2025 19:14:16 - INFO - src.utils - F1 =  91.0%, Precision =  90.2%, Recall =  91.9% (for end)
+12/28/2025 19:14:17 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 19:14:17 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 19:14:17 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-2300
+12/28/2025 19:14:17 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-2300/config.json
+12/28/2025 19:14:18 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-2300/pytorch_model.bin
+12/28/2025 19:14:18 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-2300/tokenizer_config.json
+12/28/2025 19:14:18 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-2300/special_tokens_map.json
+12/28/2025 19:14:21 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-2100] due to args.save_total_limit
+12/28/2025 19:15:57 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 19:15:57 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 19:15:57 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 19:15:57 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 19:17:29 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 19:17:47 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 19:17:47 - INFO - src.utils - F1 =  94.0%, Precision =  93.4%, Recall =  94.5% (for span)
+12/28/2025 19:17:47 - INFO - src.utils - F1 =  94.6%, Precision =  94.1%, Recall =  95.2% (for start)
+12/28/2025 19:17:47 - INFO - src.utils - F1 =  94.6%, Precision =  94.1%, Recall =  95.2% (for end)
+12/28/2025 19:17:47 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 19:17:47 - INFO - src.utils - F1 =  96.6%, Precision =  96.5%, Recall =  96.7% (for span)
+12/28/2025 19:17:47 - INFO - src.utils - F1 =  97.2%, Precision =  97.1%, Recall =  97.3% (for start)
+12/28/2025 19:17:47 - INFO - src.utils - F1 =  97.3%, Precision =  97.2%, Recall =  97.4% (for end)
+12/28/2025 19:17:47 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 19:17:47 - INFO - src.utils - F1 =  95.4%, Precision =  92.8%, Recall =  98.2% (for span)
+12/28/2025 19:17:47 - INFO - src.utils - F1 =  95.5%, Precision =  92.9%, Recall =  98.3% (for start)
+12/28/2025 19:17:47 - INFO - src.utils - F1 =  95.6%, Precision =  92.9%, Recall =  98.4% (for end)
+12/28/2025 19:17:47 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 19:17:47 - INFO - src.utils - F1 =  92.0%, Precision =  96.3%, Recall =  88.1% (for span)
+12/28/2025 19:17:47 - INFO - src.utils - F1 =  92.7%, Precision =  97.1%, Recall =  88.7% (for start)
+12/28/2025 19:17:47 - INFO - src.utils - F1 =  92.6%, Precision =  97.0%, Recall =  88.7% (for end)
+12/28/2025 19:17:47 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 19:17:47 - INFO - src.utils - F1 =  88.8%, Precision =  85.6%, Recall =  92.3% (for span)
+12/28/2025 19:17:47 - INFO - src.utils - F1 =  90.4%, Precision =  87.1%, Recall =  93.9% (for start)
+12/28/2025 19:17:47 - INFO - src.utils - F1 =  90.3%, Precision =  87.0%, Recall =  93.8% (for end)
+12/28/2025 19:17:48 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 19:17:48 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 19:17:48 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-2400
+12/28/2025 19:17:48 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-2400/config.json
+12/28/2025 19:17:49 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-2400/pytorch_model.bin
+12/28/2025 19:17:49 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-2400/tokenizer_config.json
+12/28/2025 19:17:49 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-2400/special_tokens_map.json
+12/28/2025 19:17:52 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-2200] due to args.save_total_limit
+12/28/2025 19:19:30 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 19:19:30 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 19:19:30 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 19:19:30 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 19:21:01 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 19:21:20 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 19:21:20 - INFO - src.utils - F1 =  95.2%, Precision =  95.2%, Recall =  95.2% (for span)
+12/28/2025 19:21:20 - INFO - src.utils - F1 =  95.9%, Precision =  95.9%, Recall =  95.9% (for start)
+12/28/2025 19:21:20 - INFO - src.utils - F1 =  95.8%, Precision =  95.8%, Recall =  95.8% (for end)
+12/28/2025 19:21:20 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 19:21:20 - INFO - src.utils - F1 =  97.2%, Precision =  97.9%, Recall =  96.6% (for span)
+12/28/2025 19:21:20 - INFO - src.utils - F1 =  97.8%, Precision =  98.5%, Recall =  97.2% (for start)
+12/28/2025 19:21:20 - INFO - src.utils - F1 =  97.9%, Precision =  98.5%, Recall =  97.3% (for end)
+12/28/2025 19:21:20 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 19:21:20 - INFO - src.utils - F1 =  96.9%, Precision =  96.2%, Recall =  97.6% (for span)
+12/28/2025 19:21:20 - INFO - src.utils - F1 =  97.1%, Precision =  96.4%, Recall =  97.8% (for start)
+12/28/2025 19:21:20 - INFO - src.utils - F1 =  97.2%, Precision =  96.5%, Recall =  97.9% (for end)
+12/28/2025 19:21:20 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 19:21:20 - INFO - src.utils - F1 =  93.7%, Precision =  93.5%, Recall =  93.9% (for span)
+12/28/2025 19:21:20 - INFO - src.utils - F1 =  94.9%, Precision =  94.7%, Recall =  95.2% (for start)
+12/28/2025 19:21:20 - INFO - src.utils - F1 =  94.4%, Precision =  94.2%, Recall =  94.6% (for end)
+12/28/2025 19:21:20 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 19:21:20 - INFO - src.utils - F1 =  89.7%, Precision =  90.2%, Recall =  89.2% (for span)
+12/28/2025 19:21:20 - INFO - src.utils - F1 =  90.8%, Precision =  91.3%, Recall =  90.2% (for start)
+12/28/2025 19:21:20 - INFO - src.utils - F1 =  90.9%, Precision =  91.4%, Recall =  90.3% (for end)
+12/28/2025 19:21:21 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 19:21:21 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 19:21:21 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-2500
+12/28/2025 19:21:21 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-2500/config.json
+12/28/2025 19:21:22 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-2500/pytorch_model.bin
+12/28/2025 19:21:22 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-2500/tokenizer_config.json
+12/28/2025 19:21:22 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-2500/special_tokens_map.json
+12/28/2025 19:21:25 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-2300] due to args.save_total_limit
+12/28/2025 19:22:59 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 19:22:59 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 19:22:59 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 19:22:59 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 19:24:31 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 19:24:50 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 19:24:50 - INFO - src.utils - F1 =  95.2%, Precision =  95.0%, Recall =  95.4% (for span)
+12/28/2025 19:24:50 - INFO - src.utils - F1 =  95.8%, Precision =  95.6%, Recall =  96.1% (for start)
+12/28/2025 19:24:50 - INFO - src.utils - F1 =  95.9%, Precision =  95.6%, Recall =  96.1% (for end)
+12/28/2025 19:24:50 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 19:24:50 - INFO - src.utils - F1 =  97.1%, Precision =  97.9%, Recall =  96.3% (for span)
+12/28/2025 19:24:50 - INFO - src.utils - F1 =  97.6%, Precision =  98.5%, Recall =  96.8% (for start)
+12/28/2025 19:24:50 - INFO - src.utils - F1 =  97.8%, Precision =  98.6%, Recall =  97.0% (for end)
+12/28/2025 19:24:50 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 19:24:50 - INFO - src.utils - F1 =  96.8%, Precision =  95.7%, Recall =  97.8% (for span)
+12/28/2025 19:24:50 - INFO - src.utils - F1 =  96.9%, Precision =  95.8%, Recall =  97.9% (for start)
+12/28/2025 19:24:50 - INFO - src.utils - F1 =  97.1%, Precision =  96.1%, Recall =  98.1% (for end)
+12/28/2025 19:24:50 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 19:24:50 - INFO - src.utils - F1 =  93.3%, Precision =  91.8%, Recall =  94.8% (for span)
+12/28/2025 19:24:50 - INFO - src.utils - F1 =  94.4%, Precision =  92.9%, Recall =  96.0% (for start)
+12/28/2025 19:24:50 - INFO - src.utils - F1 =  94.0%, Precision =  92.5%, Recall =  95.5% (for end)
+12/28/2025 19:24:50 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 19:24:50 - INFO - src.utils - F1 =  91.2%, Precision =  92.5%, Recall =  89.9% (for span)
+12/28/2025 19:24:50 - INFO - src.utils - F1 =  92.3%, Precision =  93.6%, Recall =  91.0% (for start)
+12/28/2025 19:24:50 - INFO - src.utils - F1 =  92.3%, Precision =  93.6%, Recall =  91.0% (for end)
+12/28/2025 19:24:51 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 19:24:51 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 19:24:51 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-2600
+12/28/2025 19:24:51 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-2600/config.json
+12/28/2025 19:24:52 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-2600/pytorch_model.bin
+12/28/2025 19:24:52 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-2600/tokenizer_config.json
+12/28/2025 19:24:52 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-2600/special_tokens_map.json
+12/28/2025 19:24:55 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-2400] due to args.save_total_limit
+12/28/2025 19:26:30 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 19:26:30 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 19:26:30 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 19:26:30 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 19:28:02 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 19:28:20 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 19:28:20 - INFO - src.utils - F1 =  94.6%, Precision =  94.8%, Recall =  94.5% (for span)
+12/28/2025 19:28:20 - INFO - src.utils - F1 =  95.4%, Precision =  95.5%, Recall =  95.3% (for start)
+12/28/2025 19:28:20 - INFO - src.utils - F1 =  95.3%, Precision =  95.4%, Recall =  95.1% (for end)
+12/28/2025 19:28:20 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 19:28:20 - INFO - src.utils - F1 =  96.4%, Precision =  97.0%, Recall =  95.9% (for span)
+12/28/2025 19:28:20 - INFO - src.utils - F1 =  97.2%, Precision =  97.7%, Recall =  96.6% (for start)
+12/28/2025 19:28:20 - INFO - src.utils - F1 =  97.2%, Precision =  97.8%, Recall =  96.7% (for end)
+12/28/2025 19:28:20 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 19:28:20 - INFO - src.utils - F1 =  96.6%, Precision =  95.6%, Recall =  97.7% (for span)
+12/28/2025 19:28:20 - INFO - src.utils - F1 =  96.7%, Precision =  95.7%, Recall =  97.8% (for start)
+12/28/2025 19:28:20 - INFO - src.utils - F1 =  96.9%, Precision =  95.9%, Recall =  97.9% (for end)
+12/28/2025 19:28:20 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 19:28:20 - INFO - src.utils - F1 =  92.3%, Precision =  91.1%, Recall =  93.5% (for span)
+12/28/2025 19:28:20 - INFO - src.utils - F1 =  93.8%, Precision =  92.6%, Recall =  95.0% (for start)
+12/28/2025 19:28:20 - INFO - src.utils - F1 =  93.0%, Precision =  91.9%, Recall =  94.3% (for end)
+12/28/2025 19:28:20 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 19:28:20 - INFO - src.utils - F1 =  90.2%, Precision =  93.9%, Recall =  86.8% (for span)
+12/28/2025 19:28:20 - INFO - src.utils - F1 =  91.3%, Precision =  95.1%, Recall =  87.9% (for start)
+12/28/2025 19:28:20 - INFO - src.utils - F1 =  91.1%, Precision =  94.8%, Recall =  87.6% (for end)
+12/28/2025 19:28:21 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 19:28:21 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 19:28:21 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-2700
+12/28/2025 19:28:21 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-2700/config.json
+12/28/2025 19:28:22 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-2700/pytorch_model.bin
+12/28/2025 19:28:22 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-2700/tokenizer_config.json
+12/28/2025 19:28:22 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-2700/special_tokens_map.json
+12/28/2025 19:28:25 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-2500] due to args.save_total_limit
+12/28/2025 19:30:08 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 19:30:08 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 19:30:08 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 19:30:08 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 19:31:39 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 19:31:58 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 19:31:58 - INFO - src.utils - F1 =  94.9%, Precision =  94.5%, Recall =  95.2% (for span)
+12/28/2025 19:31:58 - INFO - src.utils - F1 =  95.6%, Precision =  95.2%, Recall =  95.9% (for start)
+12/28/2025 19:31:58 - INFO - src.utils - F1 =  95.6%, Precision =  95.2%, Recall =  95.9% (for end)
+12/28/2025 19:31:58 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 19:31:58 - INFO - src.utils - F1 =  96.9%, Precision =  97.8%, Recall =  96.0% (for span)
+12/28/2025 19:31:58 - INFO - src.utils - F1 =  97.3%, Precision =  98.3%, Recall =  96.4% (for start)
+12/28/2025 19:31:58 - INFO - src.utils - F1 =  97.5%, Precision =  98.4%, Recall =  96.5% (for end)
+12/28/2025 19:31:58 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 19:31:58 - INFO - src.utils - F1 =  96.7%, Precision =  95.3%, Recall =  98.1% (for span)
+12/28/2025 19:31:58 - INFO - src.utils - F1 =  97.0%, Precision =  95.6%, Recall =  98.4% (for start)
+12/28/2025 19:31:58 - INFO - src.utils - F1 =  97.1%, Precision =  95.7%, Recall =  98.5% (for end)
+12/28/2025 19:31:58 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 19:31:58 - INFO - src.utils - F1 =  93.2%, Precision =  94.3%, Recall =  92.0% (for span)
+12/28/2025 19:31:58 - INFO - src.utils - F1 =  94.3%, Precision =  95.5%, Recall =  93.1% (for start)
+12/28/2025 19:31:58 - INFO - src.utils - F1 =  93.8%, Precision =  95.0%, Recall =  92.6% (for end)
+12/28/2025 19:31:58 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 19:31:58 - INFO - src.utils - F1 =  89.8%, Precision =  87.2%, Recall =  92.6% (for span)
+12/28/2025 19:31:58 - INFO - src.utils - F1 =  91.3%, Precision =  88.7%, Recall =  94.1% (for start)
+12/28/2025 19:31:58 - INFO - src.utils - F1 =  91.4%, Precision =  88.8%, Recall =  94.3% (for end)
+12/28/2025 19:31:59 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 19:31:59 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 19:31:59 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-2800
+12/28/2025 19:31:59 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-2800/config.json
+12/28/2025 19:32:00 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-2800/pytorch_model.bin
+12/28/2025 19:32:00 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-2800/tokenizer_config.json
+12/28/2025 19:32:00 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-2800/special_tokens_map.json
+12/28/2025 19:32:03 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-2700] due to args.save_total_limit
+12/28/2025 19:33:40 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 19:33:40 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 19:33:40 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 19:33:40 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 19:35:12 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 19:35:30 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 19:35:30 - INFO - src.utils - F1 =  94.8%, Precision =  94.9%, Recall =  94.8% (for span)
+12/28/2025 19:35:30 - INFO - src.utils - F1 =  95.4%, Precision =  95.4%, Recall =  95.3% (for start)
+12/28/2025 19:35:30 - INFO - src.utils - F1 =  95.5%, Precision =  95.5%, Recall =  95.4% (for end)
+12/28/2025 19:35:30 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 19:35:30 - INFO - src.utils - F1 =  96.5%, Precision =  98.4%, Recall =  94.7% (for span)
+12/28/2025 19:35:30 - INFO - src.utils - F1 =  97.0%, Precision =  98.9%, Recall =  95.2% (for start)
+12/28/2025 19:35:30 - INFO - src.utils - F1 =  97.3%, Precision =  99.2%, Recall =  95.4% (for end)
+12/28/2025 19:35:30 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 19:35:30 - INFO - src.utils - F1 =  97.1%, Precision =  98.1%, Recall =  96.0% (for span)
+12/28/2025 19:35:30 - INFO - src.utils - F1 =  97.2%, Precision =  98.2%, Recall =  96.1% (for start)
+12/28/2025 19:35:30 - INFO - src.utils - F1 =  97.2%, Precision =  98.3%, Recall =  96.2% (for end)
+12/28/2025 19:35:30 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 19:35:30 - INFO - src.utils - F1 =  91.9%, Precision =  87.8%, Recall =  96.3% (for span)
+12/28/2025 19:35:30 - INFO - src.utils - F1 =  92.7%, Precision =  88.6%, Recall =  97.2% (for start)
+12/28/2025 19:35:31 - INFO - src.utils - F1 =  92.5%, Precision =  88.4%, Recall =  97.0% (for end)
+12/28/2025 19:35:31 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 19:35:31 - INFO - src.utils - F1 =  91.7%, Precision =  93.2%, Recall =  90.2% (for span)
+12/28/2025 19:35:31 - INFO - src.utils - F1 =  92.6%, Precision =  94.1%, Recall =  91.1% (for start)
+12/28/2025 19:35:31 - INFO - src.utils - F1 =  92.9%, Precision =  94.4%, Recall =  91.4% (for end)
+12/28/2025 19:35:31 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 19:35:31 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 19:35:31 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-2900
+12/28/2025 19:35:31 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-2900/config.json
+12/28/2025 19:35:33 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-2900/pytorch_model.bin
+12/28/2025 19:35:33 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-2900/tokenizer_config.json
+12/28/2025 19:35:33 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-2900/special_tokens_map.json
+12/28/2025 19:35:35 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-2800] due to args.save_total_limit
+12/28/2025 19:37:14 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 19:37:14 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 19:37:14 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 19:37:14 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 19:38:45 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 19:39:04 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 19:39:04 - INFO - src.utils - F1 =  94.9%, Precision =  94.1%, Recall =  95.7% (for span)
+12/28/2025 19:39:04 - INFO - src.utils - F1 =  95.6%, Precision =  94.8%, Recall =  96.4% (for start)
+12/28/2025 19:39:04 - INFO - src.utils - F1 =  95.5%, Precision =  94.7%, Recall =  96.4% (for end)
+12/28/2025 19:39:04 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 19:39:04 - INFO - src.utils - F1 =  96.8%, Precision =  96.8%, Recall =  96.9% (for span)
+12/28/2025 19:39:04 - INFO - src.utils - F1 =  97.5%, Precision =  97.5%, Recall =  97.6% (for start)
+12/28/2025 19:39:04 - INFO - src.utils - F1 =  97.6%, Precision =  97.6%, Recall =  97.6% (for end)
+12/28/2025 19:39:04 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 19:39:04 - INFO - src.utils - F1 =  97.2%, Precision =  97.3%, Recall =  97.1% (for span)
+12/28/2025 19:39:04 - INFO - src.utils - F1 =  97.3%, Precision =  97.4%, Recall =  97.2% (for start)
+12/28/2025 19:39:04 - INFO - src.utils - F1 =  97.4%, Precision =  97.4%, Recall =  97.3% (for end)
+12/28/2025 19:39:04 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 19:39:04 - INFO - src.utils - F1 =  93.0%, Precision =  92.2%, Recall =  93.8% (for span)
+12/28/2025 19:39:04 - INFO - src.utils - F1 =  93.9%, Precision =  93.1%, Recall =  94.7% (for start)
+12/28/2025 19:39:04 - INFO - src.utils - F1 =  93.6%, Precision =  92.8%, Recall =  94.4% (for end)
+12/28/2025 19:39:04 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 19:39:04 - INFO - src.utils - F1 =  89.6%, Precision =  85.9%, Recall =  93.6% (for span)
+12/28/2025 19:39:04 - INFO - src.utils - F1 =  90.9%, Precision =  87.2%, Recall =  95.0% (for start)
+12/28/2025 19:39:04 - INFO - src.utils - F1 =  90.9%, Precision =  87.2%, Recall =  95.0% (for end)
+12/28/2025 19:39:05 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 19:39:05 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 19:39:05 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-3000
+12/28/2025 19:39:05 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-3000/config.json
+12/28/2025 19:39:06 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-3000/pytorch_model.bin
+12/28/2025 19:39:06 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-3000/tokenizer_config.json
+12/28/2025 19:39:06 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-3000/special_tokens_map.json
+12/28/2025 19:39:09 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-2900] due to args.save_total_limit
+12/28/2025 19:40:47 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 19:40:47 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 19:40:47 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 19:40:47 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 19:42:18 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 19:42:37 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 19:42:37 - INFO - src.utils - F1 =  95.2%, Precision =  94.9%, Recall =  95.4% (for span)
+12/28/2025 19:42:37 - INFO - src.utils - F1 =  95.7%, Precision =  95.5%, Recall =  96.0% (for start)
+12/28/2025 19:42:37 - INFO - src.utils - F1 =  95.7%, Precision =  95.5%, Recall =  96.0% (for end)
+12/28/2025 19:42:37 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 19:42:37 - INFO - src.utils - F1 =  97.0%, Precision =  98.3%, Recall =  95.7% (for span)
+12/28/2025 19:42:37 - INFO - src.utils - F1 =  97.6%, Precision =  99.0%, Recall =  96.3% (for start)
+12/28/2025 19:42:37 - INFO - src.utils - F1 =  97.6%, Precision =  99.0%, Recall =  96.3% (for end)
+12/28/2025 19:42:37 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 19:42:37 - INFO - src.utils - F1 =  97.0%, Precision =  95.9%, Recall =  98.1% (for span)
+12/28/2025 19:42:37 - INFO - src.utils - F1 =  97.1%, Precision =  96.0%, Recall =  98.2% (for start)
+12/28/2025 19:42:37 - INFO - src.utils - F1 =  97.1%, Precision =  96.1%, Recall =  98.3% (for end)
+12/28/2025 19:42:37 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 19:42:37 - INFO - src.utils - F1 =  93.2%, Precision =  93.4%, Recall =  93.1% (for span)
+12/28/2025 19:42:37 - INFO - src.utils - F1 =  94.0%, Precision =  94.2%, Recall =  93.8% (for start)
+12/28/2025 19:42:37 - INFO - src.utils - F1 =  93.8%, Precision =  93.9%, Recall =  93.6% (for end)
+12/28/2025 19:42:37 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 19:42:37 - INFO - src.utils - F1 =  90.8%, Precision =  88.8%, Recall =  92.8% (for span)
+12/28/2025 19:42:37 - INFO - src.utils - F1 =  91.9%, Precision =  89.9%, Recall =  94.0% (for start)
+12/28/2025 19:42:37 - INFO - src.utils - F1 =  92.2%, Precision =  90.1%, Recall =  94.3% (for end)
+12/28/2025 19:42:38 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 19:42:38 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 19:42:38 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-3100
+12/28/2025 19:42:38 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-3100/config.json
+12/28/2025 19:42:39 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-3100/pytorch_model.bin
+12/28/2025 19:42:39 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-3100/tokenizer_config.json
+12/28/2025 19:42:39 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-3100/special_tokens_map.json
+12/28/2025 19:42:42 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-3000] due to args.save_total_limit
+12/28/2025 19:44:19 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 19:44:19 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 19:44:19 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 19:44:19 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 19:45:51 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 19:46:09 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 19:46:09 - INFO - src.utils - F1 =  95.3%, Precision =  95.9%, Recall =  94.8% (for span)
+12/28/2025 19:46:09 - INFO - src.utils - F1 =  95.9%, Precision =  96.5%, Recall =  95.4% (for start)
+12/28/2025 19:46:09 - INFO - src.utils - F1 =  96.0%, Precision =  96.6%, Recall =  95.5% (for end)
+12/28/2025 19:46:09 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 19:46:09 - INFO - src.utils - F1 =  96.6%, Precision =  97.0%, Recall =  96.1% (for span)
+12/28/2025 19:46:09 - INFO - src.utils - F1 =  97.4%, Precision =  97.9%, Recall =  97.0% (for start)
+12/28/2025 19:46:09 - INFO - src.utils - F1 =  97.4%, Precision =  97.9%, Recall =  97.0% (for end)
+12/28/2025 19:46:09 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 19:46:09 - INFO - src.utils - F1 =  97.5%, Precision =  96.9%, Recall =  98.1% (for span)
+12/28/2025 19:46:09 - INFO - src.utils - F1 =  97.5%, Precision =  96.9%, Recall =  98.1% (for start)
+12/28/2025 19:46:09 - INFO - src.utils - F1 =  97.5%, Precision =  96.9%, Recall =  98.1% (for end)
+12/28/2025 19:46:09 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 19:46:09 - INFO - src.utils - F1 =  94.2%, Precision =  94.9%, Recall =  93.6% (for span)
+12/28/2025 19:46:09 - INFO - src.utils - F1 =  95.0%, Precision =  95.6%, Recall =  94.3% (for start)
+12/28/2025 19:46:09 - INFO - src.utils - F1 =  94.9%, Precision =  95.5%, Recall =  94.3% (for end)
+12/28/2025 19:46:09 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 19:46:09 - INFO - src.utils - F1 =  90.1%, Precision =  93.2%, Recall =  87.2% (for span)
+12/28/2025 19:46:09 - INFO - src.utils - F1 =  90.9%, Precision =  94.0%, Recall =  88.0% (for start)
+12/28/2025 19:46:09 - INFO - src.utils - F1 =  91.7%, Precision =  94.8%, Recall =  88.7% (for end)
+12/28/2025 19:46:10 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 19:46:10 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 19:46:10 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-3200
+12/28/2025 19:46:10 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-3200/config.json
+12/28/2025 19:46:12 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-3200/pytorch_model.bin
+12/28/2025 19:46:12 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-3200/tokenizer_config.json
+12/28/2025 19:46:12 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-3200/special_tokens_map.json
+12/28/2025 19:46:14 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-2600] due to args.save_total_limit
+12/28/2025 19:47:51 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 19:47:51 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 19:47:51 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 19:47:51 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 19:49:22 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 19:49:41 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 19:49:41 - INFO - src.utils - F1 =  95.4%, Precision =  94.8%, Recall =  95.9% (for span)
+12/28/2025 19:49:41 - INFO - src.utils - F1 =  95.9%, Precision =  95.4%, Recall =  96.5% (for start)
+12/28/2025 19:49:41 - INFO - src.utils - F1 =  95.9%, Precision =  95.3%, Recall =  96.5% (for end)
+12/28/2025 19:49:41 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 19:49:41 - INFO - src.utils - F1 =  97.5%, Precision =  97.5%, Recall =  97.6% (for span)
+12/28/2025 19:49:41 - INFO - src.utils - F1 =  98.0%, Precision =  97.9%, Recall =  98.1% (for start)
+12/28/2025 19:49:41 - INFO - src.utils - F1 =  98.1%, Precision =  98.0%, Recall =  98.2% (for end)
+12/28/2025 19:49:41 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 19:49:41 - INFO - src.utils - F1 =  97.5%, Precision =  96.7%, Recall =  98.3% (for span)
+12/28/2025 19:49:41 - INFO - src.utils - F1 =  97.5%, Precision =  96.8%, Recall =  98.3% (for start)
+12/28/2025 19:49:41 - INFO - src.utils - F1 =  97.6%, Precision =  96.8%, Recall =  98.4% (for end)
+12/28/2025 19:49:41 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 19:49:41 - INFO - src.utils - F1 =  93.5%, Precision =  95.2%, Recall =  91.9% (for span)
+12/28/2025 19:49:41 - INFO - src.utils - F1 =  94.5%, Precision =  96.2%, Recall =  92.8% (for start)
+12/28/2025 19:49:41 - INFO - src.utils - F1 =  94.1%, Precision =  95.8%, Recall =  92.5% (for end)
+12/28/2025 19:49:41 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 19:49:41 - INFO - src.utils - F1 =  89.6%, Precision =  85.8%, Recall =  93.8% (for span)
+12/28/2025 19:49:41 - INFO - src.utils - F1 =  90.8%, Precision =  86.9%, Recall =  95.0% (for start)
+12/28/2025 19:49:41 - INFO - src.utils - F1 =  90.9%, Precision =  87.0%, Recall =  95.1% (for end)
+12/28/2025 19:49:42 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 19:49:42 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 19:49:42 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-3300
+12/28/2025 19:49:42 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-3300/config.json
+12/28/2025 19:49:43 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-3300/pytorch_model.bin
+12/28/2025 19:49:43 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-3300/tokenizer_config.json
+12/28/2025 19:49:43 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-3300/special_tokens_map.json
+12/28/2025 19:49:46 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-3100] due to args.save_total_limit
+12/28/2025 19:51:22 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 19:51:22 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 19:51:22 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 19:51:22 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 19:52:53 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 19:53:12 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 19:53:12 - INFO - src.utils - F1 =  95.2%, Precision =  94.9%, Recall =  95.4% (for span)
+12/28/2025 19:53:12 - INFO - src.utils - F1 =  95.8%, Precision =  95.5%, Recall =  96.1% (for start)
+12/28/2025 19:53:12 - INFO - src.utils - F1 =  95.7%, Precision =  95.4%, Recall =  96.0% (for end)
+12/28/2025 19:53:12 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 19:53:12 - INFO - src.utils - F1 =  96.8%, Precision =  98.1%, Recall =  95.4% (for span)
+12/28/2025 19:53:12 - INFO - src.utils - F1 =  97.4%, Precision =  98.8%, Recall =  96.1% (for start)
+12/28/2025 19:53:12 - INFO - src.utils - F1 =  97.4%, Precision =  98.8%, Recall =  96.1% (for end)
+12/28/2025 19:53:12 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 19:53:12 - INFO - src.utils - F1 =  96.9%, Precision =  95.4%, Recall =  98.5% (for span)
+12/28/2025 19:53:12 - INFO - src.utils - F1 =  97.0%, Precision =  95.5%, Recall =  98.6% (for start)
+12/28/2025 19:53:12 - INFO - src.utils - F1 =  97.0%, Precision =  95.5%, Recall =  98.6% (for end)
+12/28/2025 19:53:12 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 19:53:12 - INFO - src.utils - F1 =  93.7%, Precision =  93.7%, Recall =  93.8% (for span)
+12/28/2025 19:53:12 - INFO - src.utils - F1 =  94.4%, Precision =  94.3%, Recall =  94.5% (for start)
+12/28/2025 19:53:12 - INFO - src.utils - F1 =  94.3%, Precision =  94.3%, Recall =  94.4% (for end)
+12/28/2025 19:53:12 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 19:53:12 - INFO - src.utils - F1 =  90.6%, Precision =  89.5%, Recall =  91.8% (for span)
+12/28/2025 19:53:12 - INFO - src.utils - F1 =  92.3%, Precision =  91.2%, Recall =  93.5% (for start)
+12/28/2025 19:53:12 - INFO - src.utils - F1 =  91.8%, Precision =  90.7%, Recall =  93.0% (for end)
+12/28/2025 19:53:13 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 19:53:13 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 19:53:13 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-3400
+12/28/2025 19:53:13 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-3400/config.json
+12/28/2025 19:53:14 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-3400/pytorch_model.bin
+12/28/2025 19:53:14 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-3400/tokenizer_config.json
+12/28/2025 19:53:14 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-3400/special_tokens_map.json
+12/28/2025 19:53:17 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-3200] due to args.save_total_limit
+12/28/2025 19:54:54 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 19:54:54 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 19:54:54 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 19:54:54 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 19:56:26 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 19:56:44 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 19:56:44 - INFO - src.utils - F1 =  95.3%, Precision =  95.0%, Recall =  95.6% (for span)
+12/28/2025 19:56:44 - INFO - src.utils - F1 =  95.9%, Precision =  95.7%, Recall =  96.2% (for start)
+12/28/2025 19:56:44 - INFO - src.utils - F1 =  96.0%, Precision =  95.7%, Recall =  96.2% (for end)
+12/28/2025 19:56:44 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 19:56:44 - INFO - src.utils - F1 =  97.3%, Precision =  97.5%, Recall =  97.0% (for span)
+12/28/2025 19:56:44 - INFO - src.utils - F1 =  97.9%, Precision =  98.2%, Recall =  97.6% (for start)
+12/28/2025 19:56:44 - INFO - src.utils - F1 =  98.0%, Precision =  98.3%, Recall =  97.7% (for end)
+12/28/2025 19:56:44 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 19:56:44 - INFO - src.utils - F1 =  97.5%, Precision =  97.5%, Recall =  97.4% (for span)
+12/28/2025 19:56:44 - INFO - src.utils - F1 =  97.6%, Precision =  97.7%, Recall =  97.5% (for start)
+12/28/2025 19:56:44 - INFO - src.utils - F1 =  97.7%, Precision =  97.8%, Recall =  97.6% (for end)
+12/28/2025 19:56:44 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 19:56:44 - INFO - src.utils - F1 =  93.8%, Precision =  95.0%, Recall =  92.6% (for span)
+12/28/2025 19:56:44 - INFO - src.utils - F1 =  94.7%, Precision =  95.9%, Recall =  93.5% (for start)
+12/28/2025 19:56:44 - INFO - src.utils - F1 =  94.3%, Precision =  95.5%, Recall =  93.1% (for end)
+12/28/2025 19:56:44 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 19:56:44 - INFO - src.utils - F1 =  89.5%, Precision =  86.0%, Recall =  93.4% (for span)
+12/28/2025 19:56:44 - INFO - src.utils - F1 =  90.8%, Precision =  87.2%, Recall =  94.7% (for start)
+12/28/2025 19:56:44 - INFO - src.utils - F1 =  91.1%, Precision =  87.5%, Recall =  95.0% (for end)
+12/28/2025 19:56:45 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 19:56:45 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 19:56:45 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-3500
+12/28/2025 19:56:45 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-3500/config.json
+12/28/2025 19:56:47 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-3500/pytorch_model.bin
+12/28/2025 19:56:47 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-3500/tokenizer_config.json
+12/28/2025 19:56:47 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-3500/special_tokens_map.json
+12/28/2025 19:56:49 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-3400] due to args.save_total_limit
+12/28/2025 19:58:26 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 19:58:26 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 19:58:26 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 19:58:26 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 19:59:58 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 20:00:16 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 20:00:16 - INFO - src.utils - F1 =  95.3%, Precision =  95.2%, Recall =  95.4% (for span)
+12/28/2025 20:00:16 - INFO - src.utils - F1 =  95.9%, Precision =  95.8%, Recall =  96.0% (for start)
+12/28/2025 20:00:16 - INFO - src.utils - F1 =  95.9%, Precision =  95.9%, Recall =  96.0% (for end)
+12/28/2025 20:00:16 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 20:00:16 - INFO - src.utils - F1 =  96.8%, Precision =  97.6%, Recall =  95.9% (for span)
+12/28/2025 20:00:16 - INFO - src.utils - F1 =  97.5%, Precision =  98.3%, Recall =  96.6% (for start)
+12/28/2025 20:00:16 - INFO - src.utils - F1 =  97.7%, Precision =  98.6%, Recall =  96.9% (for end)
+12/28/2025 20:00:16 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 20:00:16 - INFO - src.utils - F1 =  97.4%, Precision =  97.2%, Recall =  97.6% (for span)
+12/28/2025 20:00:16 - INFO - src.utils - F1 =  97.5%, Precision =  97.3%, Recall =  97.7% (for start)
+12/28/2025 20:00:16 - INFO - src.utils - F1 =  97.6%, Precision =  97.4%, Recall =  97.8% (for end)
+12/28/2025 20:00:16 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 20:00:16 - INFO - src.utils - F1 =  93.5%, Precision =  93.5%, Recall =  93.4% (for span)
+12/28/2025 20:00:16 - INFO - src.utils - F1 =  94.3%, Precision =  94.3%, Recall =  94.3% (for start)
+12/28/2025 20:00:16 - INFO - src.utils - F1 =  93.9%, Precision =  94.0%, Recall =  93.9% (for end)
+12/28/2025 20:00:16 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 20:00:16 - INFO - src.utils - F1 =  90.7%, Precision =  89.0%, Recall =  92.5% (for span)
+12/28/2025 20:00:16 - INFO - src.utils - F1 =  92.1%, Precision =  90.4%, Recall =  93.9% (for start)
+12/28/2025 20:00:16 - INFO - src.utils - F1 =  92.1%, Precision =  90.4%, Recall =  93.9% (for end)
+12/28/2025 20:00:17 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 20:00:17 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 20:00:17 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-3600
+12/28/2025 20:00:17 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-3600/config.json
+12/28/2025 20:00:18 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-3600/pytorch_model.bin
+12/28/2025 20:00:18 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-3600/tokenizer_config.json
+12/28/2025 20:00:18 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-3600/special_tokens_map.json
+12/28/2025 20:00:21 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-3500] due to args.save_total_limit
+12/28/2025 20:02:00 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 20:02:00 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 20:02:00 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 20:02:00 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 20:03:31 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 20:03:50 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 20:03:50 - INFO - src.utils - F1 =  95.4%, Precision =  95.2%, Recall =  95.6% (for span)
+12/28/2025 20:03:50 - INFO - src.utils - F1 =  96.0%, Precision =  95.9%, Recall =  96.2% (for start)
+12/28/2025 20:03:50 - INFO - src.utils - F1 =  96.0%, Precision =  95.9%, Recall =  96.2% (for end)
+12/28/2025 20:03:50 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 20:03:50 - INFO - src.utils - F1 =  96.8%, Precision =  96.9%, Recall =  96.7% (for span)
+12/28/2025 20:03:50 - INFO - src.utils - F1 =  97.4%, Precision =  97.5%, Recall =  97.3% (for start)
+12/28/2025 20:03:50 - INFO - src.utils - F1 =  97.6%, Precision =  97.7%, Recall =  97.5% (for end)
+12/28/2025 20:03:50 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 20:03:50 - INFO - src.utils - F1 =  97.1%, Precision =  96.6%, Recall =  97.6% (for span)
+12/28/2025 20:03:50 - INFO - src.utils - F1 =  97.2%, Precision =  96.7%, Recall =  97.7% (for start)
+12/28/2025 20:03:50 - INFO - src.utils - F1 =  97.2%, Precision =  96.8%, Recall =  97.7% (for end)
+12/28/2025 20:03:50 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 20:03:50 - INFO - src.utils - F1 =  93.9%, Precision =  93.2%, Recall =  94.5% (for span)
+12/28/2025 20:03:50 - INFO - src.utils - F1 =  94.8%, Precision =  94.2%, Recall =  95.5% (for start)
+12/28/2025 20:03:50 - INFO - src.utils - F1 =  94.5%, Precision =  93.9%, Recall =  95.2% (for end)
+12/28/2025 20:03:50 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 20:03:50 - INFO - src.utils - F1 =  91.4%, Precision =  92.0%, Recall =  90.9% (for span)
+12/28/2025 20:03:50 - INFO - src.utils - F1 =  92.7%, Precision =  93.3%, Recall =  92.2% (for start)
+12/28/2025 20:03:50 - INFO - src.utils - F1 =  92.6%, Precision =  93.2%, Recall =  92.1% (for end)
+12/28/2025 20:03:51 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 20:03:51 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 20:03:51 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-3700
+12/28/2025 20:03:51 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-3700/config.json
+12/28/2025 20:03:52 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-3700/pytorch_model.bin
+12/28/2025 20:03:52 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-3700/tokenizer_config.json
+12/28/2025 20:03:52 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-3700/special_tokens_map.json
+12/28/2025 20:03:55 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-3300] due to args.save_total_limit
+12/28/2025 20:05:31 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 20:05:31 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 20:05:31 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 20:05:31 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 20:07:03 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 20:07:21 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 20:07:21 - INFO - src.utils - F1 =  95.0%, Precision =  94.8%, Recall =  95.3% (for span)
+12/28/2025 20:07:21 - INFO - src.utils - F1 =  95.7%, Precision =  95.4%, Recall =  95.9% (for start)
+12/28/2025 20:07:21 - INFO - src.utils - F1 =  95.6%, Precision =  95.4%, Recall =  95.8% (for end)
+12/28/2025 20:07:21 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 20:07:21 - INFO - src.utils - F1 =  96.6%, Precision =  96.4%, Recall =  96.7% (for span)
+12/28/2025 20:07:21 - INFO - src.utils - F1 =  97.2%, Precision =  97.0%, Recall =  97.4% (for start)
+12/28/2025 20:07:21 - INFO - src.utils - F1 =  97.4%, Precision =  97.2%, Recall =  97.6% (for end)
+12/28/2025 20:07:21 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 20:07:21 - INFO - src.utils - F1 =  97.0%, Precision =  96.9%, Recall =  97.1% (for span)
+12/28/2025 20:07:21 - INFO - src.utils - F1 =  97.0%, Precision =  96.9%, Recall =  97.2% (for start)
+12/28/2025 20:07:21 - INFO - src.utils - F1 =  97.1%, Precision =  97.0%, Recall =  97.2% (for end)
+12/28/2025 20:07:21 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 20:07:21 - INFO - src.utils - F1 =  93.4%, Precision =  94.9%, Recall =  92.0% (for span)
+12/28/2025 20:07:21 - INFO - src.utils - F1 =  94.3%, Precision =  95.8%, Recall =  92.8% (for start)
+12/28/2025 20:07:21 - INFO - src.utils - F1 =  94.0%, Precision =  95.5%, Recall =  92.5% (for end)
+12/28/2025 20:07:21 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 20:07:21 - INFO - src.utils - F1 =  90.4%, Precision =  87.8%, Recall =  93.3% (for span)
+12/28/2025 20:07:21 - INFO - src.utils - F1 =  91.9%, Precision =  89.2%, Recall =  94.8% (for start)
+12/28/2025 20:07:21 - INFO - src.utils - F1 =  91.6%, Precision =  88.9%, Recall =  94.5% (for end)
+12/28/2025 20:07:22 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 20:07:22 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 20:07:22 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-3800
+12/28/2025 20:07:22 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-3800/config.json
+12/28/2025 20:07:23 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-3800/pytorch_model.bin
+12/28/2025 20:07:23 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-3800/tokenizer_config.json
+12/28/2025 20:07:23 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-3800/special_tokens_map.json
+12/28/2025 20:07:26 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-3600] due to args.save_total_limit
+12/28/2025 20:09:03 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 20:09:03 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 20:09:03 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 20:09:03 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 20:10:34 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 20:10:52 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 20:10:52 - INFO - src.utils - F1 =  94.8%, Precision =  94.1%, Recall =  95.5% (for span)
+12/28/2025 20:10:52 - INFO - src.utils - F1 =  95.4%, Precision =  94.7%, Recall =  96.1% (for start)
+12/28/2025 20:10:52 - INFO - src.utils - F1 =  95.5%, Precision =  94.8%, Recall =  96.2% (for end)
+12/28/2025 20:10:52 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 20:10:52 - INFO - src.utils - F1 =  97.1%, Precision =  97.3%, Recall =  96.9% (for span)
+12/28/2025 20:10:52 - INFO - src.utils - F1 =  97.7%, Precision =  98.0%, Recall =  97.5% (for start)
+12/28/2025 20:10:52 - INFO - src.utils - F1 =  97.9%, Precision =  98.1%, Recall =  97.7% (for end)
+12/28/2025 20:10:52 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 20:10:52 - INFO - src.utils - F1 =  96.8%, Precision =  97.7%, Recall =  96.0% (for span)
+12/28/2025 20:10:52 - INFO - src.utils - F1 =  96.9%, Precision =  97.8%, Recall =  96.0% (for start)
+12/28/2025 20:10:52 - INFO - src.utils - F1 =  97.0%, Precision =  97.9%, Recall =  96.1% (for end)
+12/28/2025 20:10:52 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 20:10:52 - INFO - src.utils - F1 =  92.6%, Precision =  90.3%, Recall =  94.9% (for span)
+12/28/2025 20:10:52 - INFO - src.utils - F1 =  93.3%, Precision =  91.1%, Recall =  95.7% (for start)
+12/28/2025 20:10:52 - INFO - src.utils - F1 =  93.3%, Precision =  91.1%, Recall =  95.7% (for end)
+12/28/2025 20:10:52 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 20:10:52 - INFO - src.utils - F1 =  89.5%, Precision =  86.6%, Recall =  92.6% (for span)
+12/28/2025 20:10:52 - INFO - src.utils - F1 =  91.1%, Precision =  88.1%, Recall =  94.3% (for start)
+12/28/2025 20:10:52 - INFO - src.utils - F1 =  91.0%, Precision =  88.0%, Recall =  94.1% (for end)
+12/28/2025 20:10:53 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 20:10:53 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 20:10:53 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-3900
+12/28/2025 20:10:53 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-3900/config.json
+12/28/2025 20:10:55 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-3900/pytorch_model.bin
+12/28/2025 20:10:55 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-3900/tokenizer_config.json
+12/28/2025 20:10:55 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-3900/special_tokens_map.json
+12/28/2025 20:10:57 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-3800] due to args.save_total_limit
+12/28/2025 20:12:38 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 20:12:38 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 20:12:38 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 20:12:38 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 20:14:09 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 20:14:28 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 20:14:28 - INFO - src.utils - F1 =  95.0%, Precision =  94.7%, Recall =  95.4% (for span)
+12/28/2025 20:14:28 - INFO - src.utils - F1 =  95.6%, Precision =  95.3%, Recall =  96.0% (for start)
+12/28/2025 20:14:28 - INFO - src.utils - F1 =  95.6%, Precision =  95.3%, Recall =  96.0% (for end)
+12/28/2025 20:14:28 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 20:14:28 - INFO - src.utils - F1 =  97.2%, Precision =  98.3%, Recall =  96.2% (for span)
+12/28/2025 20:14:28 - INFO - src.utils - F1 =  97.8%, Precision =  98.8%, Recall =  96.7% (for start)
+12/28/2025 20:14:28 - INFO - src.utils - F1 =  97.9%, Precision =  98.9%, Recall =  96.9% (for end)
+12/28/2025 20:14:28 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 20:14:28 - INFO - src.utils - F1 =  96.8%, Precision =  96.0%, Recall =  97.7% (for span)
+12/28/2025 20:14:28 - INFO - src.utils - F1 =  96.9%, Precision =  96.0%, Recall =  97.7% (for start)
+12/28/2025 20:14:28 - INFO - src.utils - F1 =  97.0%, Precision =  96.1%, Recall =  97.8% (for end)
+12/28/2025 20:14:28 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 20:14:28 - INFO - src.utils - F1 =  92.9%, Precision =  90.9%, Recall =  95.0% (for span)
+12/28/2025 20:14:28 - INFO - src.utils - F1 =  93.8%, Precision =  91.7%, Recall =  95.9% (for start)
+12/28/2025 20:14:28 - INFO - src.utils - F1 =  93.7%, Precision =  91.7%, Recall =  95.8% (for end)
+12/28/2025 20:14:28 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 20:14:28 - INFO - src.utils - F1 =  90.2%, Precision =  90.8%, Recall =  89.7% (for span)
+12/28/2025 20:14:28 - INFO - src.utils - F1 =  91.5%, Precision =  92.1%, Recall =  91.0% (for start)
+12/28/2025 20:14:28 - INFO - src.utils - F1 =  91.4%, Precision =  92.0%, Recall =  90.9% (for end)
+12/28/2025 20:14:29 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 20:14:29 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 20:14:29 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-4000
+12/28/2025 20:14:29 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-4000/config.json
+12/28/2025 20:14:30 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-4000/pytorch_model.bin
+12/28/2025 20:14:30 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-4000/tokenizer_config.json
+12/28/2025 20:14:30 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-4000/special_tokens_map.json
+12/28/2025 20:14:33 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-3900] due to args.save_total_limit
+12/28/2025 20:16:09 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 20:16:09 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 20:16:09 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 20:16:09 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 20:17:40 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 20:18:00 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 20:18:00 - INFO - src.utils - F1 =  94.9%, Precision =  94.7%, Recall =  95.2% (for span)
+12/28/2025 20:18:00 - INFO - src.utils - F1 =  95.4%, Precision =  95.2%, Recall =  95.7% (for start)
+12/28/2025 20:18:00 - INFO - src.utils - F1 =  95.6%, Precision =  95.3%, Recall =  95.8% (for end)
+12/28/2025 20:18:00 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 20:18:00 - INFO - src.utils - F1 =  96.6%, Precision =  97.8%, Recall =  95.5% (for span)
+12/28/2025 20:18:00 - INFO - src.utils - F1 =  97.2%, Precision =  98.4%, Recall =  96.1% (for start)
+12/28/2025 20:18:00 - INFO - src.utils - F1 =  97.4%, Precision =  98.6%, Recall =  96.3% (for end)
+12/28/2025 20:18:00 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 20:18:00 - INFO - src.utils - F1 =  96.7%, Precision =  95.8%, Recall =  97.6% (for span)
+12/28/2025 20:18:00 - INFO - src.utils - F1 =  96.7%, Precision =  95.9%, Recall =  97.6% (for start)
+12/28/2025 20:18:00 - INFO - src.utils - F1 =  96.9%, Precision =  96.0%, Recall =  97.8% (for end)
+12/28/2025 20:18:00 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 20:18:00 - INFO - src.utils - F1 =  93.2%, Precision =  92.6%, Recall =  93.9% (for span)
+12/28/2025 20:18:00 - INFO - src.utils - F1 =  94.0%, Precision =  93.4%, Recall =  94.7% (for start)
+12/28/2025 20:18:00 - INFO - src.utils - F1 =  93.8%, Precision =  93.2%, Recall =  94.5% (for end)
+12/28/2025 20:18:00 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 20:18:00 - INFO - src.utils - F1 =  90.6%, Precision =  89.7%, Recall =  91.5% (for span)
+12/28/2025 20:18:00 - INFO - src.utils - F1 =  91.5%, Precision =  90.5%, Recall =  92.4% (for start)
+12/28/2025 20:18:00 - INFO - src.utils - F1 =  91.8%, Precision =  90.9%, Recall =  92.7% (for end)
+12/28/2025 20:18:00 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 20:18:00 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 20:18:00 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-4100
+12/28/2025 20:18:00 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-4100/config.json
+12/28/2025 20:18:02 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-4100/pytorch_model.bin
+12/28/2025 20:18:02 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-4100/tokenizer_config.json
+12/28/2025 20:18:02 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-4100/special_tokens_map.json
+12/28/2025 20:18:04 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-4000] due to args.save_total_limit
+12/28/2025 20:19:45 - INFO - transformers.trainer - The following columns in the evaluation set don't have a corresponding argument in `Binder.forward` and have been ignored: example_id, offset_mapping, token_start_mask, token_end_mask, split. If example_id, offset_mapping, token_start_mask, token_end_mask, split are not expected by `Binder.forward`,  you can safely ignore this message.
+12/28/2025 20:19:45 - INFO - transformers.trainer - ***** Running Evaluation *****
+12/28/2025 20:19:45 - INFO - transformers.trainer -   Num examples = 3250
+12/28/2025 20:19:45 - INFO - transformers.trainer -   Batch size = 8
+12/28/2025 20:21:16 - INFO - src.utils - Post-processing 3250 example predictions split into 3250 features.
+12/28/2025 20:21:35 - INFO - src.utils - ***** all (5942) *****
+12/28/2025 20:21:35 - INFO - src.utils - F1 =  94.7%, Precision =  94.2%, Recall =  95.2% (for span)
+12/28/2025 20:21:35 - INFO - src.utils - F1 =  95.4%, Precision =  94.9%, Recall =  95.9% (for start)
+12/28/2025 20:21:35 - INFO - src.utils - F1 =  95.4%, Precision =  94.9%, Recall =  95.9% (for end)
+12/28/2025 20:21:35 - INFO - src.utils - ***** PER (1842) *****
+12/28/2025 20:21:35 - INFO - src.utils - F1 =  96.3%, Precision =  96.0%, Recall =  96.6% (for span)
+12/28/2025 20:21:35 - INFO - src.utils - F1 =  97.1%, Precision =  96.8%, Recall =  97.4% (for start)
+12/28/2025 20:21:35 - INFO - src.utils - F1 =  97.4%, Precision =  97.1%, Recall =  97.7% (for end)
+12/28/2025 20:21:35 - INFO - src.utils - ***** LOC (1837) *****
+12/28/2025 20:21:35 - INFO - src.utils - F1 =  97.4%, Precision =  96.9%, Recall =  97.8% (for span)
+12/28/2025 20:21:35 - INFO - src.utils - F1 =  97.4%, Precision =  97.0%, Recall =  97.9% (for start)
+12/28/2025 20:21:35 - INFO - src.utils - F1 =  97.5%, Precision =  97.1%, Recall =  98.0% (for end)
+12/28/2025 20:21:35 - INFO - src.utils - ***** ORG (1341) *****
+12/28/2025 20:21:35 - INFO - src.utils - F1 =  93.2%, Precision =  95.5%, Recall =  91.0% (for span)
+12/28/2025 20:21:35 - INFO - src.utils - F1 =  94.0%, Precision =  96.4%, Recall =  91.8% (for start)
+12/28/2025 20:21:35 - INFO - src.utils - F1 =  93.7%, Precision =  96.0%, Recall =  91.4% (for end)
+12/28/2025 20:21:35 - INFO - src.utils - ***** MISC (922) *****
+12/28/2025 20:21:35 - INFO - src.utils - F1 =  88.4%, Precision =  84.1%, Recall =  93.2% (for span)
+12/28/2025 20:21:35 - INFO - src.utils - F1 =  89.9%, Precision =  85.5%, Recall =  94.7% (for start)
+12/28/2025 20:21:35 - INFO - src.utils - F1 =  89.7%, Precision =  85.3%, Recall =  94.5% (for end)
+12/28/2025 20:21:36 - INFO - src.utils - Saving predictions to ./output/conll03_first/eval_predictions.json.
+12/28/2025 20:21:36 - INFO - src.utils - Saving metrics to ./output/conll03_first/eval_metrics.json.
+12/28/2025 20:21:36 - INFO - transformers.trainer - Saving model checkpoint to ./output/conll03_first/checkpoint-4200
+12/28/2025 20:21:36 - INFO - transformers.configuration_utils - Configuration saved in ./output/conll03_first/checkpoint-4200/config.json
+12/28/2025 20:21:37 - INFO - transformers.modeling_utils - Model weights saved in ./output/conll03_first/checkpoint-4200/pytorch_model.bin
+12/28/2025 20:21:37 - INFO - transformers.tokenization_utils_base - tokenizer config file saved in ./output/conll03_first/checkpoint-4200/tokenizer_config.json
+12/28/2025 20:21:37 - INFO - transformers.tokenization_utils_base - Special tokens file saved in ./output/conll03_first/checkpoint-4200/special_tokens_map.json
+12/28/2025 20:21:40 - INFO - transformers.trainer - Deleting older checkpoint [output/conll03_first/checkpoint-4100] due to args.save_total_limit

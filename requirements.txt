@@ -1,0 +1,14 @@
+# === 核心依赖 (严格锁定版本) ===
+transformers==4.24.0
+datasets==4.4.2
+pyarrow==21.0.0
+numpy==2.0.2
+scikit-learn==1.6.1
+
+# === 辅助库 (推荐安装) ===
+accelerate>=0.20.0
+tqdm
+pandas
+wandb
+filelock
+sentencepiece
